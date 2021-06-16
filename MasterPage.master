@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage"  %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Untitled Page</title>
+<%--    <meta name="keywords" content="بنك معلومات, هيئه التنميه الصناعية , دراسات صناعيه دراسات جغرافية, دراسات قطاعيه, استراتيجيات ,قطاعات صناعية, بحث باسم الدراسه, نشاط الدراسة ,كود النشاط ,واقع ومستقبل التنمية --%>
+    <meta name="author" content="الهيئة العامة للتنمية الصناعية Industrial Development Authority (IDA)" />
+    <script src="App_Themes/Default/stuHover.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="page-container">
+    <div class="header" dir="rtl">
+    </div>
+    <div style="width:900px;">
+<ul id="nav">
+<li class="top">
+    <asp:HyperLink ID="DefaultLink" class="top_link" runat="server" NavigateUrl="~/Default.aspx">الصفحة الرئيسية</asp:HyperLink></li>
+				<li class="top"><a href="#nogo1" class="top_link"><span class="down">دراسات</span></a>
+				<ul class="sub">
+				<li>
+				<asp:HyperLink runat="server" NavigateUrl="~/sectorSelect.aspx?secID=96">عام</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=97">جغرافى</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=98">استراتيجيات</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink6" CssClass="fly" runat="server" NavigateUrl="#nogo5">قطاعات صناعية</asp:HyperLink>
+				<ul>
+				<li>
+				<asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=11">انتاج نبـاتى وحيـوانى</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=21"> استخراج و تجـهيز فحــم</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=22">البترول ومنتجاته والغازالطبيعى</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=23">  اسـتخراج خامـات المعادن</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=29">اسـتغلال مناجـم ومحاجر</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=31">مواد غذائية ومشروبات وتبغ</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=32">غزل ونسيج وملابس وجلود</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=33"> الخشب ومنتجاته</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=34">الورق ومنتجاته وطباعة ونشر</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=35">كيماويات أساسية ومنتجاتها</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=36"> موادبناءوخزف وصينى وحراريات </asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=37">  معدنية أساسية</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=38">صناعات هندسيةوكهربائية</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=39">صناعات تحويليةأخري</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=41">انتاج وتوزيع كهرباء الإنارة والقوى</asp:HyperLink>
+				</li>
+				<li>
+				<asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/sectorSelect.aspx?secID=95">مراكز الخدمة والصيانة</asp:HyperLink>
+				</li>
+				</ul>
+				</li>
+				
+			<li>
+			<asp:HyperLink runat="server" ID="default" NavigateUrl="~/branchSearch.aspx">البحث بجهة الإصدار</asp:HyperLink>
+			</li>
+<li>
+			<asp:HyperLink runat="server" ID="HyperLink23" NavigateUrl="~/wordSearch.aspx">البحث بالكلمات الدالة</asp:HyperLink>
+			</li>
+
+			<li>
+			<asp:HyperLink runat="server" ID="HyperLink24" NavigateUrl="~/searchbydate.aspx">بحث بتاريخ الإصدار</asp:HyperLink>
+			</li>
+			<li>
+			<asp:HyperLink runat="server" ID="HyperLink26" NavigateUrl="~/CodeSearch.aspx">بحث بالكود العربى الموحد</asp:HyperLink>
+			</li>
+			</ul>
+</li>
+<li class="top"><a href="#nogo2" id="products" class="top_link"><span class="down">قرارات</span></a>
+		<ul class="sub">
+			
+			<li><asp:HyperLink runat="server" ID="serchdecision" NavigateUrl="~/decsaerch.aspx">البحث عن قرار</asp:HyperLink></li>
+			<li><asp:HyperLink runat="server" ID="statstics" NavigateUrl="~/Members/DecStatistics.aspx">الإحصائيات</asp:HyperLink></li>
+            <li><asp:HyperLink runat="server" ID="search" NavigateUrl="~/decwordsearch.aspx">البحث بالكلمات الدالة</asp:HyperLink></li>
+			</ul>
+			</li>
+			<li class="top">
+                <asp:HyperLink class="top_link" ID="guide" runat="server" NavigateUrl="~/DATABANK_USERGUIDE_12_2010.pdf" Target="_blank">&nbsp; &nbsp; &nbsp;دليل الاستخدام</asp:HyperLink>
+                </li>
+			<li class="top"><asp:HyperLink runat="server" ID="Insert" NavigateUrl="#nogo3" CssClass="top_link" Visible="false"><span class="down">صفحات الإدخال</span></asp:HyperLink>
+			
+			    <ul class="sub">
+			    <li><asp:HyperLink ID="HyperLink1" NavigateUrl="~/Members/Insertdata.aspx" runat="server">إدخال دراسة</asp:HyperLink></li>
+			    <li>
+			<asp:HyperLink runat="server" ID="HyperLink2" NavigateUrl="~/Members/InsertDecesion.aspx">ادخال قرار</asp:HyperLink></li>
+			   
+			
+	 <li>
+			<asp:HyperLink runat="server" ID="HyperLink25" NavigateUrl="~/Members/membersdataresult.aspx">تعديل دراسة</asp:HyperLink></li>
+			    </ul>
+			</li>
+			</ul>	
+
+    </div>
+    
+    <div class="contents">
+        <br />
+        <asp:ScriptManager ID="ScriptManager1" runat="server"  EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+           
+        </asp:ContentPlaceHolder>
+    </div>
+    <p>* هذه دراسات مبدئية للاسترشاد فقط</p>
+    <div id="footer">
+    <hr />
+        <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/Default.aspx">الصفحة الرئيسية</asp:HyperLink>
+        |<asp:HyperLink runat="server" NavigateUrl="~/sectorSelect.aspx?secID=96">دراسات عامة</asp:HyperLink>
+        |<asp:HyperLink runat="server" NavigateUrl="~/sectorSelect.aspx?secID=97">دراسات جغرافية</asp:HyperLink>
+        |<asp:HyperLink runat="server" NavigateUrl="~/sectorSelect.aspx?secID=98">دراسات استراتيجية</asp:HyperLink>
+        <br />
+    <asp:HyperLink runat="server" NavigateUrl="~/CodeSearch.aspx">البحث بكود التصنيف العربى الموحد</asp:HyperLink>
+     | <asp:HyperLink runat="server" NavigateUrl="~/branchSearch.aspx">البحث بجهة الإصدار</asp:HyperLink>
+     |<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/wordSearch.aspx">البحث بالكلمات الدالة</asp:HyperLink>
+
+        <p>Powered by: dKamal & oHilal</p>
+    </div>
+    </div>
+    </form>
+</body>
+</html>

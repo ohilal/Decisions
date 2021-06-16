@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsmangment" targetNamespace="http://tempuri.org/dsmangment.xsd" xmlns:mstns="http://tempuri.org/dsmangment.xsd" xmlns="http://tempuri.org/dsmangment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="techConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="techConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.techConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="dataBankConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dataBankConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.dataBankConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="mangmentTableAdapter" GeneratorDataComponentClassName="mangmentTableAdapter" Name="mangment" UserDataComponentName="mangmentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dataBankConnectionString (Web.config)" DbObjectName="databank.dbo.mangment" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetMangment" GetMethodModifier="Public" GetMethodName="GetMangment" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetMangment" UserSourceName="GetMangment">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     mangmentID, mangmentName
+FROM         mangment</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="mangmentID" DataSetColumn="mangmentID" />
+              <Mapping SourceColumn="mangmentName" DataSetColumn="mangmentName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsmangment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsmangment" msprop:Generator_DataSetName="dsmangment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="mangment" msprop:Generator_UserTableName="mangment" msprop:Generator_RowDeletedName="mangmentRowDeleted" msprop:Generator_RowChangedName="mangmentRowChanged" msprop:Generator_RowClassName="mangmentRow" msprop:Generator_RowChangingName="mangmentRowChanging" msprop:Generator_RowEvArgName="mangmentRowChangeEvent" msprop:Generator_RowEvHandlerName="mangmentRowChangeEventHandler" msprop:Generator_TableClassName="mangmentDataTable" msprop:Generator_TableVarName="tablemangment" msprop:Generator_RowDeletingName="mangmentRowDeleting" msprop:Generator_TablePropName="mangment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mangmentID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="mangmentID" msprop:Generator_ColumnVarNameInTable="columnmangmentID" msprop:Generator_ColumnPropNameInRow="mangmentID" msprop:Generator_ColumnPropNameInTable="mangmentIDColumn" type="xs:int" />
+              <xs:element name="mangmentName" msprop:Generator_UserColumnName="mangmentName" msprop:Generator_ColumnVarNameInTable="columnmangmentName" msprop:Generator_ColumnPropNameInRow="mangmentName" msprop:Generator_ColumnPropNameInTable="mangmentNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:mangment" />
+      <xs:field xpath="mstns:mangmentID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

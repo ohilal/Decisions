@@ -1,0 +1,117 @@
+﻿*{padding:0; 
+/*direction: rtl;*/
+    margin-left: 0px;
+    margin-right: 0;
+    margin-top: 0;
+
+}
+
+body {
+/*direction:rtl;*/
+font-family:Tahoma,Arial, Arabic Transparent;
+font-size:0.8em;
+background-image:url('images/bg.jpg');
+background-repeat:repeat-x;
+background-color:#262626;
+text-align:center;
+	direction: ltr;
+}
+.page-container 
+{
+
+	width:900px; 
+	margin:0px auto; 
+	margin-top:0px; 
+	margin-bottom:0px; 
+	direction:rtl;
+	color:#333333;
+	background-color:White;
+	}
+	
+	.header
+{
+	width:900px;
+	height:213px;
+	background-image:url('images/header.jpg');
+	background-repeat:no-repeat;
+}
+	
+.contents
+{
+	width:900px;
+	margin:0 auto;
+	padding-top:10px; 
+	/*border:solid 1px silver;*/
+	background-color:White;
+	min-height:400px;
+}
+#footer
+{
+	width:900px;
+	clear:both;
+	height:60px;
+	background-color:White;
+	text-align:center;
+}
+#footer p
+{
+	text-align:center;
+	font-size:10px;
+	color: #999999;
+	font-family:Verdana,Tahoma, Arial;
+}
+.rtlDirection
+{
+	direction:rtl;
+}
+.CustomTabStyle .ajax__tab_header {
+    font-family:tahoma,verdana,helvetica;
+    font-size:16px;
+    background:url(images/tab-line.gif) repeat-x bottom;
+    color:red;
+}
+h1
+{
+	font-size:130%;
+    text-align: center;
+}
+h2
+{
+font-size:1.0em;
+color:#333333;
+}
+.buttonStyle
+{
+    background-image: url('images/buttonBlack.jpg' );
+    background-repeat: repeat-x;
+    font-family: Tahoma, Arial;
+    font-weight:bold;
+    color: #ffffff;
+    height:31px;
+    border:1px black solid;
+}
+.buttonStyle:hover
+{
+    background-image: url('images/buttonbg.jpg' );
+    background-repeat: repeat-x;
+    font-family: Tahoma, Arial;
+    font-weight:bold;
+    color: #333333;
+    height:31px;
+    border:1px #b1c33b solid;
+}
+.cssPager td
+            {
+                  padding-left: 4px;      
+                  padding-right: 4px;     
+              }
+ .updateControl
+ {
+ 	     padding-left: 6px;      
+         padding-right: 6px;  
+ }
+              
+.autoCompleteList
+{
+background-color:Yellow;font-weight:bold;
+}

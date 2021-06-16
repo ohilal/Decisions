@@ -1,0 +1,10 @@
+K:\DataBank\sqlclr\sqlclr\obj\Debug\ResolveAssemblyReference.cache
+K:\DataBank\sqlclr\sqlclr\bin\Debug\sqlclr.dll
+K:\DataBank\sqlclr\sqlclr\bin\Debug\sqlclr.pdb
+K:\DataBank\sqlclr\sqlclr\obj\Debug\sqlclr.dll
+K:\DataBank\sqlclr\sqlclr\obj\Debug\sqlclr.pdb
+C:\Documents and Settings\Administrator\Desktop\DataBank\sqlclr\sqlclr\bin\Debug\sqlclr.dll
+C:\Documents and Settings\Administrator\Desktop\DataBank\sqlclr\sqlclr\bin\Debug\sqlclr.pdb
+C:\Documents and Settings\Administrator\Desktop\DataBank\sqlclr\sqlclr\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\DataBank\sqlclr\sqlclr\obj\Debug\sqlclr.dll
+C:\Documents and Settings\Administrator\Desktop\DataBank\sqlclr\sqlclr\obj\Debug\sqlclr.pdb

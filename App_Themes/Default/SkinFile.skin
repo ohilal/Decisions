@@ -1,0 +1,47 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<asp:DropDownList  runat="server" Font-Names="Tahoma,Arial,Arabic Transparent" />
+  <asp:TextBox  runat="server"  Font-Names="Tahoma,Arial,Arabic Transparent"  />
+  
+<asp:DetailsView  runat="server"  
+        AutoGenerateRows="False"  CellPadding="4" 
+        ForeColor="#333333" GridLines="None" CellSpacing="2" width="95%" Font-Names="Tahoma,Arial,Arabic Transparent">
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerSettings Mode="NumericFirstLast" />
+        <CommandRowStyle BackColor="#dce6c0" Font-Bold="True" Wrap="False" width="25%" />     
+        <RowStyle BackColor="#edfbbd" />
+        <FieldHeaderStyle BackColor="#c3db80" Font-Bold="True" />
+        <PagerStyle BackColor="#2461BF" CssClass="cssPager" ForeColor="White" HorizontalAlign="Center" />
+         <HeaderStyle BackColor="#c3db80" Font-Bold="True" ForeColor="White" Wrap="False"  /> 
+           <EditRowStyle BackColor="#E4FFCA" />
+        <AlternatingRowStyle BackColor="White" />
+         </asp:DetailsView>
+<asp:GridView  runat="server" AutoGenerateColumns="False" 
+          AllowPaging="True" BorderColor="#99bf46" BorderStyle="Solid" BorderWidth="1px"
+          AllowSorting="True" CellPadding="4" ForeColor="#333333"  Font-Names="Tahoma,Arial,Arabic Transparent"
+          GridLines="Both" width="95%">
+             <RowStyle BackColor="#edfbbd" />
+             <FooterStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#99bf46" CssClass="cssPager" ForeColor="White" HorizontalAlign="Center"  />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <HeaderStyle BackColor="#c3db80" Font-Bold="True" ForeColor="#333333" />
+            <EditRowStyle BackColor="#2461BF" />
+            <AlternatingRowStyle BackColor="White" />
+                </asp:GridView>
+<asp:Button  runat="server" Font-Names="Tahoma,Aial,Arabic Transparent" CssClass="buttonStyle" /> 
+<asp:Label runat="server" SkinID="FeedbackKO" ForeColor="red" Font-Bold="True" />
+               
+                           
