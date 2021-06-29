@@ -39,7 +39,7 @@
             <td class="style2">
                 رقم القرار</td>
             <td>
-                <asp:TextBox ID="txtNo" runat="server" Width="350px"></asp:TextBox>
+                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -47,24 +47,22 @@
                 العنوان
             </td>
             <td>
-                <asp:TextBox ID="txtTitle" runat="server" Width="350px"></asp:TextBox>
+                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-6"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style3">
                 تاريخ القرار</td>
             <td class="style4">
-                <asp:TextBox ID="txtDate" runat="server" Width="350px"></asp:TextBox>
-                <cc1:CalendarExtender ID="txtDate_CalendarExtender" runat="server" 
-                    Enabled="True" TargetControlID="txtDate" Format="dd,MMMM,yyyy" >
-                </cc1:CalendarExtender>
+                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-6" TextMode="Date"></asp:TextBox>
+                
             </td>
         </tr>
         <tr>
             <td class="style3">
                 عدد مواد القرار</td>
             <td class="style4">
-                <asp:TextBox ID="txtsubNo" runat="server" Width="350px"></asp:TextBox>
+                <asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -72,7 +70,7 @@
                 التصنيف</td>
             <td>
                 <asp:DropDownList ID="ddlDecType" runat="server" DataSourceID="sdsDecType" 
-                    DataTextField="decType" DataValueField="decTypeID" Width="350px" AppendDataBoundItems="true">
+                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-6" AppendDataBoundItems="true">
                     <asp:ListItem Text="اختر تصنيف القرار" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsDecType" runat="server" 
@@ -85,23 +83,23 @@
             <td class="style2">
                 الكلمات الدالة</td>
             <td dir="rtl">
-                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" Width="350px"></asp:TextBox>
+                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-6"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style2">
                 تحميل الملف</td>
             <td>
-                <asp:FileUpload ID="uploadDecesion" runat="server" Width="350px" />
+                <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-6" />
             </td>
         </tr>
         <tr>
             <td class="style2">
                 &nbsp;</td>
             <td>
-                <input id="Reset1" type="reset" value="reset" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                <input id="Reset1" type="reset" value="reset" class="btn btn-secondary btn-lg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 <asp:Button ID="btnSubmitDec" runat="server" Text="إدخال القرار" 
-                    onclick="btnSubmitDec_Click" />
+                    onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                     InsertCommand="insertDecision" InsertCommandType="StoredProcedure" 

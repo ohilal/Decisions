@@ -32,8 +32,5 @@ public partial class success : System.Web.UI.Page
         Response.Redirect(prevPage);
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        
-    }
+   
 }

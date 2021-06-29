@@ -6,7 +6,7 @@
                          
                     <asp:DataList ID="DataList2" runat="server" BorderColor="#660000" 
                         BorderWidth="1px" DataSourceID="sdsDate" GridLines="Both" RepeatColumns="2" 
-                        Width="880px" CellPadding="3" CellSpacing="1" UseAccessibleHeader="True">
+                         CellPadding="3" CellSpacing="1" UseAccessibleHeader="True" CssClass="table table-striped">
                         <SeparatorStyle BorderWidth="1px" />
                         <SelectedItemStyle BorderWidth="1px" />
                         <HeaderStyle BackColor="#660000" />

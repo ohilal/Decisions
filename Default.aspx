@@ -1,71 +1,48 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="searchData" Title="ַבָֻֽ Úה ַֿׁ׃ֹ" EnableEventValidation="false" %>
+ן»¿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="searchData" Title="״§Ù„״¨״­״« ״¹Ù† ״¯״±״§״³״©" EnableEventValidation="false" %>
 
-<%@ Register Assembly="Infragistics2.WebUI.UltraWebTab.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb"
-    Namespace="Infragistics.WebUI.UltraWebTab" TagPrefix="igtab" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="direction:ltr;text-align:center; padding:0 10px;">
-<%-----------------------total number -------------------------------- --%>
-
-    
-    <%-----------------------End of igTabs-------------------------------- --%>
-<div class="rtlDirection" style="text-align:justify; text-indent:10px;  padding:0 50px;">
-			<p>Ýם
-			 ֵ״ַׁ Ê״זםׁ ַב־ֿדַÊ ַבַבßÊׁזהםֹ בבוםֶֹ ַבÚַדֹ בבÊהדםֹ ַבױהַÚםֹ Êד ÊÝÚםב ַבֵױַֿׁ ַבֳזב דה " ָהß ַבדÚבזדַÊ ַבױהַÚםֹ  " Úבל ַבדזÞÚ ַבַבßÊׁזהם בבוםֶֹ&nbsp; זַב׀ם םÚÊָׁ הזÚַנ דה ֳהזַÚ ֵַֹֿׁ ַבדÚׁÝֹ ֽםֻ םֽÊזם Úבל ַבַֿׁ׃ַÊ זַבֳַָֻֽ זַבדזײזÚַÊ ַבוַדֹ Ýם דַּב ַבױהַÚֹ ַבÊם Êוד ַּׁב זד׃Êֻדׁם ַבױהַÚֹ זַבÊם Êד ֵÚַֿֿוַ ָדÚׁÝֹ Ýהםם ַבוםֶֹ ֳז ַבּוַÊ ׀ַÊ ַבױבֹ
-			.
-			</p>
-			<p>Êד Êָזםָ ַבדזײזÚַÊ ֵבל דזײזÚַÊ  <a href="sectorSelect.aspx?secID=96">Úַדֹ</a>
-			 - <a href="sectorSelect.aspx?secID=97">ּÛַׁÝםֹ</a>
-			 –<a href="sectorSelect.aspx?secID=98">ַ׃ÊַׁÊםּםֹ</a> 
-			  – 
-
-                Þ״ַÚםֹ זםדßה בבַָֻֽ ַבָֻֽ
-			   <a href="wordSearch.aspx">ָßבדַÊ ַֿבֹ Úבל ַבדזײזÚ</a> 
-			   ֳז   <a href="branchSearch.aspx">ּוֹ ַבֵױַֿׁ</a>
-			   ֳז   <a href="searchbydate.aspx">Êַׁם־ ַבֵױַֿׁ</a>
-			   ֳז  <a href="CodeSearch.aspx">ֳßזַֿ ַבÊױהםÝ ַבÚָׁם ַבדזֽֿ</a>
-			    בÊÚׂםׂ ֳֿזַÊ ַבַָֻֽ זד׃ַÚֿÊו Ýם ַבזױזב ֵבל ַבדÚבזדַÊ ַבÊם םֽÊַּוַ.</p>
-				
-				<br />
-                <br />
-            
+        <h1 class="text-center text-info">Ù‚״±״§״±״§״× ״§Ù„ÙÙˆÙ… </h1>
                 <asp:SqlDataSource ID="countsds" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    SelectCommand="SELECT count( * ) as total_record
-,getDate()
- FROM dbo.Fullinfo">
+                    SelectCommand="SELECT decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT (varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID WHERE (CONVERT (date, decisions_Info.decDate, 101) = CONVERT (date, GETDATE(), 101))">
                 </asp:SqlDataSource>
-                
-    <div style="text-align:center;padding-right:200px;width:50%;">            
-                
+                  
 <asp:GridView ID="gdvTotal" runat="server" AutoGenerateColumns="False" 
                     DataSourceID="countsds" 
                     EnableTheming="False" CellPadding="4" ForeColor="Black" 
-                    GridLines="None" Width="450px">
+                    GridLines="None" AllowPaging="True" AllowSorting="True" EnableModelValidation="True" CssClass="table table-bordered table-striped table-hover">
                     <RowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="total_record" HeaderText="ֵּדַבל Úֿֿ ַבַֿׁ׃ַÊ"/> 
-                             
-                        <asp:BoundField DataField="Column1" DataFormatString="{0:dd MMMM yyyy}" 
-                            HeaderText="ֽÊל Êַׁם־"  />
+                        <asp:BoundField DataField="decNo" HeaderText="״±Ù‚Ù… ״§Ù„Ù‚״±״§״±" SortExpression="decNo"/>                           
+                        <asp:BoundField DataField="decTitle" 
+                            HeaderText="״§Ù„Ù‚״±״§״±" SortExpression="decTitle"  />
+                        <asp:BoundField DataField="decType" HeaderText="Ù†Ùˆ״¹ ״§Ù„Ù‚״±״§״±" SortExpression="decType" />
+                        <asp:BoundField DataField="date" HeaderText="״§Ù„״×״§״±Ù״®" ReadOnly="True" SortExpression="date" />
+                        <asp:BoundField DataField="decsubjectNo" HeaderText="״¹״¯״¯ Ù…Ùˆ״§״¯ ״§Ù„Ù‚״±״§״±" SortExpression="decsubjectNo" />
+                        <asp:TemplateField HeaderText="Ù…Ù„Ù ״§Ù„Ù‚״±״§״±" SortExpression="decisionFile">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("decisionFile") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                    <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src="Images/pdf_logo_trefoil.gif" style="border-style:none;" alt="Ù״×״­ ״§Ù„Ù…Ù„Ù" /></a>
+                </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
-                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" />
-                    <EditRowStyle BackColor="#7C6F57" />
-                    <AlternatingRowStyle BackColor="White" />
+    
+                    <FooterStyle BackColor="#CCCCCC" CssClass="pagination-lg" />
+                <HeaderStyle CssClass="table-secondary"></HeaderStyle>
+                <PagerSettings Mode="NumericFirstLast" PageButtonCount="5" />
+                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" CssClass=" cssPager pagination-lg" Font-Bold="True" Font-Size="Medium" />
                 </asp:GridView> 
-
-    </div>
 
                 <br />
 				&nbsp; &nbsp; 
-				</div>
-</div>
+
+
 </asp:Content>
 

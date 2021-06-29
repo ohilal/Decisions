@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="decwordsearch.aspx.cs" Inherits="searchData" Title="วแศอห ฺไ ฯัวำษ" EnableEventValidation="false" %>
+๏ปฟ<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="decwordsearch.aspx.cs" Inherits="searchData" Title="ุงูุจุญุซ ุนู ุฏุฑุงุณุฉ" EnableEventValidation="false" %>
 
 <%@ Register Assembly="Infragistics2.WebUI.UltraWebTab.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb"
     Namespace="Infragistics.WebUI.UltraWebTab" TagPrefix="igtab" %>
@@ -6,31 +6,38 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+    .auto-style1 {
+        direction: ltr;
+    }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="direction:ltr;">
-    <div class="rtlDirection">
-                    <asp:TextBox ID="txtSearch" runat="server" Width="350px"></asp:TextBox>&nbsp; &nbsp; &nbsp;<asp:Button 
-                        ID="btnSearch" runat="server" Text="ศอห" 
-        onclick="btnSearch_Click" Width="150px" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label><br />
+    <h2 class="auto-style1">ุงูุจุญุซ ุจุงูููู…ุงุช ุงูุฏุงูุฉ</h2>
+   <div class="form-inline">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-3"></asp:TextBox>&nbsp; &nbsp; &nbsp;<asp:Button 
+                        ID="btnSearch" runat="server" Text="ุจุญุซ" 
+        onclick="btnSearch_Click" CssClass="btn btn-lg btn-info" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
+       </div><br />
+    <div>
         <asp:ListView ID="ListView1" runat="server" 
-        DataSourceID="sdstest">
+        DataSourceID="sdstest" >
         <AlternatingItemTemplate>
         <li style="background-color: #FFFFFF;color: #284775;font-family:Tahoma,Arial;">
-        <h1><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h1> 
-        <br /><b>ัÞใ วแÞัวั:</b>  <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
-        <br /><b>สวัํฮ วแลีฯวั:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:MMMM,yyyy}")%>'  />
-        <br /><b> ไๆฺ วแÞัวั:</b>
+        <h3><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h3> 
+        <br /><b>ุฑูู… ุงููุฑุงุฑ:</b>  <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
+        <br /><b>ุชุงุฑูุฎ ุงูุฅุตุฏุงุฑ:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;"  />
+        <br /><b> ููุน ุงููุฑุงุฑ:</b>
                     <asp:Label ID="langLabel" runat="server" Text='<%# Eval("decType") %>' />        
-<%--          <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="Ýสอ ใแÝ วแฯัวำษ" style="border:none;"/></a>
---%>        <br /><br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>วแสÝวีํแ</asp:HyperLink></li>
+<%--          <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="ูุชุญ ู…ูู ุงูุฏุฑุงุณุฉ" style="border:none;"/></a>
+--%>        <br /><br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>ุงูุชูุงุตูู</asp:HyperLink></li>
 
         </li>
         </AlternatingItemTemplate>
         <EditItemTemplate><li style="background-color: #999999;font-family:Tahoma,Arial;">Title: <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
         <br />Summury: <asp:TextBox ID="decNo" runat="server" Text='<%# Bind("decNo") %>' />
        
-        <br />Date: <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("decDate", "{0:MMMM,yyyy}")%>' />
+        <br />Date: <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("decDate", "{0:dd,MMMM,yyyy}")%>' />
          <br />
                    
         <br />Filepath: <asp:TextBox ID="FilepathTextBox" runat="server" Text='<%# Bind("decisionFile") %>' />
@@ -38,12 +45,13 @@
         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel"  Text="Cancel" />
         </li>
                         </EditItemTemplate>
-                        <EmptyDataTemplate>No data was returned.</EmptyDataTemplate>
-                        <InsertItemTemplate><li style="font-family:Tahoma,Arial;">Title: <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
+                        <EmptyDataTemplate>.</EmptyDataTemplate>
+                        <InsertItemTemplate>
+                            <li style="font-family:Tahoma,Arial;">Title: <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
                         <br />Summury: <asp:TextBox ID="SummuryTextBox" runat="server" Text='<%# Bind("Summury") %>' />
                         <br />Type: <asp:TextBox ID="TypeTextBox" runat="server" Text='<%# Bind("Type") %>' />
                         <br />Owner: <asp:TextBox ID="OwnerTextBox" runat="server" Text='<%# Bind("Owner") %>' />
-                        <br />Date: <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' />
+                        <br />Date: <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date", "{0:MM,yyyy}")%>' />
                         
                         <br />Classification: <asp:TextBox ID="ClassificationTextBox" runat="server" 
                     Text='<%# Bind("Classification") %>' />
@@ -53,18 +61,18 @@
                     Text="Clear" /></li></InsertItemTemplate>
                     <ItemSeparatorTemplate><br /></ItemSeparatorTemplate>
                     
-                    <ItemTemplate><li style="background-color: #edfdb8;color: #333333; font-family:Tahoma,Arial;">
-                    <h1><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h1>
-                    <br /><b>ัÞใ วแÞัวั:</b> <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
-                    <br /><b>สวัํฮ วแลีฯวั:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:MMMM,yyyy}")%>' />
-                    <br /><b> ไๆฺ วแÞัวั:</b>
+                    <ItemTemplate><li style="background-color: #e3e3e3;color: #333333; font-family:Tahoma,Arial;">
+                    <h3><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h3>
+                    <br /><b>ุฑูู… ุงููุฑุงุฑ:</b> <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                    <br /><b>ุชุงุฑูุฎ ุงูุฅุตุฏุงุฑ:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;" />
+                    <br /><b> ููุน ุงููุฑุงุฑ:</b>
                     <asp:Label ID="langLabel" runat="server" Text='<%# Eval("decType") %>' />  
-                   <%-- <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="Ýสอ ใแÝ วแฯัวำษ" style="border:none;"/></a>--%>
-                    <br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>วแสÝวีํแ</asp:HyperLink></li>
+                   <%-- <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="ูุชุญ ู…ูู ุงูุฏุฑุงุณุฉ" style="border:none;"/></a>--%>
+                    <br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>ุงูุชูุงุตูู</asp:HyperLink></li>
                     </ItemTemplate>
                     <LayoutTemplate><ul ID="itemPlaceholderContainer" runat="server" 
                 style="font-family:Tahoma,Arial;"><li ID="itemPlaceholder" runat="server" /></ul>
-                <div style="background-color: #99bf46;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF;"><asp:DataPager ID="DataPager1" runat="server" PageSize="5" ><Fields><asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                <div class="bg-gradient-secondary text-white white-link" style="font-family: Verdana, Arial, Helvetica, sans-serif; color:#ffffff;"><asp:DataPager ID="DataPager1" runat="server" PageSize="5" ><Fields><asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
                                 ShowNextPageButton="False" ShowPreviousPageButton="False" /><asp:NumericPagerField /><asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
                                 ShowNextPageButton="False" ShowPreviousPageButton="False" /></Fields></asp:DataPager></div></LayoutTemplate><SelectedItemTemplate><tr style=""><td><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' /></td><td><asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("Summury") %>' /></td><td><asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' /></td><td><asp:Label ID="OwnerLabel" runat="server" Text='<%# Eval("Owner") %>' /></td><td><asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' /></td><td><asp:Label ID="ClassificationLabel" runat="server" 
                             Text='<%# Eval("Classification") %>' /></td><td><asp:Label ID="FilepathLabel" runat="server" Text='<%# Eval("decisionFile") %>' /></td></tr></SelectedItemTemplate></asp:ListView>
@@ -74,12 +82,8 @@
             SelectCommand="decKeywords" SelectCommandType="StoredProcedure"><SelectParameters><asp:ControlParameter ControlID="txtSearch" Name="searchword" 
                     PropertyName="Text" Type="String" /></SelectParameters></asp:SqlDataSource>
             </div>
+
 <%-----------------------igTabs-------------------------------- --%>
 
-   
-
-    
-
-</div>
 </asp:Content>
 
