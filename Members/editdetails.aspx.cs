@@ -21,8 +21,9 @@ public partial class Members_editdetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+       Response.Write( Request.QueryString["decID"]);
 
-        //((RadioButtonList)DetailsView1.FindControl("rdlMostwfi")).SelectedValue;
+
 
     }
     
@@ -30,7 +31,7 @@ public partial class Members_editdetails : System.Web.UI.Page
     {
         DbParameterCollection CmdParams = e.Command.Parameters;
         ParameterCollection UpdParams = ((SqlDataSourceView)sender).UpdateParameters;
-
+       
         Hashtable ht = new Hashtable();
         foreach (Parameter UpdParam in UpdParams)
             ht.Add(UpdParam.Name, true);
@@ -44,34 +45,39 @@ public partial class Members_editdetails : System.Web.UI.Page
     protected void DetailsView1_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
     {
 
-        
+
       
-            SqlDataSource1.OldValuesParameterFormatString = "";
-
-            //FileUpload file = (FileUpload)DetailsView1.FindControl("FileUpload1");
-            //if (file.HasFile)
-            //{
-            //    string filepath = file.PostedFile.FileName;
-            //    string filename = Path.GetFileName(filepath);
-            //    SqlDataSource1.UpdateParameters["Filepath"].DefaultValue = filename;
-
-            //}
-
-
-            //file.SaveAs(Server.MapPath("~/UploadedUserFiles/") + file.FileName);
-if (e.NewValues == null)
-{
-            SqlDataSource1.UpdateParameters["dID"].DefaultValue = Request.QueryString["dID"];
-            SqlDataSource1.UpdateParameters["Title"].DefaultValue = e.NewValues["Title"].ToString();
-            SqlDataSource1.UpdateParameters["Summury"].DefaultValue = e.NewValues["Summury"].ToString();
-            SqlDataSource1.UpdateParameters["Date"].DefaultValue = e.NewValues["Date"].ToString();
-            SqlDataSource1.UpdateParameters["BranchID"].DefaultValue = e.NewValues["BranchID"].ToString();
-            SqlDataSource1.UpdateParameters["activityCode"].DefaultValue = e.NewValues["activityCode"].ToString();
-            //SqlDataSource1.UpdateParameters["Filepath"].DefaultValue = e.NewValues["Filepath"].ToString();
-            SqlDataSource1.UpdateParameters["Keywords"].DefaultValue = e.NewValues["Keywords"].ToString();
-            SqlDataSource1.UpdateParameters["langId"].DefaultValue = e.NewValues["langId"].ToString();
-        }
+       SqlDataSource1.OldValuesParameterFormatString = "";
         
+        SqlDataSource1.Update();
+        SqlDataSource1.DataBind();
+
+        //FileUpload file = (FileUpload)DetailsView1.FindControl("FileUpload1");
+        //if (file.HasFile)
+        //{
+        //    string filepath = file.PostedFile.FileName;
+        //    string filename = Path.GetFileName(filepath);
+        //    SqlDataSource1.UpdateParameters["Filepath"].DefaultValue = filename;
+
+        //}
+
+
+        //file.SaveAs(Server.MapPath("~/UploadedUserFiles/") + file.FileName);
+        //if (e.NewValues == null)
+        //{
+           
+        //    SqlDataSource1.UpdateParameters["decID"].DefaultValue = Request.QueryString["decID"];
+        //    SqlDataSource1.UpdateParameters["decNo"].DefaultValue = e.NewValues["decNo"].ToString();
+        //    SqlDataSource1.UpdateParameters["decTitle"].DefaultValue = e.NewValues["decTitle"].ToString();
+        //    SqlDataSource1.UpdateParameters["decKeywords"].DefaultValue = e.NewValues["decKeywords"].ToString();
+        //    SqlDataSource1.UpdateParameters["decisionFile"].DefaultValue = e.NewValues["decisionFile"].ToString();
+        //    SqlDataSource1.UpdateParameters["decTypeID"].DefaultValue = e.NewValues["decTypeID"].ToString();
+        //    //SqlDataSource1.UpdateParameters["Filepath"].DefaultValue = e.NewValues["Filepath"].ToString();
+        //    SqlDataSource1.UpdateParameters["decsubjectNo"].DefaultValue = e.NewValues["decsubjectNo"].ToString();
+        //    //SqlDataSource1.UpdateParameters["langId"].DefaultValue = e.NewValues["langId"].ToString();
+        //    SqlDataSource1.Update();
+        //}
+
     }
 
     protected void DetailsView1_ItemCreated(object sender, EventArgs e)

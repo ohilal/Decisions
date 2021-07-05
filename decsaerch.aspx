@@ -27,7 +27,7 @@
         </cc1:CalendarExtender>--%>
         &nbsp; &nbsp;<b> إلى   </b>&nbsp; &nbsp; 
     <asp:TextBox ID="txtdate2" runat="server" 
-        ToolTip="إلي تاريخ..." CssClass="form-control col-3" TextMode="Date"></asp:TextBox>
+        ToolTip="إلي تاريخ..." CssClass="form-control col-3" TextMode="Date"  ></asp:TextBox>
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
@@ -43,21 +43,23 @@
        </div>
         <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium">
             <Nodes>
-                <asp:TreeNode Expanded="False" Text="القرارات" ToolTip="القرارات" NavigateUrl="~/allDecisions.aspx?id=3">
+                <asp:TreeNode Expanded="False" Text="القرارات" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
                     <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"></asp:TreeNode>
                     <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="قرارات إدارية" Value="قرارات إدارية" NavigateUrl="~/allDecisions.aspx?id=1">
+                <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20">
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
-                        <asp:TreeNode Expanded="False" Text="اجازات" ToolTip="اجازات" Value="6"></asp:TreeNode>
-                        <asp:TreeNode Text="ترقيات" ToolTip="ترقيات" Value="7"></asp:TreeNode>
                     </asp:TreeNode>
                     <asp:TreeNode Expanded="False" Text="اجراءات عمل" ToolTip="اجراءات عمل" Value="3" ImageToolTip="القرارات">
-                        <asp:TreeNode Text="اجراءات حالية" ToolTip="اجراءات حالية" Value="8"></asp:TreeNode>
-                        <asp:TreeNode Text="اجراءات استثنائية" Value="9" ToolTip="اجراءات استثنائية"></asp:TreeNode>
                     </asp:TreeNode>
                     <asp:TreeNode Text="لجان" ToolTip="لجان" Value="2"></asp:TreeNode>
                 </asp:TreeNode>
+                <asp:TreeNode Text="رسائل داخلية" Value="6" Expanded="False" NavigateUrl="~/allDecisions.aspx?id=30" ToolTip="عرض كل الرسائل الداخلية">
+                    <asp:TreeNode Text="إعلانات" Value="8"></asp:TreeNode>
+                    <asp:TreeNode Text="الشركة الطبية" Value="9"></asp:TreeNode>
+                    <asp:TreeNode Text="رسائل داخلية" Value="6"></asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode Text="أوامر إدارية" Value="7"></asp:TreeNode>
             </Nodes>
         </asp:TreeView>
 
@@ -65,14 +67,14 @@
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnDate" runat="server"
-            Text="القرارات" CssClass="btn btn-info btn-lg col-1" />
+            Text="القرارات" CssClass="btn btn-info btn-lg col-1 topMargin "  />
 
 
         <br />
         <br />
 
 
-        <asp:DataList ID="DataList2" runat="server" BorderColor="#660000"
+        <%--<asp:DataList ID="DataList2" runat="server" BorderColor="#660000"
             BorderWidth="1px" DataSourceID="sdsDate" GridLines="Both" RepeatColumns="2"
             CellPadding="3" CellSpacing="1" UseAccessibleHeader="True" CssClass="table table-responsive-md table-striped table-hover ">
             <SeparatorStyle BorderWidth="1px" />
@@ -94,12 +96,127 @@
                 <br />
                  <b>القرار:</b>
                         <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'>
-                             <i class="far fa-file-pdf fa-2x text-info"></i>
-                            <%--<img src="Images/pdf_logo_trefoil.gif" style="border-style: none;" alt="فتح الملف" /></a>--%>
+                             <i class="far fa-file-pdf fa-2x text-info"></i></a>
+                           
                 <br />
                 <br />
             </ItemTemplate>
-        </asp:DataList>
+        </asp:DataList>--%>
+    <asp:ListView ID="ListView1" runat="server" DataSourceID="sdsDate" GroupItemCount="2" >
+        <AlternatingItemTemplate>
+            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
+                <br /> <b>تاريخ القرار:</b>
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate", "{0:dd/MMM/yyyy}") %>' />
+                <br /><b>نوع القرار</b>
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br /> القرار:
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
+                <br /></td>
+        </AlternatingItemTemplate>
+        <EditItemTemplate>
+            <td runat="server">decNo:
+                <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
+                <br />decTitle:
+                <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                <br />decDate:
+                <asp:TextBox ID="decDateTextBox" runat="server" Text='<%# Bind("decDate") %>' />
+                <br />decType:
+                <asp:TextBox ID="decTypeTextBox" runat="server" Text='<%# Bind("decType") %>' />
+                <br />decisionFile:
+                <asp:TextBox ID="decisionFileTextBox" runat="server" Text='<%# Bind("decisionFile") %>' />
+                <br />
+                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                <br /></td>
+        </EditItemTemplate>
+        <EmptyDataTemplate>
+            <table runat="server" style="">
+                <tr>
+                    <td>No data was returned.</td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+<td runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server">
+                <td id="itemPlaceholder" runat="server"></td>
+            </tr>
+        </GroupTemplate>
+        <InsertItemTemplate>
+            <td runat="server">decNo:
+                <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
+                <br />decTitle:
+                <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                <br />decDate:
+                <asp:TextBox ID="decDateTextBox" runat="server" Text='<%# Bind("decDate") %>' />
+                <br />decType:
+                <asp:TextBox ID="decTypeTextBox" runat="server" Text='<%# Bind("decType") %>' />
+                <br />
+                <asp:TextBox ID="decisionFileTextBox" runat="server" Text='<%# Bind("decisionFile") %>' />
+                <br />
+                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                <br /></td>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
+                <br /> <b>تاريخ القرار:</b>
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate", "{0:dd/MMM/yyyy}") %>' />
+                <br /><b>نوع القرار</b>
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br /> القرار:
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
+                <br /></td>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <table runat="server" class="table table table-striped table-bordered table-responsive-lg">
+                <tr runat="server">
+                    <td runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" class="table table table-striped table-bordered table-responsive-lg">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr runat="server">
+                    <td runat="server" style="">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                            </Fields>
+                        </asp:DataPager>
+                    </td>
+                </tr>
+            </table>
+        </LayoutTemplate>
+        <SelectedItemTemplate>
+            <td runat="server" style="">decNo:
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />decTitle:
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />
+                <br />decDate:
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate") %>' />
+                <br />decType:
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br />decisionFile:
+                <asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />
+                <br /></td>
+        </SelectedItemTemplate>
+                    </asp:ListView>
         <asp:SqlDataSource ID="sdsDate" runat="server"
             ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>"
             SelectCommand="SELECT decisions_Info.decNo, decisions_Info.decTitle, 

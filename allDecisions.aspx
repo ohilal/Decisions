@@ -4,42 +4,128 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
                          
-                    <asp:DataList ID="DataList2" runat="server" BorderColor="#660000" 
-                        BorderWidth="1px" DataSourceID="sdsDate" GridLines="Both" RepeatColumns="2" 
-                         CellPadding="3" CellSpacing="1" UseAccessibleHeader="True" CssClass="table table-striped">
-                        <SeparatorStyle BorderWidth="1px" />
-                        <SelectedItemStyle BorderWidth="1px" />
-                        <HeaderStyle BackColor="#660000" />
-                    <ItemTemplate>
-                    <b>رقم القرار:</b>
-                        <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
-                        <br />
-                       
-                        <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' Font-Bold="true" ForeColor="#660000" />
-                        <br />
-                        <b>تاريخ القرار:</b>
-                        <asp:Label ID="decDateLabel" runat="server" 
-                            Text='<%# Eval("decDate", "{0:d}") %>'  />
-                        <br />
-                      <b>التصنيف:</b>
-                        <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
-                        <br />
-                        القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><img src="Images/pdf_logo_trefoil.gif" style="border-style:none;" alt="فتح الملف" /></a>
-                        <br />
-                        <br />
-                        </ItemTemplate>
-                    </asp:DataList>
+                    
+    <asp:ListView ID="ListView1" runat="server" GroupItemCount="2" DataSourceID="sdsDate" >
+        <AlternatingItemTemplate>
+            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
+                <br /> <b>تاريخ القرار:</b>
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate", "{0:dd/MMM/yyyy}") %>' Style="direction:ltr;" />
+                <br /><b>نوع القرار</b>
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br /> القرار:
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
+                <br /></td>
+        </AlternatingItemTemplate>
+        <EditItemTemplate>
+            <td runat="server">decNo:
+                <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
+                <br />decTitle:
+                <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                <br />decDate:
+                <asp:TextBox ID="decDateTextBox" runat="server" Text='<%# Bind("decDate") %>' />
+                <br />decType:
+                <asp:TextBox ID="decTypeTextBox" runat="server" Text='<%# Bind("decType") %>' />
+                <br />decisionFile:
+                <asp:TextBox ID="decisionFileTextBox" runat="server" Text='<%# Bind("decisionFile") %>' />
+                <br />
+                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                <br /></td>
+        </EditItemTemplate>
+        <EmptyDataTemplate>
+            <table runat="server" style="">
+                <tr>
+                    <td>No data was returned.</td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+<td runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server">
+                <td id="itemPlaceholder" runat="server"></td>
+            </tr>
+        </GroupTemplate>
+        <InsertItemTemplate>
+            <td runat="server">decNo:
+                <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
+                <br />decTitle:
+                <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                <br />decDate:
+                <asp:TextBox ID="decDateTextBox" runat="server" Text='<%# Bind("decDate") %>' />
+                <br />decType:
+                <asp:TextBox ID="decTypeTextBox" runat="server" Text='<%# Bind("decType") %>' />
+                <br />
+                <asp:TextBox ID="decisionFileTextBox" runat="server" Text='<%# Bind("decisionFile") %>' />
+                <br />
+                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                <br /></td>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
+                <br /> <b>تاريخ القرار:</b>
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate", "{0:dd/MMM/yyyy}") %>'  Style="direction:ltr;" />
+                <br /><b>نوع القرار</b>
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br /> القرار:
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
+                <br /></td>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <table runat="server" class="table table table-striped table-bordered table-responsive-lg">
+                <tr runat="server">
+                    <td runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" class="table table table-striped table-bordered table-responsive-lg">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr runat="server">
+                    <td runat="server" style="">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                            </Fields>
+                        </asp:DataPager>
+                    </td>
+                </tr>
+            </table>
+        </LayoutTemplate>
+        <SelectedItemTemplate>
+            <td runat="server" style="">decNo:
+                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
+                <br />decTitle:
+                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />
+                <br />decDate:
+                <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate") %>' />
+                <br />decType:
+                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
+                <br />decisionFile:
+                <asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />
+                <br /></td>
+        </SelectedItemTemplate>
+                    </asp:ListView>
                     <asp:SqlDataSource ID="sdsDate" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                        SelectCommand="SELECT decisions_Info.decNo, decisions_Info.decTitle, 
-decDate, 
-decision_Types.decType, decisions_Info.decisionFile FROM decision_Types INNER JOIN decisions_Info ON decision_Types.decTypeID = decisions_Info.decTypeID 
-WHERE decision_Types.decTypeID=@decTypeID 
-order by decDate desc
-SET DATEFORMAT dmy">
+                        SelectCommand="SelectDec" EnableCaching="True" SelectCommandType="StoredProcedure">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="decTypeID" QueryStringField="id" />
+                            <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
 </asp:Content>

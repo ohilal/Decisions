@@ -21,6 +21,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if(Page.User.IsInRole("Members"))
         {
             Insert.Visible=true;
+            Edit.Visible = true;
         }
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 
