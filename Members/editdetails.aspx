@@ -8,7 +8,7 @@
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="decID" DataSourceID="SqlDataSource1" Height="50px" 
         Width="95%" onitemupdating="DetailsView1_ItemUpdating" 
-        onitemcreated="DetailsView1_ItemCreated">
+        onitemcreated="DetailsView1_ItemCreated" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
         <Fields>
             <asp:BoundField DataField="decNo" HeaderText="decNo" 
                 SortExpression="decNo" />
@@ -28,13 +28,16 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="الملف" SortExpression="decisionFile">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("decisionFile") %>'></asp:TextBox>
+                    <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-6"    />
+                    <%--<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("decisionFile") %>'></asp:TextBox>--%>
                 </EditItemTemplate>
                 <InsertItemTemplate>
                     <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("decisionFile") %>'></asp:TextBox>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("decisionFile") %>'></asp:Label>
+                    
+                     <a href="#" onclick="window.open('../UploadedDecisions/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="الكلمات الدالة" SortExpression="decKeywords">
@@ -49,12 +52,12 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="decID" HeaderText="decID" InsertVisible="False" ReadOnly="True" SortExpression="decID" Visible="False" />
-            <asp:BoundField DataField="decsubjectNo" HeaderText="عدد مواد القرار" SortExpression="decsubjectNo" />
-            <asp:TemplateField HeaderText="نوع القرار" SortExpression="decType">
+            <asp:BoundField DataField="decsubjectNo" HeaderText="عدد مواد القرار" SortExpression="decsubjectNo"  ControlStyle-CssClass="form-control col-6" />
+            <asp:TemplateField HeaderText="نوع القرار" SortExpression="decType" ControlStyle-CssClass="form-control col-6">
                 <EditItemTemplate>
                     <asp:DropDownList ID="ddEditType" runat="server"   DataSourceID="sdsType"
-                        DataTextField="decType" DataValueField="decTypeID" Height="17px" 
-                        SelectedValue='<%# Bind("decTypeID") %>' CssClass="form-control col-6 dropdown">
+                        DataTextField="decType" DataValueField="decTypeID" 
+                        SelectedValue='<%# Bind("decTypeID") %>' CssClass="form-control  dropdown col-8">
                     </asp:DropDownList>
 
 
@@ -77,9 +80,16 @@
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("decType") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="True" />
+            <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-info" EditText="تعديل" CancelText="إلغاء التعديل">
+<ControlStyle CssClass="btn btn-info"></ControlStyle>
+            </asp:CommandField>
         </Fields>
-        <EditRowStyle BackColor="#E4FFCA" />
+        <AlternatingRowStyle BackColor="#ffffff" ForeColor="black" />
+        <EditRowStyle  CssClass="table-striped" BackColor="#cac7c7" Font-Bold="True" ForeColor="#F7F7F7" />
+        <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+        <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+        <RowStyle BackColor="#E3e3e3" ForeColor="#4A3C8C" />
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
@@ -91,6 +101,7 @@
             <asp:QueryStringParameter Name="decID" QueryStringField="decID"  />
         </SelectParameters>
         <UpdateParameters>
+            <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
             <asp:Parameter Name="decNO" Type="Int32" />
             <asp:Parameter Name="decTitle" Type="String" />
             <asp:Parameter Name="decKeywords" Type="String" />

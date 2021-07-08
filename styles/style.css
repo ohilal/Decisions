@@ -134,7 +134,9 @@ body.menu-active #Header .logo {
 		position: relative;
 		z-index: 99;
 }
-
+.tdTiny{
+    width:50px;
+}
 
 /*Footer style begin*/
 

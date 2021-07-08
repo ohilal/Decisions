@@ -49,23 +49,24 @@ public partial class Members_editdetails : System.Web.UI.Page
       
        SqlDataSource1.OldValuesParameterFormatString = "";
         
+        
+
+        FileUpload file = (FileUpload)DetailsView1.FindControl("uploadDecesion");
+        if (file.HasFile)
+        {
+            string filepath = file.PostedFile.FileName;
+            string filename = Path.GetFileName(filepath);
+            SqlDataSource1.UpdateParameters["decisionFile"].DefaultValue = filename;
+
+        }
+
+        
+        file.SaveAs(Server.MapPath("~/UploadedDecisions/") + file.FileName);
         SqlDataSource1.Update();
         SqlDataSource1.DataBind();
-
-        //FileUpload file = (FileUpload)DetailsView1.FindControl("FileUpload1");
-        //if (file.HasFile)
-        //{
-        //    string filepath = file.PostedFile.FileName;
-        //    string filename = Path.GetFileName(filepath);
-        //    SqlDataSource1.UpdateParameters["Filepath"].DefaultValue = filename;
-
-        //}
-
-
-        //file.SaveAs(Server.MapPath("~/UploadedUserFiles/") + file.FileName);
         //if (e.NewValues == null)
         //{
-           
+
         //    SqlDataSource1.UpdateParameters["decID"].DefaultValue = Request.QueryString["decID"];
         //    SqlDataSource1.UpdateParameters["decNo"].DefaultValue = e.NewValues["decNo"].ToString();
         //    SqlDataSource1.UpdateParameters["decTitle"].DefaultValue = e.NewValues["decTitle"].ToString();
