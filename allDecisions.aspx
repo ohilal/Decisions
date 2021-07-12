@@ -92,12 +92,12 @@
                     </td>
                 </tr>
                 <tr runat="server">
-                    <td runat="server" class="pagination" dir="rtl">
+                    <td runat="server" class="pagination" dir="ltr">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
                             <Fields>
-                               <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" FirstPageText="الأول" LastPageText="الأخير" NextPageText="<<" PreviousPageText=">>" ButtonCssClass="btn btn-secondary" />
+                               <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" FirstPageText="الأول" LastPageText="الأخير" NextPageText=">>" PreviousPageText="<<" ButtonCssClass="btn btn-secondary" />
                                 <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" LastPageText="الأخير" NextPageText="<<" ButtonCssClass="btn btn-secondary" />
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" LastPageText="الأخير" NextPageText=">>" ButtonCssClass="btn btn-secondary" />
                             </Fields>
                         </asp:DataPager>
                     </td>

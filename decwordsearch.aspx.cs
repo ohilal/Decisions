@@ -38,8 +38,20 @@ public partial class searchData : System.Web.UI.Page
 
 
 
-   
-        //txtSearch.Text = string.Empty;
-    
-   
+
+    //txtSearch.Text = string.Empty;
+
+
+
+    protected void sdstest_Selected(object sender, SqlDataSourceStatusEventArgs e)
+    {
+        noDataLabel.Text = "";
+        if (e.AffectedRows == 0)
+        {
+
+            noDataLabel.Text = "لا توجد بيانات";
+        }
+    }
+
+ 
 }

@@ -20,11 +20,12 @@
         onclick="btnSearch_Click" CssClass="btn btn-lg btn-info" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
        </div><br />
     <div>
+         <asp:Label ID="noDataLabel" runat="server" Text="   " />
         <asp:ListView ID="ListView1" runat="server" 
         DataSourceID="sdstest" >
         <AlternatingItemTemplate>
         <li style="background-color: #FFFFFF;color: #284775;font-family:Tahoma,Arial;">
-        <h3><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h3> 
+        <h4><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h4> 
         <br /><b>رقم القرار:</b>  <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
         <br /><b>تاريخ الإصدار:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;"  />
         <br /><b> نوع القرار:</b>
@@ -45,7 +46,7 @@
         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel"  Text="Cancel" />
         </li>
                         </EditItemTemplate>
-                        <EmptyDataTemplate>.</EmptyDataTemplate>
+                        <EmptyDataTemplate></EmptyDataTemplate>
                         <InsertItemTemplate>
                             <li style="font-family:Tahoma,Arial;">Title: <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
                         <br />Summury: <asp:TextBox ID="SummuryTextBox" runat="server" Text='<%# Bind("Summury") %>' />
@@ -62,7 +63,7 @@
                     <ItemSeparatorTemplate><br /></ItemSeparatorTemplate>
                     
                     <ItemTemplate><li style="background-color: #e3e3e3;color: #333333; font-family:Tahoma,Arial;">
-                    <h3><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h3>
+                    <h4><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h4>
                     <br /><b>رقم القرار:</b> <asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("decNo") %>' />
                     <br /><b>تاريخ الإصدار:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;" />
                     <br /><b> نوع القرار:</b>
@@ -72,14 +73,15 @@
                     </ItemTemplate>
                     <LayoutTemplate><ul ID="itemPlaceholderContainer" runat="server" 
                 style="font-family:Tahoma,Arial;"><li ID="itemPlaceholder" runat="server" /></ul>
-                <div class="bg-gradient-secondary text-white white-link" style="font-family: Verdana, Arial, Helvetica, sans-serif; color:#ffffff;"><asp:DataPager ID="DataPager1" runat="server" PageSize="5" ><Fields><asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
-                                ShowNextPageButton="False" ShowPreviousPageButton="False" /><asp:NumericPagerField /><asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
-                                ShowNextPageButton="False" ShowPreviousPageButton="False" /></Fields></asp:DataPager></div></LayoutTemplate><SelectedItemTemplate><tr style=""><td><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' /></td><td><asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("Summury") %>' /></td><td><asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' /></td><td><asp:Label ID="OwnerLabel" runat="server" Text='<%# Eval("Owner") %>' /></td><td><asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' /></td><td><asp:Label ID="ClassificationLabel" runat="server" 
+                <div class="bg-gradient-secondary text-white white-link" style="color:#ffffff;">
+                    <asp:DataPager ID="DataPager1" runat="server" PageSize="5" ><Fields><asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                                ShowNextPageButton="False" ShowPreviousPageButton="False" FirstPageText="الأول" /><asp:NumericPagerField /><asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                                ShowNextPageButton="False" ShowPreviousPageButton="False" LastPageText="الأخير" /></Fields></asp:DataPager></div></LayoutTemplate><SelectedItemTemplate><tr style=""><td><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' /></td><td><asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("Summury") %>' /></td><td><asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' /></td><td><asp:Label ID="OwnerLabel" runat="server" Text='<%# Eval("Owner") %>' /></td><td><asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' /></td><td><asp:Label ID="ClassificationLabel" runat="server" 
                             Text='<%# Eval("Classification") %>' /></td><td><asp:Label ID="FilepathLabel" runat="server" Text='<%# Eval("decisionFile") %>' /></td></tr></SelectedItemTemplate></asp:ListView>
          <br />
          <asp:SqlDataSource ID="sdstest" runat="server" 
             ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-            SelectCommand="decKeywords" SelectCommandType="StoredProcedure"><SelectParameters><asp:ControlParameter ControlID="txtSearch" Name="searchword" 
+            SelectCommand="decKeywords" SelectCommandType="StoredProcedure" OnSelected="sdstest_Selected"><SelectParameters><asp:ControlParameter ControlID="txtSearch" Name="searchword" 
                     PropertyName="Text" Type="String" /></SelectParameters></asp:SqlDataSource>
             </div>
 
