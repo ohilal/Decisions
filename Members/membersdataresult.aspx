@@ -54,14 +54,21 @@
   <br />
   <h3 class="text-info">عرض كل القرارات</h3>
   <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" 
-        AllowSorting="True" onrowdatabound="GridView1_RowDataBound" DataKeyNames="decID" CssClass="table table-striped table-bordered table-hover">
+        AllowSorting="True" onrowdatabound="GridView1_RowDataBound" DataKeyNames="decID" CssClass="table table-striped table-bordered table-hover ">
+        <HeaderStyle CssClass="table-secondary" />
         <PagerSettings Mode="NumericFirstLast" />
         <Columns>
-            <asp:BoundField DataField="decNo" HeaderText="رقم القرار" SortExpression="decNo" ItemStyle-CssClass="tdTiny" HeaderStyle-CssClass="tdTiny"/>
 
             
             <asp:BoundField DataField="decTitle" HeaderText="العنوان" 
                 SortExpression="decTitle" />
+            <asp:BoundField DataField="decNo" HeaderText="رقم القرار" SortExpression="decNo" ItemStyle-CssClass="tdTiny" HeaderStyle-CssClass="tdTiny">
+
+            
+<HeaderStyle CssClass="tdTiny"></HeaderStyle>
+
+<ItemStyle CssClass="tdTiny"></ItemStyle>
+            </asp:BoundField>
             <asp:BoundField DataField="decKeywords" HeaderText="الكلمات الدالة" 
                 SortExpression="decKeywords" />
             <asp:BoundField DataField="decisionFile" HeaderText="الملف" 

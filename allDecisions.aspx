@@ -2,9 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-                         
-                    
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">               
     <asp:ListView ID="ListView1" runat="server" GroupItemCount="2" DataSourceID="sdsDate" >
         <AlternatingItemTemplate>
             <td runat="server" class="col-6" > <b>رقم القرار:</b>
@@ -94,12 +92,12 @@
                     </td>
                 </tr>
                 <tr runat="server">
-                    <td runat="server" style="">
+                    <td runat="server" class="pagination" dir="rtl">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
                             <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                               <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" FirstPageText="الأول" LastPageText="الأخير" NextPageText="<<" PreviousPageText=">>" ButtonCssClass="btn btn-secondary" />
                                 <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" LastPageText="الأخير" NextPageText="<<" ButtonCssClass="btn btn-secondary" />
                             </Fields>
                         </asp:DataPager>
                     </td>

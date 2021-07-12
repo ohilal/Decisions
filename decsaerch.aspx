@@ -43,10 +43,6 @@
        </div>
         <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium">
             <Nodes>
-                <asp:TreeNode Expanded="False" Text="القرارات" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
-                    <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"></asp:TreeNode>
-                    <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
-                </asp:TreeNode>
                 <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20">
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
                     </asp:TreeNode>
@@ -60,6 +56,10 @@
                     <asp:TreeNode Text="رسائل داخلية" Value="6"></asp:TreeNode>
                 </asp:TreeNode>
                 <asp:TreeNode Text="أوامر إدارية" Value="7"></asp:TreeNode>
+                <asp:TreeNode Expanded="False" Text="قرارات وزارية" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
+                    <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"></asp:TreeNode>
+                    <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
+                </asp:TreeNode>
             </Nodes>
         </asp:TreeView>
 
@@ -190,13 +190,13 @@
                         </table>
                     </td>
                 </tr>
-                <tr runat="server">
-                    <td runat="server" style="">
+                               <tr runat="server">
+                    <td runat="server" class="pagination" dir="rtl">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
                             <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                               <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" FirstPageText="الأول" LastPageText="الأخير" NextPageText="<<" PreviousPageText=">>" ButtonCssClass="btn btn-secondary" />
                                 <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" LastPageText="الأخير" NextPageText="<<" ButtonCssClass="btn btn-secondary" />
                             </Fields>
                         </asp:DataPager>
                     </td>
