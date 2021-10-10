@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <h1 class="text-center text-info">قرارات اليوم </h1>
+        <h1 class="text-center text-info">ما تم نشره اليوم </h1>
                 <asp:SqlDataSource ID="countsds" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                     SelectCommand="SELECT decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT (varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID WHERE (CONVERT (date, decisions_Info.decDate, 101) = CONVERT (date, GETDATE(), 101))">

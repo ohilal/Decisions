@@ -6,9 +6,7 @@
 
 <%@ Register Assembly="System.Web.DynamicData, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.DynamicData" TagPrefix="cc2" %>
 
-<%--<%@ Register assembly="Infragistics2.WebUI.WebSchedule.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" namespace="Infragistics.WebUI.WebSchedule" tagprefix="igsch" %>
-<%@ Register assembly="Infragistics2.WebUI.WebDataInput.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" namespace="Infragistics.WebUI.WebDataInput" tagprefix="igtxt" %>
---%>
+
 <%@ Register Assembly="Infragistics2.WebUI.UltraWebTab.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" Namespace="Infragistics.WebUI.UltraWebTab" TagPrefix="igtab" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -41,9 +39,9 @@
                                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
                                 </asp:SqlDataSource>--%>
        </div>
-        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium">
+        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True">
             <Nodes>
-                <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20">
+                <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20" >
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
                     </asp:TreeNode>
                     <asp:TreeNode Expanded="False" Text="اجراءات عمل" ToolTip="اجراءات عمل" Value="3" ImageToolTip="القرارات">
@@ -61,6 +59,10 @@
                     <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
                 </asp:TreeNode>
             </Nodes>
+            <RootNodeStyle CssClass="font-weight-bold" />
+            <LeafNodeStyle CssClass="font-weight-light" />
+            <ParentNodeStyle CssClass="font-weight-bold" />
+
         </asp:TreeView>
 
 

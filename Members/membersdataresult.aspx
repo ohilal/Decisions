@@ -29,11 +29,17 @@
                 Text="اظهر التفاصيل "  ControlStyle-CssClass="btn btn-secondary" >
 <ControlStyle CssClass="btn btn-secondary"></ControlStyle>
             </asp:HyperLinkField>
-            <asp:CommandField ShowDeleteButton="True"  ButtonType="Button" ControlStyle-CssClass="btn btn-danger" DeleteText="حذف" >
+            <%--<asp:CommandField ShowDeleteButton="True"  ButtonType="Button" ControlStyle-CssClass="btn btn-danger" DeleteText="حذف" >
+
 
 <ControlStyle CssClass="btn btn-danger"></ControlStyle>
-            </asp:CommandField>
-
+            </asp:CommandField>--%>
+ <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:Button ID="btnDel" runat="server" CausesValidation="False" CommandName="Delete"  Text=" حذف" OnClick="btnDel_Click" OnClientClick="return confirm('هل انت متأكد من المسح؟');"/>
+                        </ItemTemplate>
+                        <ControlStyle CssClass="btn btn-danger" />
+                    </asp:TemplateField>
         </Columns>
        
     </asp:GridView>
@@ -41,9 +47,9 @@
     <asp:SqlDataSource ID="sdsSearch" runat="server" 
         ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
         SelectCommand="decKeywords" SelectCommandType="StoredProcedure" 
-        DeleteCommand="delete from dbo.Fullinfo where dID =@dID">
+        DeleteCommand="DELETE FROM decisions_Info WHERE (decID = @decID)">
         <DeleteParameters>
-            <asp:ControlParameter ControlID="grdSearch" Name="dID" 
+            <asp:ControlParameter ControlID="grdSearch" Name="decID" 
                 PropertyName="SelectedValue" />
         </DeleteParameters>
         <SelectParameters>
@@ -96,10 +102,10 @@
         UpdateCommand="updatedata" UpdateCommandType="StoredProcedure" 
         DeleteCommand="DELETE FROM decisions_Info WHERE (decID = @decID)">
         <DeleteParameters>
-            <asp:Parameter Name="ID" />
+            <asp:Parameter Name="decID" />
         </DeleteParameters>
         <UpdateParameters>
-            <asp:QueryStringParameter Name="dID" QueryStringField="dID" Type="Int32" />
+            <asp:QueryStringParameter Name="dID" QueryStringField="decID" Type="Int32" />
             <asp:Parameter Name="Title" Type="String" />
             <asp:Parameter Name="Summury" Type="String" />
             <asp:Parameter DbType="Date" Name="Date" />
