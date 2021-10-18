@@ -7,8 +7,10 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h2 class="text-info">البحث برقم القرار</h2>
-   <div class="form-group  col-lg-5 col-sm-12 mx-auto card">
+    
+   <div class="card col-lg-5 col-sm-12 mx-auto container " >
+       <div class="card-header"><h2 class="text-info text-center">البحث برقم القرار</h2></div>
+       <div class="form-group card-body">
                    <%-- <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-3" style="right: 0px; top: 0px"></asp:TextBox>&nbsp; &nbsp; &nbsp;--%>
 	   <asp:TextBox ID="txtdecNosearch" runat="server" CssClass="form-control col-lg-6 col-sm-12" placeholder="رقم القرار" required></asp:TextBox>
 	   <br /> 
@@ -20,8 +22,9 @@
 	   <asp:Button 
                         ID="btnSearch" runat="server" Text="بحث" 
         onclick="btnSearch_Click" CssClass="btn btn-lg btn-info col-lg-2 float-left" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
-       </div><br />
-    <div>
+       </div>
+    <div></div></div><br />
+       <div class="container-fluid">
          <asp:Label ID="noDataLabel" runat="server" Text="   " />
          <asp:DataList ID="DataList1" runat="server" DataKeyField="decID" DataSourceID="sdsdecNO" BorderColor="Silver" 
             BorderWidth="1px"  GridLines="Both" RepeatColumns="2" 
@@ -44,7 +47,7 @@
                 
 				 <br />
 				 ملف القرار:
-                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
 				
 
@@ -56,9 +59,9 @@
 				 <asp:ControlParameter ControlID="txtyear" Name="decDate" PropertyName="Text" Type="Int32" />
 			 </SelectParameters>
 		 </asp:SqlDataSource>
-         <br />
+        </div>
          
-            </div>
+            
 
 <%-----------------------igTabs-------------------------------- --%>
 

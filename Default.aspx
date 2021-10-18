@@ -29,7 +29,7 @@
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("decisionFile") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                    <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src="Images/pdf_logo_trefoil.gif" style="border-style:none;" alt="فتح الملف" /></a>
+                    <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
                 </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
