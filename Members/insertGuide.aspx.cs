@@ -24,15 +24,16 @@ public partial class InsertDecesion : System.Web.UI.Page
     protected void btnSubmitDec_Click(object sender, EventArgs e)
     {
         
-        if (uploadDecesion.HasFile)
+        if (uploadGuideFile.HasFile)
         {
-            string filepath = uploadDecesion.PostedFile.FileName;
+            string filepath = uploadGuideFile.PostedFile.FileName;
             string filename = Path.GetFileName(filepath);
             string ext = Path.GetExtension(filename);
-            SqlDataSource1.InsertParameters["decisionFile"].DefaultValue = filename;
+            SqlDataSource1.InsertParameters["guideFileExt"].DefaultValue = filename;
         }
 
-        uploadDecesion.SaveAs(Server.MapPath("~/UploadedDecisions/") + uploadDecesion.FileName);
+        uploadGuideFile.SaveAs(Server.MapPath("~/UploadedDecisions/") + uploadGuideFile.FileName);
+		Response.Write(txtDate.Text);
           SqlDataSource1.Insert();
           Response.Redirect("~/success.aspx");
     }
