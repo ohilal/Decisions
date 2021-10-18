@@ -64,10 +64,19 @@
       </div>
     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
+                        <a class="nav-link" href="~/DecStatistics.aspx" runat="server">دليل الأكواد</a>
                          </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة</a>
+                        <a class="nav-link" href="~/templets.aspx" runat="server">طلبات و نماذج</a>
+                         </li>
+					 <li class="nav-item ">
+                        <a class="nav-link" href="~/decwordsearch.aspx" runat="server">دليل التليفونات</a>
+                         </li>
+					 <li class="nav-item ">
+                        <a class="nav-link" href="~/laws_decrees.aspx" runat="server">قوانين و لوائح</a>
+                         </li>
+					 <li class="nav-item ">
+                        <a class="nav-link" href="~/decwordsearch.aspx" runat="server">صندوق التأمين الخاص</a>
                          </li>
  <li class="nav-item ">  
 			
