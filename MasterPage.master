@@ -10,7 +10,14 @@
     <link href="fonts/fontawesome5.15.2/css/all.css" rel="stylesheet" />
         <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" />
-
+    <script src="Scripts/jquery.min.js"></script>
+	
+	<script src="Scripts/popper.min.js"></script>
+	<script src="Scripts/bootstrap.min.js"></script>
+<%--    datepicker     --%>
+    <script src="Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="Scripts/jquery.ui.datepicker.validation.js"></script>
+    <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
    <%-- <link href="styles/dataTables.bootstrap4.css" rel="stylesheet" />
     <link href="styles/jquery.dataTables.css" rel="stylesheet" />--%>
 <%--        <script src="Scripts/bootstrap-datepicker.js"></script>
@@ -42,6 +49,20 @@
                      <li class="nav-item ">
                          <a class="nav-link" href="~/decsaerch.aspx" runat="server">البحث عن قرار</a>
                          </li>
+                    	
+                    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        القرارات
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="~/decsaerch.aspx" runat="server">البحث عن قرار</a>
+        <a class="dropdown-item" href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة</a>
+           <a class="dropdown-item" href="~/decNosearch.aspx" runat="server">البحث برقم القرار</a>
+        <a class="dropdown-item" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
+          <a runat="server" ID="Insert" href="~/Members/InsertDecesion.aspx" Visible="false" class="dropdown-item" >إدخال قرار</a>
+          <a runat="server" ID="Edit" href="~/Members/membersdataresult.aspx" Visible="false" class="dropdown-item">تعديل قرار</a>
+      </div>
+    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
                          </li>
@@ -49,9 +70,9 @@
                         <a class="nav-link" href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة</a>
                          </li>
  <li class="nav-item ">  
-			<a runat="server" ID="Insert" href="~/Members/InsertDecesion.aspx" Visible="false" class="nav-link">إدخال قرار</a>
+			
 </li>
-                    <li class="nav-item ">   <a runat="server" ID="Edit" href="~/Members/membersdataresult.aspx" Visible="false" class="nav-link">تعديل قرار</a>
+                    <li class="nav-item ">   
 </li>
 </ul>
                <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
@@ -73,7 +94,7 @@
                 </asp:LoginView>
             </nav>
 
-   <div class="container-lg " style="padding:25px;">
+   <div class="container-fluid" style="padding:25px;">
         <asp:ScriptManager ID="ScriptManager1" runat="server"  EnableScriptGlobalization="true" EnableScriptLocalization="true" />
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
            
