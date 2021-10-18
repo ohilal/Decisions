@@ -12,20 +12,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-    <br />    <h2 class="text-info text-center">البحث بالتاريخ</h2>
-    <br />
-    <br />
+     <div class="card col-lg-5 col-sm-12 mx-auto container " >
+         <div class="card-header"><h2 class="text-info text-center">البحث بالتاريخ</h2></div>
+   <div class="card-body">
    <div class="form-inline">
         <b> من </b>&nbsp;&nbsp;
         <asp:TextBox ID="txtdate1" runat="server"
-            ToolTip="من تاريخ..."  CssClass="form-control col-3" TextMode="Date"></asp:TextBox>
+            ToolTip="من تاريخ..."  CssClass="form-control col-5" TextMode="Date"></asp:TextBox>
     <%--    <cc1:CalendarExtender ID="txtdate1_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate1" Format="MM/dd/yyyy">
         </cc1:CalendarExtender>--%>
         &nbsp; &nbsp;<b> إلى   </b>&nbsp; &nbsp; 
     <asp:TextBox ID="txtdate2" runat="server" 
-        ToolTip="إلي تاريخ..." CssClass="form-control col-3" TextMode="Date"  ></asp:TextBox>
+        ToolTip="إلي تاريخ..." CssClass="form-control col-5" TextMode="Date"  ></asp:TextBox>
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
@@ -69,9 +68,9 @@
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnDate" runat="server"
-            Text="القرارات" CssClass="btn btn-info btn-lg col-1 topMargin "  />
+            Text="القرارات" CssClass="btn btn-info btn-lg  topMargin "  />
 
-
+</div></div>
         <br />
         <br />
 
@@ -116,7 +115,7 @@
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                 <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </AlternatingItemTemplate>
@@ -179,7 +178,7 @@
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                 <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </ItemTemplate>
