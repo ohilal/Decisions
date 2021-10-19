@@ -194,13 +194,34 @@
                 </tr>
                                <tr runat="server">
                     <td runat="server" class="pagination" dir="ltr">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                            <Fields>
-                               <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="True" FirstPageText="الأول" LastPageText="الأخير" NextPageText=">>" PreviousPageText="<<" ButtonCssClass="btn btn-secondary" />
-                                <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="True" ShowPreviousPageButton="False" LastPageText="الأخير" NextPageText=">>" ButtonCssClass="btn btn-secondary" />
-                            </Fields>
-                        </asp:DataPager>
+                        <asp:DataPager runat="server" ID="decsDataPager" PageSize="12">
+        <Fields>
+          <asp:TemplatePagerField>
+            <PagerTemplate>
+            <b>
+            صفحة
+            <asp:Label runat="server" ID="CurrentPageLabel" 
+              Text="<%# Container.TotalRowCount>0 ? (Container.StartRowIndex / Container.PageSize) + 1 : 0 %>" />
+            من
+            <asp:Label runat="server" ID="TotalPagesLabel" 
+              Text="<%# Math.Ceiling ((double)Container.TotalRowCount / Container.PageSize) %>" />
+            </b>
+            <br /><br />
+            </PagerTemplate>
+          </asp:TemplatePagerField>
+          
+          <asp:NextPreviousPagerField
+            ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+          
+          <asp:NumericPagerField 
+            PreviousPageText="&lt;&lt;"
+            NextPageText="&gt;&gt;"
+            ButtonCount="10" />
+            
+          <asp:NextPreviousPagerField
+           ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+        </Fields>
+      </asp:DataPager>
                     </td>
                 </tr>
             </table>
