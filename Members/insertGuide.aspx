@@ -37,60 +37,41 @@
     <table class="style1" cellpadding="3" cellspacing="3" dir="rtl">
         <tr>
             <td class="style2">
-                رقم القرار</td>
+                اسم الدليل</td>
             <td>
-                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtGuideTitle" runat="server" CssClass="form-control col-6"></asp:TextBox>
             </td>
         </tr>
-        <tr>
-            <td class="style2">
-                العنوان
-            </td>
-            <td>
-                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-6"></asp:TextBox>
-            </td>
-        </tr>
+        
         <tr>
             <td class="style3">
-                تاريخ القرار</td>
+              التاريخ</td>
             <td class="style4">
                 <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-6" TextMode="Date"></asp:TextBox>
                 
             </td>
         </tr>
-        <tr>
-            <td class="style3">
-                عدد مواد القرار</td>
-            <td class="style4">
-                <asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
-            </td>
-        </tr>
+        
         <tr>
             <td class="style2">
-                التصنيف</td>
+                نوع الدليل</td>
             <td>
-                <asp:DropDownList ID="ddlDecType" runat="server" DataSourceID="sdsDecType" 
-                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-6" AppendDataBoundItems="true">
-                    <asp:ListItem Text="اختر تصنيف القرار" Enabled="true"></asp:ListItem>
+                <asp:DropDownList ID="ddlGuideType" runat="server" DataSourceID="sdsGuideType" 
+                    DataTextField="GuideTypeName" DataValueField="GuideTypeName" CssClass="form-control col-6" AppendDataBoundItems="True" style="right: 0px; top: 0px">
+                    <asp:ListItem Text="اختر نوع الدليل" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="sdsDecType" runat="server" 
+                <asp:SqlDataSource ID="sdsGuideType" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
+                    SelectCommand="SELECT [GuideTypeName], [GuideTypeID] FROM [GuideTypes]">
                 </asp:SqlDataSource>
             </td>
         </tr>
-        <tr>
-            <td class="style2">
-                الكلمات الدالة</td>
-            <td dir="rtl">
-                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-6"></asp:TextBox>
-            </td>
-        </tr>
+        
         <tr>
             <td class="style2">
                 تحميل الملف</td>
             <td>
-                <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-6" />
+                <asp:FileUpload ID="uploadGuideFile" runat="server" CssClass="form-control col-6" />
             </td>
         </tr>
         <tr>
@@ -98,26 +79,18 @@
                 &nbsp;</td>
             <td>
                 <input id="Reset1" type="reset" value="reset" class="btn btn-secondary btn-lg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                <asp:Button ID="btnSubmitDec" runat="server" Text="إدخال القرار" 
+                <asp:Button ID="btnSubmitDec" runat="server" Text="إدخال " 
                     onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    InsertCommand="insertDecision" InsertCommandType="StoredProcedure" 
-                    SelectCommand="select * from decisions_Info">
+                    InsertCommand="insertGuide" InsertCommandType="StoredProcedure" 
+                    SelectCommand="SELECT guidebook.* FROM guidebook">
                     <InsertParameters>
-                        <asp:ControlParameter ControlID="txtNo" Name="decNo" PropertyName="Text" 
-                            Type="Int32" />
-                        <asp:ControlParameter ControlID="txtDate" DbType="DateTime" Name="decDate" 
-                            PropertyName="Text" />
-                        <asp:ControlParameter ControlID="txtTitle" Name="decTitle" PropertyName="Text" 
-                            Type="String" />
-                        <asp:ControlParameter ControlID="txtKeywords" Name="decKeywords" 
-                            PropertyName="Text" Type="String" />
-                        <asp:Parameter Name="decisionFile" Type="String" />
-                        <asp:ControlParameter ControlID="ddlDecType" Name="decTypeID" 
-                            PropertyName="SelectedValue" Type="Int16" />
-                        <asp:ControlParameter ControlID="txtsubNo" Name="decsubjectNo" 
-                            PropertyName="Text" Type="Int16" />
+                        <asp:ControlParameter ControlID="txtDate"  Name="InsertDate" PropertyName="Text"   Type="String" />
+						<asp:ControlParameter ControlID="txtGuideTitle" Name="Title" PropertyName="Text" Type="String" />
+						<asp:Parameter Name="guideFileExt" Type="String" />
+						<asp:ControlParameter ControlID="ddlGuideType" Name="guideType" PropertyName="SelectedValue" Type="Int64" />
+                        <asp:Parameter Name="RETURN_VALUE" Type="Int32" Direction="ReturnValue" />
                     </InsertParameters>
                 </asp:SqlDataSource>
             </td>
