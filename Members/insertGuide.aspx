@@ -57,7 +57,7 @@
                 نوع الدليل</td>
             <td>
                 <asp:DropDownList ID="ddlGuideType" runat="server" DataSourceID="sdsGuideType" 
-                    DataTextField="GuideTypeName" DataValueField="GuideTypeName" CssClass="form-control col-6" AppendDataBoundItems="True" style="right: 0px; top: 0px">
+                    DataTextField="GuideTypeName" DataValueField="GuideTypeID" CssClass="form-control col-6" AppendDataBoundItems="True" style="right: 0px; top: 0px">
                     <asp:ListItem Text="اختر نوع الدليل" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsGuideType" runat="server" 
@@ -81,16 +81,13 @@
                 <input id="Reset1" type="reset" value="reset" class="btn btn-secondary btn-lg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 <asp:Button ID="btnSubmitDec" runat="server" Text="إدخال " 
                     onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    InsertCommand="insertGuide" InsertCommandType="StoredProcedure" 
-                    SelectCommand="SELECT guidebook.* FROM guidebook">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" InsertCommand="insertGuide" InsertCommandType="StoredProcedure" SelectCommand="SELECT Title, ID, guideType, InsertDate, guideFileExt FROM guidebook">
                     <InsertParameters>
-                        <asp:ControlParameter ControlID="txtDate"  Name="InsertDate" PropertyName="Text"   Type="String" />
-						<asp:ControlParameter ControlID="txtGuideTitle" Name="Title" PropertyName="Text" Type="String" />
-						<asp:Parameter Name="guideFileExt" Type="String" />
-						<asp:ControlParameter ControlID="ddlGuideType" Name="guideType" PropertyName="SelectedValue" Type="Int64" />
-                        <asp:Parameter Name="RETURN_VALUE" Type="Int32" Direction="ReturnValue" />
+                        <asp:ControlParameter ControlID="txtGuideTitle" Name="Title" PropertyName="Text" Type="String" />
+                        <asp:ControlParameter ControlID="ddlGuideType" Name="guideType" PropertyName="SelectedValue" Type="Int32" />
+                        <asp:ControlParameter ControlID="txtDate" DbType="Date" Name="InsertDate" PropertyName="Text" />
+                        <asp:Parameter Name="guideFileExt" Type="String" />
+                        <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
                     </InsertParameters>
                 </asp:SqlDataSource>
             </td>

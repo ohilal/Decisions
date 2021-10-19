@@ -33,7 +33,7 @@ public partial class InsertDecesion : System.Web.UI.Page
         }
 
         uploadGuideFile.SaveAs(Server.MapPath("~/UploadedDecisions/") + uploadGuideFile.FileName);
-		Response.Write(txtDate.Text);
+		//Response.Write(txtDate.Text);
           SqlDataSource1.Insert();
           Response.Redirect("~/success.aspx");
     }
