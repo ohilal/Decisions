@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="login" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 180px;
+            width: 513px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="padding-right:100px;">
+    <div style="margin:0 auto;" class="col-lg-4 col-sm-12 mx-auto">
 <%--<img alt="alert" src="App_Themes/Default/images/alert.png" style="float:right;"/>--%>
     <asp:Login ID="Login1" runat="server" BackColor="#e3e3e3" BorderColor="#f37121" 
         BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" 
@@ -20,7 +26,7 @@
             <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
                 <tr>
                     <td>
-                        <table cellpadding="0" style="height:180px;width:513px;">
+                        <table cellpadding="0" class="auto-style1">
                             <tr>
                                 <td align="center" class="bg-gradient-info" style="font-weight:bold; color:#fff;">تسجيل الدخول</td>
                             </tr>
@@ -48,7 +54,7 @@
                             </tr>
                             <tr>
                                 <td style="font-family:Tahoma,Arial,Arabic Transparent;">
-                                    <asp:CheckBox ID="RememberMe" runat="server" Text=" تذكر بياناتى ." />
+                                    <asp:CheckBox ID="RememberMe" runat="server" Text="&nbsp;  تذكر بياناتى  . " />
                                 </td>
                             </tr>
                             <tr>
@@ -58,7 +64,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Button ID="LoginButton" runat="server" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" CssClass="btn btn-info btn-lg" Font-Bold="True"  Text="دخول" ValidationGroup="Login1" />
+                                    <asp:Button ID="LoginButton" runat="server" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" CssClass="btn btn-info btn-lg float-left" Font-Bold="True"  Text="دخول" ValidationGroup="Login1" />
                                 </td>
                             </tr>
                         </table>

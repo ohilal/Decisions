@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-   <div class="card col-lg-5 col-sm-12 mx-auto container " >
+    <div class="card col-lg-5 col-sm-12 mx-auto container " >
        <div class="card-header"><h2 class="text-info text-center">البحث برقم القرار</h2></div>
        <div class="form-group card-body">
                    <%-- <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-3" style="right: 0px; top: 0px"></asp:TextBox>&nbsp; &nbsp; &nbsp;--%>

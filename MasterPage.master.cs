@@ -20,8 +20,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //------------------------ members area-------------------
         if(Page.User.IsInRole("Members"))
         {
+            AdminMenu.Visible = true;
             Insert.Visible=true;
             Edit.Visible = true;
+            InsertGuide.Visible = true;
         }
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 

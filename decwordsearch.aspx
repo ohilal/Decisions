@@ -74,9 +74,35 @@
                     <LayoutTemplate><ul ID="itemPlaceholderContainer" runat="server" 
                 style="font-family:Tahoma,Arial;"><li ID="itemPlaceholder" runat="server" /></ul>
                 <div class="bg-gradient-secondary text-white white-link" style="color:#ffffff;">
-                    <asp:DataPager ID="DataPager1" runat="server" PageSize="5" ><Fields><asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
-                                ShowNextPageButton="False" ShowPreviousPageButton="False" FirstPageText="الأول" /><asp:NumericPagerField /><asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
-                                ShowNextPageButton="False" ShowPreviousPageButton="False" LastPageText="الأخير" /></Fields></asp:DataPager></div></LayoutTemplate><SelectedItemTemplate><tr style=""><td><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' /></td><td><asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("Summury") %>' /></td><td><asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' /></td><td><asp:Label ID="OwnerLabel" runat="server" Text='<%# Eval("Owner") %>' /></td><td><asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' /></td><td><asp:Label ID="ClassificationLabel" runat="server" 
+                    <asp:DataPager runat="server" ID="decsDataPager" PageSize="12">
+        <Fields>
+          <asp:TemplatePagerField>
+            <PagerTemplate>
+            <b>
+            صفحة
+            <asp:Label runat="server" ID="CurrentPageLabel" 
+              Text="<%# Container.TotalRowCount>0 ? (Container.StartRowIndex / Container.PageSize) + 1 : 0 %>" />
+            من
+            <asp:Label runat="server" ID="TotalPagesLabel" 
+              Text="<%# Math.Ceiling ((double)Container.TotalRowCount / Container.PageSize) %>" />
+            </b>
+            <br /><br />
+            </PagerTemplate>
+          </asp:TemplatePagerField>
+          
+          <asp:NextPreviousPagerField
+            ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+          
+          <asp:NumericPagerField 
+            PreviousPageText="&lt;&lt;"
+            NextPageText="&gt;&gt;"
+            ButtonCount="10" />
+            
+          <asp:NextPreviousPagerField
+           ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+        </Fields>
+      </asp:DataPager>
+                </div></LayoutTemplate><SelectedItemTemplate><tr style=""><td><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' /></td><td><asp:Label ID="SummuryLabel" runat="server" Text='<%# Eval("Summury") %>' /></td><td><asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' /></td><td><asp:Label ID="OwnerLabel" runat="server" Text='<%# Eval("Owner") %>' /></td><td><asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date", "{0:MMMM,yyyy}")%>' /></td><td><asp:Label ID="ClassificationLabel" runat="server" 
                             Text='<%# Eval("Classification") %>' /></td><td><asp:Label ID="FilepathLabel" runat="server" Text='<%# Eval("decisionFile") %>' /></td></tr></SelectedItemTemplate></asp:ListView>
          <br />
          <asp:SqlDataSource ID="sdstest" runat="server" 

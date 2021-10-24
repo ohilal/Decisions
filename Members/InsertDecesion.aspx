@@ -36,10 +36,10 @@
 </asp:LoginView>
     <table class="style1" cellpadding="3" cellspacing="3" dir="rtl">
         <tr>
-            <td class="style2">
+            <td class="col-lg-3 col-sm-12 col-form-label">
                 رقم القرار</td>
             <td>
-                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -47,14 +47,14 @@
                 العنوان
             </td>
             <td>
-                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style3">
                 تاريخ القرار</td>
             <td class="style4">
-                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-6" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-lg-6 col-sm-12" TextMode="Date"></asp:TextBox>
                 
             </td>
         </tr>
@@ -62,7 +62,7 @@
             <td class="style3">
                 عدد مواد القرار</td>
             <td class="style4">
-                <asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@
                 التصنيف</td>
             <td>
                 <asp:DropDownList ID="ddlDecType" runat="server" DataSourceID="sdsDecType" 
-                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-6" AppendDataBoundItems="true">
+                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-lg-6 col-sm-12" AppendDataBoundItems="true">
                     <asp:ListItem Text="اختر تصنيف القرار" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsDecType" runat="server" 
@@ -83,14 +83,14 @@
             <td class="style2">
                 الكلمات الدالة</td>
             <td dir="rtl">
-                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style2">
                 تحميل الملف</td>
             <td>
-                <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-6" />
+                <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-lg-6 col-sm-12" />
             </td>
         </tr>
         <tr>

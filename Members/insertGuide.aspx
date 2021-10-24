@@ -39,7 +39,7 @@
             <td class="style2">
                 اسم الدليل</td>
             <td>
-                <asp:TextBox ID="txtGuideTitle" runat="server" CssClass="form-control col-6"></asp:TextBox>
+                <asp:TextBox ID="txtGuideTitle" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
             </td>
         </tr>
         
@@ -47,7 +47,7 @@
             <td class="style3">
               التاريخ</td>
             <td class="style4">
-                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-6" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-lg-6 col-sm-12" TextMode="Date"></asp:TextBox>
                 
             </td>
         </tr>
@@ -57,7 +57,7 @@
                 نوع الدليل</td>
             <td>
                 <asp:DropDownList ID="ddlGuideType" runat="server" DataSourceID="sdsGuideType" 
-                    DataTextField="GuideTypeName" DataValueField="GuideTypeID" CssClass="form-control col-6" AppendDataBoundItems="True" style="right: 0px; top: 0px">
+                    DataTextField="GuideTypeName" DataValueField="GuideTypeID" CssClass="form-control col-lg-6 col-sm-12" AppendDataBoundItems="True" style="right: 0px; top: 0px">
                     <asp:ListItem Text="اختر نوع الدليل" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsGuideType" runat="server" 
@@ -71,7 +71,7 @@
             <td class="style2">
                 تحميل الملف</td>
             <td>
-                <asp:FileUpload ID="uploadGuideFile" runat="server" CssClass="form-control col-6" />
+                <asp:FileUpload ID="uploadGuideFile" runat="server" CssClass="form-control col-lg-6 col-sm-12" />
             </td>
         </tr>
         <tr>
