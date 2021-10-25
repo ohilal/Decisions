@@ -63,19 +63,19 @@
       </div>
     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="~/DecStatistics.aspx" runat="server">دليل الأكواد</a>
+                        <a class="nav-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
                          </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="~/templats.aspx" runat="server">طلبات و نماذج</a>
                          </li>
 					 <li class="nav-item ">
-                        <a class="nav-link" href="~/decwordsearch.aspx" runat="server">دليل التليفونات</a>
+                        <a class="nav-link" href="~/guidebooks.aspx?gID=3" runat="server">دليل التليفونات</a>
                          </li>
 					 <li class="nav-item ">
                         <a class="nav-link" href="~/laws_decrees.aspx" runat="server">قوانين و لوائح</a>
                          </li>
 					 <li class="nav-item ">
-                        <a class="nav-link" href="~/decwordsearch.aspx" runat="server">صندوق التأمين الخاص</a>
+                        <a class="nav-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
                          </li>
   <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="AdminMenu" data-toggle="dropdown" runat="server" visible="false">
