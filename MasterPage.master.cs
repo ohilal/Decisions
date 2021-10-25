@@ -24,6 +24,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             Insert.Visible=true;
             Edit.Visible = true;
             InsertGuide.Visible = true;
+            insertTemp.Visible = true;
         }
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 

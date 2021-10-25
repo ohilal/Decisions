@@ -84,7 +84,8 @@
       <div class="dropdown-menu">
  <a runat="server" ID="Insert" href="~/Members/InsertDecesion.aspx" Visible="false" class="dropdown-item" >إدخال قرار</a>
           <a runat="server" ID="Edit" href="~/Members/membersdataresult.aspx" Visible="false" class="dropdown-item list-group-item">تعديل قرار</a>
-          <a runat="server" id="InsertGuide" href="~/Members/insertGuide.aspx" Visible="false" class="dropdown-item">إدخال دليل</a>
+          <a runat="server" id="InsertGuide" href="~/Members/insertGuide.aspx" Visible="false" class="dropdown-item list-group-item">إدخال دليل</a>
+            <a runat="server" id="insertTemp" href="~/Members/InsertTemplate.aspx" Visible="false" class="dropdown-item">إدخال نموذج</a>
           </div>
 			
 </li>
