@@ -1,0 +1,66 @@
+import sys
+print(sys.executable)
+to print exe running file 
+which in this case the python path
+https://www.codingforentrepreneurs.com/projects/setup-python-and-django-windows/create-and-activate-virtual-environment-pipenv
+
+python -m pip install pipenv install
+OR
+python -m venv env
+or
+mkvirtualenv
+
+
+installs pipenv module to manage virtual enviroments 
+pipenv installs scripts in another location and creates a pip file that tells us what packages are installed activate by a command named shell inpower shell
+venv  and virtualenv dont they put all these in disignated folder  activate using activate and also some times use freeze to know what virtual enviroment is running
+ .\Scripts\activate
+ env\Scripts\activate
+You can also export the list of packages in an environment to a file, then include that file with your code. This allows other people to easily load all the dependencies for your code. Pip has similar functionality with pip freeze > requirements.txt.
+conda env export
+conda env export > environment.yaml
+pip freeze > requirements.txt
+python -m pip install django
+django-admin startproject mysite
+creats a website project inside our solution 
+and each project consists of apps 
+python manage.py startapp hello
+i.e the solution folder contains eviroments and django libaries similar to .net framework libaries 
+the project then apps 
+my site is your first app and is your primary app all thats is going to do is point to all your other apps 
+on explorer bar at any directory type cmd to open cmd in your place 
+python manage.py runserver
+"hello\index.html"
+you can use just index.html but in case you have multiple indexe pages 
+so you create a folder named hello then index in it in a template folder 
+Ctrl+K Ctrl+T
+create a templates folder and then a folder by the name of the app
+and put your templates there i.e html files
+create a static folder that contains css files
+
+in models pk means primary key
+conda list lists packages installed
+
+conda upgrade conda
+conda upgrade --all
+python manage.py check
+python3 manage.py shell
+migrate, which is responsible for applying and unapplying migrations.
+makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+sqlmigrate, which displays the SQL statements for a migration.
+showmigrations, which lists a project’s migrations and their status.
+{{ forloop.counter }} index starts at 1.
+{{ forloop.counter0 }}
+
+python manage.py createsuperuser
+python manage.py inspectdb > models.py to do database first modeling
+pip install -r requirements.txt
+to host you need to 
+python manage.py collectstatic
+and set folder to staticfiles
+remove cached and re ignore
+git rm -r --cached .
+git add .
+git commit -am 'Removed files from the index (now ignored)'
+# ModuleNotFoundError: No module named 'pip' Error:
+python -m ensurepip

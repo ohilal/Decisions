@@ -8,7 +8,7 @@
     <h3>البحث فى الدراسات بالعنوان أو بالكلمات الدالة</h3>
     <asp:TextBox ID="TextBox2" runat="server" Width="350"></asp:TextBox>&nbsp;
     <asp:Button ID="Button1"
-        runat="server" Text="بحـث" />
+        runat="server" Text="بحـث" CssClass="btn btn-lg btn-info"  />
     <asp:GridView ID="grdSearch" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="decID" DataSourceID="sdsSearch" 
         onrowdatabound="grdSearch_RowDataBound" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover table-striped">

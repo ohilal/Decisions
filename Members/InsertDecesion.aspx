@@ -26,7 +26,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="text-align:center;">Member's Area</h1>
+    <h1 style="text-align:center;">إدخال القرارات</h1>
 <asp:LoginView ID="LoginView1" runat="server">
     <LoggedInTemplate>
         مرحبا..<asp:LoginName ID="LoginName1" runat="server" />

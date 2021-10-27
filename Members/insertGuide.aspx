@@ -26,7 +26,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="text-align:center;">Member's Area</h1>
+    <h1 style="text-align:center;" class="h1">إدخال الأدلة</h1>
 <asp:LoginView ID="LoginView1" runat="server">
     <LoggedInTemplate>
         مرحبا..<asp:LoginName ID="LoginName1" runat="server" />
@@ -62,7 +62,7 @@
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsGuideType" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    SelectCommand="SELECT [GuideTypeName], [GuideTypeID] FROM [GuideTypes]">
+                    SelectCommand="SELECT GuideTypeName, GuideTypeID FROM GuideTypes WHERE (GuideTypeID &lt; 4)">
                 </asp:SqlDataSource>
             </td>
         </tr>

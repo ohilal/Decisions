@@ -6,14 +6,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-		<h1 class="text-center text-info">طلبات  ونماذج </h1>
+    <div class="container text-center mx-auto align-items-center">
+    <asp:DataList ID="listTilte" runat="server" DataKeyField="GuideTypeID" DataSourceID="sdsTitle" RepeatDirection="Horizontal" RepeatLayout="Flow" ShowFooter="False" ShowHeader="False">
+        <ItemTemplate>
+<asp:Label ID="GuideTypeNameLabel" runat="server" Text='<%# Eval("GuideTypeName") %>' CssClass="h1 text-info text-center mx-auto col-12 "/>
+           
+        </ItemTemplate>
+                </asp:DataList>
+        <asp:SqlDataSource ID="sdsTitle" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT GuideTypeName, GuideTypeID FROM GuideTypes WHERE (GuideTypeID = @gID)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="gID" QueryStringField="gID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </div>
+    <br />
                   
 		<asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" >
         <AlternatingItemTemplate>
-            <li style="background-color: #FAFAD2;color: #284775;">إسم النموذج:
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' />
+            <li class="list-unstyled" >
+				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h3 col-12" />
 				<br />
-				ملف النموذج:
+				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
 				<br />
 			</li>
@@ -44,23 +57,30 @@
 			</li>
         </InsertItemTemplate>
         	<ItemSeparatorTemplate>
-				<br />
+				<hr />
 			</ItemSeparatorTemplate>
         <ItemTemplate>
-            <li style="background-color: #FFFBD6;color: #333333;">إسم النموذج:
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' />
+            <li class="list-unstyled" > 
+				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h3 col-12" />
 				<br />
-				ملف النموذج:
+				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
 				<br />
 			</li>
         </ItemTemplate>
         <LayoutTemplate>
-            <ul id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+            <ul id="itemPlaceholderContainer" runat="server" >
 				<li runat="server" id="itemPlaceholder" />
 			</ul>
-			<div style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+			<div style="text-align: center;background-color: #FFCC66;color: #333333;">
 			</div>
+             <div style="">
+                <asp:DataPager ID="DataPager1" runat="server">
+                    <Fields>
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                    </Fields>
+                </asp:DataPager>
+            </div>
         </LayoutTemplate>
         <SelectedItemTemplate>
             <li style="background-color: #FFCC66;font-weight: bold;color: #000080;">TemplateName:
@@ -74,7 +94,11 @@
                     </asp:ListView>
 
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TemplateName, TemplatePath FROM Templates"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TemplateName, TemplatePath, typeID FROM Templates WHERE (typeID = @gID)">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="gID" QueryStringField="gID" />
+                    </SelectParameters>
+        </asp:SqlDataSource>
 
 
                 <br />
