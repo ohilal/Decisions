@@ -1,9 +1,9 @@
-﻿<%@ Page  Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InsertTemplate.aspx.cs" Inherits="InsertDecesion" Title="إدخال قرارات الهيئة" %>
+﻿<%@ Page  Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InsertTemplate.aspx.cs" Inherits="InsertDecesion" Title="إدخال قرارات الهيئة" EnableEventValidation="false" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-	<style>
+    <style>
         .search_textbox, .date {
             width: 90%;
             font-size: .8em;
@@ -33,10 +33,14 @@
         :-moz-placeholder {
             color: red;
         }
+        .auto-style1 {
+            right: 0px;
+            top: 0px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-	<h1 style="text-align:center;" class="h1">إدخال النماذج أو القوانين</h1>
+    <h1 style="text-align:center;" class="h1">إدخال النماذج أو القوانين</h1>
 <div class="card col-lg-5 col-sm-12 mx-auto container">
     <div class="card-body">
     <div class="row form-inline">
@@ -46,7 +50,7 @@
     </div>
          <div class="row form-inline topMargin">
                 <label class="col-form-label col-lg-3 text-nowrap">نوع النموذج/ القانون: &nbsp;</label>
-             <asp:DropDownList ID="ddlType" runat="server" DataSourceID="sdsType" DataTextField="GuideTypeName" DataValueField="GuideTypeID" CssClass="dropdown col-lg-9 col-cm-12" >
+             <asp:DropDownList ID="ddlType" runat="server" AppendDataBoundItems="True" DataSourceID="sdsType" DataTextField="GuideTypeName" DataValueField="GuideTypeID" CssClass="dropdown col-lg-9 col-cm-12" >
 <asp:ListItem Text="اختر نوع النموذج/ القانون" Enabled="true"></asp:ListItem>
              </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsType" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT GuideTypeName, GuideTypeID FROM GuideTypes WHERE (GuideTypeID &gt; 3)"></asp:SqlDataSource>
@@ -70,8 +74,8 @@
         <asp:ControlParameter ControlID="ddlType" Name="typeID" PropertyName="SelectedValue" Type="Int32" />
 	</InsertParameters>
 			</asp:SqlDataSource>
-    <br />
-    <div class="card container mx-auto topMargin">
+
+    <div class="card container">
         <div class="card-header">
             <h1 class="h1 text-center" >تعديل نموذج أو قانون</h1>
         </div>
@@ -89,15 +93,15 @@
 
  <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <asp:Button ID="btnDel" runat="server" CausesValidation="False" CommandName="Delete"  Text=" حذف" OnClick="btnDel_Click" OnClientClick="return confirm('هل انت متأكد من المسح؟');"/>
+                                    <asp:Button ID="btnDel" ClientIDMode="Static" runat="server" CssClass="btn btn-danger" CausesValidation="False" CommandName="Delete"  Text=" حذف" OnClick="btnDel_Click" OnClientClick="return confirm('هل انت متأكد من المسح؟');"/>
                         </ItemTemplate>
                         <ControlStyle CssClass="btn btn-danger" />
                     </asp:TemplateField>
      </Columns>
 <FooterStyle CssClass="pagination"></FooterStyle>
-
-
     </asp:GridView></div></div>
+    <br />
+    
      <script>
                 $(document).ready(function () {
                     $('#<%= GridView1.ClientID %>').DataTable();

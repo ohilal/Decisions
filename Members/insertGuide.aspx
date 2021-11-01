@@ -77,6 +77,10 @@
 			width: 729px;
 			height: 33px;
 		}
+    .auto-style7 {
+        right: 0px;
+        top: 0px;
+    }
     </style>
 
 </asp:Content>
@@ -148,7 +152,7 @@
 
 				<br />
 				
-				<div class="card container mx-auto topMargin">
+				<div class="auto-style7">
         <div class="card-header">
             <h1 class="h1 text-center" >تعديل دليل</h1>
         </div>
