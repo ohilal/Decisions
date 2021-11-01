@@ -133,7 +133,7 @@ public partial class InsertDecesion : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                string sql = " DELETE FROM Templates WHERE (TemplateID = @ID)";
+                string sql = " DELETE FROM Templates WHERE (TemplateID = @TemplateID)";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("TemplateID", id);
                 cmd.Connection = con;

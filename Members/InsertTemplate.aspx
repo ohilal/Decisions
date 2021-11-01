@@ -76,7 +76,7 @@
             <h1 class="h1 text-center" >تعديل نموذج أو قانون</h1>
         </div>
         <div class="card-body">
- <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" >
+ <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" DataKeyNames="TemplateID" >
     <Columns>
          <asp:BoundField DataField="TemplateName" HeaderText="النموذج" SortExpression="TemplateName" />
          <asp:BoundField DataField="TemplatePath" HeaderText="مسار الملف" SortExpression="TemplatePath" />

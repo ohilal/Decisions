@@ -123,7 +123,7 @@
           <div class="col-12"> <a href="#"  title="أعلى الصفحة" class=" scrollup">
 <i class='fas fa-caret-square-up' style='font-size:40px; color:rgba(255, 255, 255, 0.6);'></i>
 </a>
-            <p class="designed"> الهيئة العامة للتنمية الصناعية <script>document.write(new Date().getFullYear())</script></p>
+            <p class="designed"> الهيئة العامة للتنمية الصناعية 2010- <script>document.write(new Date().getFullYear())</script></p>
           </div>
         </div>
   </footer>
