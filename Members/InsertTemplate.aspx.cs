@@ -13,11 +13,12 @@ public partial class InsertDecesion : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
+        //if (!IsPostBack)
+        //{
 
-            this.SelectAll();
-        }
+        //    this.SelectAll();
+        //}
+        this.SelectAll();
         string UpPath;
         UpPath = "C:\\UploadedDecisions";
         if (!Directory.Exists(UpPath))
