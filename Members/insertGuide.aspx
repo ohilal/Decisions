@@ -182,7 +182,7 @@
 
 
     </asp:GridView>
-			<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="select guidebook.ID,guidebook.Title, guidebook.guideFileExt, GuideTypes.GuideTypeName from guidebook inner join GuideTypes on guidebook.guideType= GuideTypes.GuideTypeID"></asp:SqlDataSource>
+			<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT guidebook.ID, guidebook.Title, guidebook.guideFileExt, GuideTypes.GuideTypeName FROM guidebook INNER JOIN GuideTypes ON guidebook.guideType = GuideTypes.GuideTypeID"></asp:SqlDataSource>
 					</div></div>
             </td>
         </tr>

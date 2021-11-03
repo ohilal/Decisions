@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
+	<asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="TemplateID" DataSourceID="SqlDataSource1" Height="50px" 
         Width="95%" onitemupdating="DetailsView1_ItemUpdating" 
         onitemcreated="DetailsView1_ItemCreated" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" HeaderStyle-Width="30%">
