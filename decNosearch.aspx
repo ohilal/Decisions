@@ -49,7 +49,7 @@
 				 ملف القرار:
                  <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
-				
+<%--                 <asp:Button ID="Button1" runat="server" Text="Button" CssClass="btn btn-info" PostBackUrl="~/Members/editdetails.aspx" />--%>
 
 			 </ItemTemplate>
 		 </asp:DataList>

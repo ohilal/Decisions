@@ -27,7 +27,7 @@ public partial class Members_editdetails : System.Web.UI.Page
 
     }
     
-    protected void SqlDataSource2_Updating(object sender, SqlDataSourceCommandEventArgs e)
+    protected void SqlDataSource1_Updating(object sender, SqlDataSourceCommandEventArgs e)
     {
         DbParameterCollection CmdParams = e.Command.Parameters;
         ParameterCollection UpdParams = ((SqlDataSourceView)sender).UpdateParameters;
@@ -47,7 +47,7 @@ public partial class Members_editdetails : System.Web.UI.Page
 
 
       
-       SqlDataSource2.OldValuesParameterFormatString = "";
+       SqlDataSource1.OldValuesParameterFormatString = "";
         
         
 
@@ -56,14 +56,14 @@ public partial class Members_editdetails : System.Web.UI.Page
         {
             string filepath = file.PostedFile.FileName;
             string filename = Path.GetFileName(filepath);
-            SqlDataSource2.UpdateParameters["guideFileExt"].DefaultValue = filename;
+            SqlDataSource1.UpdateParameters["guideFileExt"].DefaultValue = filename;
 
         }
 
         
         file.SaveAs(Server.MapPath("~/UploadedDecisions/") + file.FileName);
-        SqlDataSource2.Update();
-        SqlDataSource2.DataBind();
+        SqlDataSource1.Update();
+        SqlDataSource1.DataBind();
         //if (e.NewValues == null)
         //{
 
