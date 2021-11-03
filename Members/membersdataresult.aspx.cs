@@ -29,7 +29,7 @@ public partial class Members_membersdataresult : System.Web.UI.Page
                     if (((CommandField)dcf).ShowDeleteButton == true)
                     {
                         e.Row.Cells[gv.Columns.IndexOf(dcf)].Attributes
-                        .Add("onclick", "return confirm(\"هل انت متأكد من الغاء الدراسة؟\")");
+                        .Add("onclick", "return confirm(\"هل انت متأكد من حذف القرار؟\")");
                     }
                 }
             }

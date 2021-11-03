@@ -110,7 +110,7 @@
                 </asp:LoginView>
             </nav>
 
-   <div class="container-fluid" style="padding:25px;">
+   <div class="container-fluid" style="padding:25px;" id="Main-container-fluid">
         <asp:ScriptManager ID="ScriptManager1" runat="server"  EnableScriptGlobalization="true" EnableScriptLocalization="true" />
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
            

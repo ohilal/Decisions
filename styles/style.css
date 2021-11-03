@@ -377,9 +377,9 @@ h1{
     position: static !important;
     width:inherit;
 }
-/*.container-fluid {
+#Main-container-fluid {
     margin-bottom:50px !important;
-}*/
+}
 /*================= tooltip=====================*/
 .final__tooltip {
     position: relative;
