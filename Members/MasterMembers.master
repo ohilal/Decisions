@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterMembers.master.cs" Inherits="Members_MasterMembers" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+     <asp:ContentPlaceHolder ID="nestedHead" runat="server">
+    
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/popper.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/dataTables.bootstrap.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.js"></script>
+    <script src="../Scripts/bootstrap-datepicker.js"></script>
+    <script src="../Scripts/bootstrap-datepicker.ar.js"></script>
+    <script src="../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
+    <script src="../Scripts/jquery.ui.datepicker.validation.js"></script>
+     </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+     <asp:ContentPlaceHolder ID="nestedContent" runat="server">
+    
+    <script src="../Scripts/bootstrap-datepicker.js"></script>
+        <script src="../Scripts/jquery.ui.datepicker.validation.js"></script>
+        <script src="../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
+        <script src="../Scripts/dataTables.bootstrap.js"></script>
+        <script src="../Scripts/jquery.dataTables.js"></script>
+
+     </asp:ContentPlaceHolder>
+</asp:Content>
+

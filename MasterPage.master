@@ -10,10 +10,12 @@
     <link href="fonts/fontawesome5.15.2/css/all.css" rel="stylesheet" />
         <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" />
-    <script src="../../Scripts/jquery.min.js"></script>
-	
+   <%-- <script src="../../Scripts/jquery.min.js"></script>--%>
+    <script src="<%= ResolveUrl("~") %>Scripts/jquery.min.js"></script>
+	<%--<script src='<% ResolveUrl("~/Scripts/jquery.min.js" ) %>' type="text/javascript"></script>--%>
 	<script src="../../Scripts/popper.min.js"></script>
-	<script src="../../Scripts/bootstrap.min.js"></script>
+ <script src="<%= ResolveUrl("~") %>Scripts/bootstrap.min.js"></script>
+	<%--<script src="../../Scripts/bootstrap.min.js"></script>--%>
 <%--    datepicker     --%>
     <script src="../../Scripts/bootstrap-datepicker.min.js"></script>
     <script src="../../Scripts/jquery.ui.datepicker.validation.js"></script>

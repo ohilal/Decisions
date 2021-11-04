@@ -1,10 +1,10 @@
-﻿<%@ Page Title="statstics" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="DecStatistics.aspx.cs" Inherits="Members_DecStatistics" %>
+﻿<%@ Page Title="statstics" Language="C#" MasterPageFile="~/Members/MasterMembers.master" AutoEventWireup="true" CodeFile="DecStatistics.aspx.cs" Inherits="Members_DecStatistics" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content  ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 	<style type="text/css">
         .style1
         {
