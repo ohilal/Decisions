@@ -117,6 +117,7 @@
    <br />
    <br />
     <asp:Button ID="Button1" runat="server" Text="عودة إلى صفحة التعديل" 
-        PostBackUrl="~/Members/membersdataresult.aspx" />
+        PostBackUrl="~/Members/membersdataresult.aspx" CssClass="btn btn-secondary btn-group-lg" />
+    <asp:Button ID="Button2" runat="server" Text="عودة إلى البحث برقم القرار" CssClass="btn btn-secondary btn-group-lg" PostBackUrl="~/Members/membersdecNosearch.aspx" />
 </asp:Content>
 
