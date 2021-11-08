@@ -29,6 +29,9 @@
          <asp:DataList ID="DataList1" runat="server" DataKeyField="decID" DataSourceID="sdsdecNO" BorderColor="Silver" 
             BorderWidth="1px"  GridLines="Both" RepeatColumns="2" 
             Width="80%">
+			 <EditItemTemplate>
+				 
+			 </EditItemTemplate>
 			 <ItemTemplate>
 				<%-- decID:
 				 <asp:Label ID="decIDLabel" runat="server" Text='<%# Eval("decID") %>' />
@@ -49,10 +52,13 @@
 				 ملف القرار:
                  <a href="#" onclick='window.open("~/UploadedDecisions/<%#Eval("decisionFile")%>")'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
+				 <div class="topMargin float-left">
 				
-                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "~/Members/editdetails.aspx?decID={0}") %>'>التفاصيل</asp:HyperLink></li>
-
-			 </ItemTemplate>
+                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "~/Members/editdetails.aspx?decID={0}") %>' CssClass="btn btn-info">التفاصيل</asp:HyperLink></li>
+			
+				<asp:Button ID="btnDel" runat="server" OnClick="btnDel_Click" OnClientClick="return confirm('هل انت متأكد من المسح؟');" Text="حذف" CssClass="btn btn-danger" />
+			</div> 
+				 </ItemTemplate>
 		 </asp:DataList>
          <asp:SqlDataSource ID="sdsdecNO" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="decNOsearch" SelectCommandType="StoredProcedure">
 			 <SelectParameters>

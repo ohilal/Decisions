@@ -8,7 +8,7 @@
 	<asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="TemplateID" DataSourceID="SqlDataSource1" Height="50px" 
         Width="95%" onitemupdating="DetailsView1_ItemUpdating" 
-        onitemcreated="DetailsView1_ItemCreated" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" HeaderStyle-Width="30%">
+        onitemcreated="DetailsView1_ItemCreated" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" HeaderStyle-Width="30%" OnItemDeleted="DetailsView1_ItemDeleted" OnItemDeleting="DetailsView1_ItemDeleting">
         <Fields>
             <asp:BoundField DataField="TemplateName" HeaderText="عنوان النموذج/ القانون" 
                 SortExpression="TemplateName" />

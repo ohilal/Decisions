@@ -122,4 +122,43 @@ public partial class Members_editdetails : System.Web.UI.Page
         }
     
     }
+
+	
+
+	protected void DetailsView1_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
+	{
+		{
+			// Test FooterRow to make sure all rows have been created 
+			if (DetailsView1.FooterRow != null)
+			{
+				// The command bar is the last element in the Rows collection
+				int commandRowIndex = DetailsView1.Rows.Count - 1;
+				if (commandRowIndex > 0)
+				{
+					DetailsViewRow commandRow = DetailsView1.Rows[commandRowIndex];
+					// Look for the DELETE button
+					DataControlFieldCell cell = (DataControlFieldCell)commandRow.Controls[0];
+					foreach (Control ctl in cell.Controls)
+					{
+						LinkButton link = ctl as LinkButton;
+						if (link != null)
+						{
+							if (link.CommandName == "Delete")
+							{
+								link.ToolTip = "اضغط هنا للإلغاء";
+								link.OnClientClick = "return confirm('هل أنت متأكد من إلغاءالبيان؟');";
+							}
+
+						}
+
+					}
+				}
+			}
+		}
+	}
+
+	protected void DetailsView1_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
+	{
+
+	}
 }
