@@ -126,7 +126,7 @@ public partial class InsertDecesion : System.Web.UI.Page
 	{
 		Button btn = sender as Button;
 		GridViewRow row = btn.NamingContainer as GridViewRow;
-
+		
 		int id = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Values[0]);
 		string constr = ConfigurationManager.ConnectionStrings["dataBankConnectionString"].ConnectionString;
 		using (SqlConnection con = new SqlConnection(constr))

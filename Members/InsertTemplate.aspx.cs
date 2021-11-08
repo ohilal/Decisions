@@ -143,6 +143,7 @@ public partial class InsertDecesion : System.Web.UI.Page
                 con.Close();
             }
         }
+		this.SelectAll();
         GridView1.DataBind();
     }
     }
