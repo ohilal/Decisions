@@ -34,6 +34,11 @@
                         </asp:TemplateField>
                     </Columns>
     
+                    <EmptyDataTemplate>
+                        <div class="alert-info text-center align-items-center ">
+                        لا توجد قرارات بتاريخ اليوم.
+                    </div></EmptyDataTemplate>
+    
                     <FooterStyle BackColor="#CCCCCC" CssClass="pagination-lg" />
                 <HeaderStyle CssClass="table-secondary"></HeaderStyle>
                 <PagerSettings Mode="NumericFirstLast" PageButtonCount="5" />
