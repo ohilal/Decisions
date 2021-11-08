@@ -83,6 +83,6 @@
    <br />
    <br />
     <asp:Button ID="Button1" runat="server" Text="عودة إلى صفحة التعديل" 
-        PostBackUrl="~/Members/InsertTemplate.aspx" />
+        PostBackUrl="~/Members/insertGuide.aspx" />
 </asp:Content>
 

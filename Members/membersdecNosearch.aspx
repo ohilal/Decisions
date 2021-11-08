@@ -47,7 +47,7 @@
                 
 				 <br />
 				 ملف القرار:
-                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
+                 <a href="#" onclick='window.open("~/UploadedDecisions/<%#Eval("decisionFile")%>")'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
 				
                              <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "~/Members/editdetails.aspx?decID={0}") %>'>التفاصيل</asp:HyperLink></li>

@@ -151,13 +151,15 @@
                 </asp:SqlDataSource>
 
 				<br />
-				
-				<div class="auto-style7">
+				   </td>
+        </tr>
+	    </table>
+				<div class="card ">
         <div class="card-header">
             <h1 class="h1 text-center" >تعديل دليل</h1>
         </div>
         <div class="card-body">
- <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" >
+ <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" DataKeyNames="ID" >
     <Columns>
          <asp:BoundField DataField="Title" HeaderText="الدليل" SortExpression="Title" />
          <asp:BoundField DataField="guideFileExt" HeaderText="مسار الملف" SortExpression="guideFileExt" />
@@ -184,12 +186,7 @@
     </asp:GridView>
 			<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT guidebook.ID, guidebook.Title, guidebook.guideFileExt, GuideTypes.GuideTypeName FROM guidebook INNER JOIN GuideTypes ON guidebook.guideType = GuideTypes.GuideTypeID"></asp:SqlDataSource>
 					</div></div>
-            </td>
-        </tr>
-		
-				
-
-    </table>
+         
 	<script>
                 $(document).ready(function () {
                     $('#<%= GridView1.ClientID %>').DataTable();

@@ -11,6 +11,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="margin:0 auto;" class="col-lg-4 col-sm-12 mx-auto">
 <%--<img alt="alert" src="App_Themes/Default/images/alert.png" style="float:right;"/>--%>
+        <div class="alert-danger h3 ">
+       هذه الصفحة مخصصة فقط لإدارة الموقع. 
+        </div>
+<div class="topMargin">
     <asp:Login ID="Login1" runat="server" BackColor="#e3e3e3" BorderColor="#f37121" 
         BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" 
          ForeColor="Black" LoginButtonText="دخول" 
