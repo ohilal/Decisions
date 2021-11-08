@@ -36,7 +36,7 @@
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("typeID") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="True" ButtonType="Button" CancelText="إلغاء التعديل" EditText="تعديل" UpdateText="تحديث البيانات" >
+            <asp:CommandField ShowEditButton="True" ButtonType="Button" CancelText="إلغاء التعديل" EditText="تعديل" UpdateText="تحديث البيانات" ShowDeleteButton="True" DeleteText="مسح">
             <ControlStyle CssClass="btn btn-lg btn-secondary" />
             </asp:CommandField>
         </Fields>
@@ -51,7 +51,10 @@
         ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>"        
         SelectCommand="SELECT Templates.TemplateName, Templates.TemplatePath, Templates.typeID, GuideTypes.GuideTypeName, Templates.TemplateID FROM GuideTypes INNER JOIN Templates ON GuideTypes.GuideTypeID = Templates.typeID WHERE (Templates.TemplateID = @ID)" 
         UpdateCommand="updateTemp" UpdateCommandType="StoredProcedure" 
-        onupdating="SqlDataSource1_Updating">
+        onupdating="SqlDataSource1_Updating" DeleteCommand="DELETE FROM Templates WHERE (TemplateID = @TemplateID)">
+        <DeleteParameters>
+			<asp:Parameter Name="TemplateID" />
+		</DeleteParameters>
         <SelectParameters>
             <asp:QueryStringParameter Name="ID" QueryStringField="ID"  />
         </SelectParameters>

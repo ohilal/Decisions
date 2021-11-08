@@ -99,12 +99,12 @@ public partial class Members_editdetails : System.Web.UI.Page
                         LinkButton link = ctl as LinkButton;
                         if (link != null)
                         {
-                            //    if (link.CommandName == "Delete")
-                            //    {
-                            //        link.ToolTip = "اضغط هنا للإلغاء";
-                            //        link.OnClientClick = "return confirm('هل أنت متأكد من إلغاءالبيان؟');";
-                            //    }
-                            if (link.CommandName == "Update")
+							if (link.CommandName == "Delete")
+							{
+								link.ToolTip = "اضغط هنا للإلغاء";
+								link.OnClientClick = "return confirm('هل أنت متأكد من إلغاءالبيان؟');";
+							}
+							if (link.CommandName == "Update")
                             {
                                 link.ToolTip = "اضغط هنا للتعديل";
                                 link.OnClientClick = "return confirm('هل أنت متأكد من تعديل البيان؟');";
