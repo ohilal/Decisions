@@ -24,7 +24,7 @@
 		<asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" >
         <AlternatingItemTemplate>
             <li class="list-unstyled" >
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h3 col-12" />
+				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
 				<br />
 				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
@@ -61,7 +61,7 @@
 			</ItemSeparatorTemplate>
         <ItemTemplate>
             <li class="list-unstyled" > 
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h3 col-12" />
+				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
 				<br />
 				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>

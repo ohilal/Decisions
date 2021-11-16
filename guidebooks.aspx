@@ -19,7 +19,7 @@
         <AlternatingItemTemplate>
             <li class="row list-unstyled">
                 <br />
-                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h3 col-12"  />
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h4 col-12"  />
                 <br />
  <div style='display:<%# GetVisibility(DataBinder.Eval(Container.DataItem,"GuideTypeID").ToString())%>'><dl><dt class="dbresults font-weight-bold">تاريخ إدخال الدليل :</dt><dd id="link2" runat="server" class="dbresults" ><%# Eval("InsertDate", "{0:dd/MM/yyyy}")%></dd></dl><br /></div>
 <br />
@@ -76,7 +76,7 @@
            <li class="list-unstyled">
 <%--                <asp:Label ID="GuideTypeNameLabel" runat="server" Text='<%# Eval("GuideTypeName") %>' CssClass="h1 text-info text-center mx-auto col-12 float-xl-none" style="margin:0 auto !important;"/>
                 <br />--%>
-                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h3 col-12"  />
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h4 col-12"  />
                 <br />
                
                <div style='display:<%# GetVisibility(DataBinder.Eval(Container.DataItem,"GuideTypeID").ToString())%>'><dl><dt class="dbresults font-weight-bold">تاريخ إدخال الدليل :</dt><dd id="link2" runat="server" class="dbresults" ><%# Eval("InsertDate", "{0:dd/MM/yyyy}")%></dd></dl><br /></div>

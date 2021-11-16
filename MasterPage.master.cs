@@ -17,15 +17,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //------------------------ members area-------------------
-        if(Page.User.IsInRole("Members"))
+        //------------------------ members area-----------------
+        if(Page.User.IsInRole("Members")|| Page.User.IsInRole("Admin"))
         {
-            AdminMenu.Visible = true;
-            Insert.Visible=true;
-            Edit.Visible = true;
-            InsertGuide.Visible = true;
-            insertTemp.Visible = true;
-            decNO.Visible = true;
+            MemebersArea.Visible = true;
+        }
+        if (Page.User.IsInRole("Admin"))
+        {
+            AdminArea.Visible = true;
         }
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 

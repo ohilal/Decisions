@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  
+  
+  <!---->
+  <siteMapNode   roles="Members,Admin"  >
+   <siteMapNode title="Admin's Area" roles="Admin">
+    <siteMapNode url="~/Admin/CreateUser.aspx" title="Create User" />
+    <siteMapNode url="~/Admin/manageUsers.aspx" title="Manage Users" />
+    <siteMapNode url="~/Admin/changePassword.aspx" title="Change Password" />
+  </siteMapNode>
+    <siteMapNode title ="Members" roles="Members,Admin">
+      <siteMapNode url="~/Members/InsertDecesion.aspx" title="Insert" />
+      <siteMapNode url="~/Members/membersdataresult.aspx" title="تعديل قرار" />
+    <siteMapNode url="~/Members/membersdecNosearch.aspx" title="البحث برقم القرار" />
+    <siteMapNode url="~/Members/insertGuide.aspx" title="إدخال دليل" />
+    <siteMapNode url="~/Members/InsertTemplate.aspx" title="إدخال نموذج أو قانون" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
+
