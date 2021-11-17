@@ -20,78 +20,120 @@
         </asp:SqlDataSource>
     </div>
     <br />
-                  
-		<asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" >
+
+    <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="2">
         <AlternatingItemTemplate>
-            <li class="list-unstyled" >
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
-				<br />
-				الملف:
+            <td runat="server" style="" class="col-lg-6">
+
+                <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
+                <br />				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
-				<br />
-			</li>
+
+             </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <li style="background-color: #FFCC66;color: #000080;">TemplateName:
-				<asp:TextBox ID="TemplateNameTextBox" runat="server" Text='<%# Bind("TemplateName") %>' />
-				<br />
-				TemplatePath:
-				<asp:TextBox ID="TemplatePathTextBox" runat="server" Text='<%# Bind("TemplatePath") %>' />
-				<br />
-				<asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-				<asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-			</li>
+            <td runat="server" style="">TemplateName:
+                <asp:TextBox ID="TemplateNameTextBox" runat="server" Text='<%# Bind("TemplateName") %>' />
+                <br />TemplatePath:
+                <asp:TextBox ID="TemplatePathTextBox" runat="server" Text='<%# Bind("TemplatePath") %>' />
+                <br />typeID:
+                <asp:TextBox ID="typeIDTextBox" runat="server" Text='<%# Bind("typeID") %>' />
+                <br />
+                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                <br /></td>
         </EditItemTemplate>
         <EmptyDataTemplate>
-            No data was returned.
+            <table runat="server" style="">
+                <tr>
+                    <td>No data was returned.</td>
+                </tr>
+            </table>
         </EmptyDataTemplate>
+        <EmptyItemTemplate>
+<td runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server" class="col-lg-12">
+                <td id="itemPlaceholder" runat="server"></td>
+            </tr>
+        </GroupTemplate>
         <InsertItemTemplate>
-            <li style="">TemplateName:
-				<asp:TextBox ID="TemplateNameTextBox" runat="server" Text='<%# Bind("TemplateName") %>' />
-				<br />
-				TemplatePath:
-				<asp:TextBox ID="TemplatePathTextBox" runat="server" Text='<%# Bind("TemplatePath") %>' />
-				<br />
-				<asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-				<asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-			</li>
+            <td runat="server" style="">TemplateName:
+                <asp:TextBox ID="TemplateNameTextBox" runat="server" Text='<%# Bind("TemplateName") %>' />
+                <br />TemplatePath:
+                <asp:TextBox ID="TemplatePathTextBox" runat="server" Text='<%# Bind("TemplatePath") %>' />
+                <br />typeID:
+                <asp:TextBox ID="typeIDTextBox" runat="server" Text='<%# Bind("typeID") %>' />
+                <br />
+                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                <br /></td>
         </InsertItemTemplate>
-        	<ItemSeparatorTemplate>
-				<hr />
-			</ItemSeparatorTemplate>
         <ItemTemplate>
-            <li class="list-unstyled" > 
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
-				<br />
-				الملف:
+            <td runat="server" style="" class="col-lg-6">
+                <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
+                <br />				الملف:
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
-				<br />
-			</li>
+
+                <br /></td>
         </ItemTemplate>
         <LayoutTemplate>
-            <ul id="itemPlaceholderContainer" runat="server" >
-				<li runat="server" id="itemPlaceholder" />
-			</ul>
-			<div style="text-align: center;background-color: #FFCC66;color: #333333;">
-			</div>
-             <div style="">
-                <asp:DataPager ID="DataPager1" runat="server">
-                    <Fields>
-                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                    </Fields>
-                </asp:DataPager>
-            </div>
+            <table runat="server" class="table table table-striped table-bordered table-responsive-lg" >
+                <tr  runat="server">
+                    <td runat="server" class="col-lg-12">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" style="width:100%" class="table table table-striped table-bordered table-responsive-lg">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr runat="server">
+                    <td runat="server" style="">
+                        <asp:DataPager runat="server" ID="decsDataPager" PageSize="12">
+        <Fields>
+          <asp:TemplatePagerField>
+            <PagerTemplate>
+            <b>
+            صفحة
+            <asp:Label runat="server" ID="CurrentPageLabel" 
+              Text="<%# Container.TotalRowCount>0 ? (Container.StartRowIndex / Container.PageSize) + 1 : 0 %>" />
+            من
+            <asp:Label runat="server" ID="TotalPagesLabel" 
+              Text="<%# Math.Ceiling ((double)Container.TotalRowCount / Container.PageSize) %>" />
+            </b>
+            <br /><br />
+            </PagerTemplate>
+          </asp:TemplatePagerField>
+          
+          <asp:NextPreviousPagerField
+            ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+          
+          <asp:NumericPagerField 
+            PreviousPageText="&lt;&lt;"
+            NextPageText="&gt;&gt;"
+            ButtonCount="10" />
+            
+          <asp:NextPreviousPagerField
+           ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="page-item btn btn-secondary" FirstPageText="الأول" LastPageText="الأخير" PreviousPageText="&lt;&lt;" NextPageText="&gt;&gt;" />
+        </Fields>
+      </asp:DataPager>
+                    </td>
+                </tr>
+            </table>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <li style="background-color: #FFCC66;font-weight: bold;color: #000080;">TemplateName:
-				<asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' />
-				<br />
-				ملف النموذج:
-				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
-				<br />
-			</li>
+            <td runat="server" style="">TemplateName:
+                <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' />
+                <br />TemplatePath:
+                <asp:Label ID="TemplatePathLabel" runat="server" Text='<%# Eval("TemplatePath") %>' />
+                <br />typeID:
+                <asp:Label ID="typeIDLabel" runat="server" Text='<%# Eval("typeID") %>' />
+                <br /></td>
         </SelectedItemTemplate>
-                    </asp:ListView>
+    </asp:ListView>           
 
 
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TemplateName, TemplatePath, typeID FROM Templates WHERE (typeID = @gID)">

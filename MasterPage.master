@@ -104,6 +104,8 @@
                         <a runat="server" id="InsertGuide" href="~/Members/insertGuide.aspx"  class="dropdown-item ">إدخال دليل</a>
                         <div class="dropdown-divider"></div>
                         <a runat="server" id="insertTemp" href="~/Members/InsertTemplate.aspx"  class="dropdown-item">إدخال نموذج أو قانون</a>
+                        <div class="dropdown-divider"></div>
+                            <a runat="server" id="chgepwd"  href="~/Members/changePassword.aspx"  class="dropdown-item">تغيير كلمة السر</a>
                     </div>
 <%--StaticMenuItemStyle-CssClass="StaticMenuItemStyle"
 StaticMenuStyle-CssClass="StaticMenuStyle"
@@ -185,6 +187,7 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <br />
         <footer class="orangeFooter bg-gradient-info">
 
             <div class="row">
