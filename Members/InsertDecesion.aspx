@@ -102,13 +102,11 @@
                     onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    InsertCommand="insertDecision" InsertCommandType="StoredProcedure" 
-                    SelectCommand="insertDecision2" SelectCommandType="StoredProcedure">
+                    InsertCommand="insertDecision2" InsertCommandType="StoredProcedure" 
+                    SelectCommand="SELECT decNo, decTitle, decKeywords, decisionFile FROM decisions_Info">
                     <InsertParameters>
                         <asp:ControlParameter ControlID="txtNo" Name="decNo" PropertyName="Text" 
                             Type="Int32" />
-                        <asp:ControlParameter ControlID="txtDate" DbType="DateTime" Name="decDate" 
-                            PropertyName="Text" />
                         <asp:ControlParameter ControlID="txtTitle" Name="decTitle" PropertyName="Text" 
                             Type="String" />
                         <asp:ControlParameter ControlID="txtKeywords" Name="decKeywords" 
@@ -116,19 +114,12 @@
                         <asp:Parameter Name="decisionFile" Type="String" />
                         <asp:ControlParameter ControlID="ddlDecType" Name="decTypeID" 
                             PropertyName="SelectedValue" Type="Int16" />
+                        <asp:ControlParameter ControlID="txtDate" DbType="DateTime" Name="decDate" 
+                            PropertyName="Text" />
                         <asp:ControlParameter ControlID="txtsubNo" Name="decsubjectNo" 
                             PropertyName="Text" Type="Int16" />
+                    	<asp:Parameter Name="aspuser" Type="String" />
                     </InsertParameters>
-                	<SelectParameters>
-						<asp:ControlParameter ControlID="txtNo" Name="decNo" PropertyName="Text" Type="Int32" />
-						<asp:ControlParameter ControlID="txtTitle" Name="decTitle" PropertyName="Text" Type="String" />
-						<asp:ControlParameter ControlID="txtKeywords" Name="decKeywords" PropertyName="Text" Type="String" />
-						<asp:Parameter Name="decisionFile" Type="String" />
-						<asp:ControlParameter ControlID="ddlDecType" Name="decTypeID" PropertyName="SelectedValue" Type="Byte" />
-						<asp:ControlParameter ControlID="txtDate" Name="decDate" PropertyName="Text" Type="DateTime" />
-						<asp:ControlParameter ControlID="txtsubNo" Name="decsubjectNo" PropertyName="Text" Type="String" />
-						<asp:Parameter Name="aspuser" Type="String" />
-					</SelectParameters>
                 </asp:SqlDataSource>
             </td>
         </tr>

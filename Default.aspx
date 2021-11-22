@@ -4,18 +4,52 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	<style>
+        .search_textbox, .date {
+            width: 90%;
+            font-size: .8em;
+        }
+
+        .date {
+            cursor: pointer;
+        }
+
+
+        ::-webkit-input-placeholder {
+            color: silver;
+        }
+
+        .search_textbox:-moz-placeholder {
+            color: silver;
+        }
+
+        ::-moz-placeholder {
+            color: silver;
+        }
+
+        :-ms-input-placeholder {
+            color: silver;
+        }
+
+        :-moz-placeholder {
+            color: red;
+        }
+        .auto-style1 {
+            right: 0px;
+            top: 0px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <h1 class="text-center text-info">ما تم نشره اليوم </h1>
+		<h1 class="text-center text-info">ما تم نشره اليوم </h1>
                 <asp:SqlDataSource ID="countsds" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    SelectCommand="SELECT decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT (varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID WHERE (CONVERT (date, decisions_Info.decDate, 101) = CONVERT (date, GETDATE(), 101))">
+                    SelectCommand="SELECT TOP (20) decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT (varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID ORDER BY decisions_Info.decDate DESC">
                 </asp:SqlDataSource>
-                  
+                
 <asp:GridView ID="gdvTotal" runat="server" AutoGenerateColumns="False" 
-                    DataSourceID="countsds" 
                     EnableTheming="False" CellPadding="4" ForeColor="Black" 
-                    GridLines="None" AllowPaging="True" AllowSorting="True" EnableModelValidation="True" CssClass="table table-bordered table-striped table-hover">
+                    GridLines="None" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-striped table-hover" ClientIDMode="Static" OnRowDataBound="gdvTotal_RowDataBound" OnSelectedIndexChanged="gdvTotal_SelectedIndexChanged" OnSorting="gdvTotal_Sorting" OnPageIndexChanging="gdvTotal_PageIndexChanging" DataKeyNames="decID">
                     <RowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="decNo" HeaderText="رقم القرار" SortExpression="decNo"/>                           
@@ -47,7 +81,11 @@
 
                 <br />
 				&nbsp; &nbsp; 
-
+	   <script>
+                $(document).ready(function () {
+                    $('#<%= gdvTotal.ClientID %>').DataTable();
+                });
+            </script>
 
 </asp:Content>
 

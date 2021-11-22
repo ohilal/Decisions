@@ -214,14 +214,13 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
         <script src="../Scripts/bootstrap-datepicker.js"></script>
         <script src="../Scripts/jquery.ui.datepicker.validation.js"></script>
         <script src="../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
-        <script src="../Scripts/dataTables.bootstrap.js"></script>
         <script src="../Scripts/jquery.dataTables.js"></script>
-
+        <script src="../Scripts/dataTables.bootstrap.js"></script>
         <script src="Scripts/bootstrap-datepicker.js"></script>
         <script src="Scripts/jquery.ui.datepicker.validation.js"></script>
         <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
-        <script src="Scripts/dataTables.bootstrap.js"></script>
         <script src="Scripts/jquery.dataTables.js"></script>
+		<script src="Scripts/dataTables.bootstrap.js"></script>
         <script type="text/javascript" charset="utf-8">
             // When the document is ready
             $(document).ready(function () {
