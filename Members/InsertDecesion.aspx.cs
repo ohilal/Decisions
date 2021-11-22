@@ -32,6 +32,7 @@ public partial class InsertDecesion : System.Web.UI.Page
             SqlDataSource1.InsertParameters["decisionFile"].DefaultValue = filename;
         }
         uploadDecesion.SaveAs(Server.MapPath("~/UploadedDecisions/") + uploadDecesion.FileName);
+		SqlDataSource1.InsertParameters["aspuser"].DefaultValue = Page.User.Identity.Name;
         // @"\\ida-app2\IDAInternalPortal\TSN\DDP\Scanned Documents\"
         //uploadDecesion.SaveAs(Server.MapPath(@"\\192.168.14.42\d$\Decisions\") + uploadDecesion.FileName);
           SqlDataSource1.Insert();

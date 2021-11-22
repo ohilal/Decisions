@@ -103,7 +103,7 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                     InsertCommand="insertDecision" InsertCommandType="StoredProcedure" 
-                    SelectCommand="select * from decisions_Info">
+                    SelectCommand="insertDecision2" SelectCommandType="StoredProcedure">
                     <InsertParameters>
                         <asp:ControlParameter ControlID="txtNo" Name="decNo" PropertyName="Text" 
                             Type="Int32" />
@@ -119,6 +119,16 @@
                         <asp:ControlParameter ControlID="txtsubNo" Name="decsubjectNo" 
                             PropertyName="Text" Type="Int16" />
                     </InsertParameters>
+                	<SelectParameters>
+						<asp:ControlParameter ControlID="txtNo" Name="decNo" PropertyName="Text" Type="Int32" />
+						<asp:ControlParameter ControlID="txtTitle" Name="decTitle" PropertyName="Text" Type="String" />
+						<asp:ControlParameter ControlID="txtKeywords" Name="decKeywords" PropertyName="Text" Type="String" />
+						<asp:Parameter Name="decisionFile" Type="String" />
+						<asp:ControlParameter ControlID="ddlDecType" Name="decTypeID" PropertyName="SelectedValue" Type="Byte" />
+						<asp:ControlParameter ControlID="txtDate" Name="decDate" PropertyName="Text" Type="DateTime" />
+						<asp:ControlParameter ControlID="txtsubNo" Name="decsubjectNo" PropertyName="Text" Type="String" />
+						<asp:Parameter Name="aspuser" Type="String" />
+					</SelectParameters>
                 </asp:SqlDataSource>
             </td>
         </tr>
