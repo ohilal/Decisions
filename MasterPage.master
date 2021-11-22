@@ -1,25 +1,26 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage"  %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title><%: Page.Title %> -قرارات إدارية</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles/bootstrap.css" rel="stylesheet" />
     <link href="fonts/fontawesome5.15.2/css/all.css" rel="stylesheet" />
-        <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" />
     <script src="Scripts/jquery.min.js"></script>
     <script src="../Scripts/jquery.min.js"></script>
-<%--    <script src="<%= ResolveUrl("~") %>Scripts/jquery.min.js"></script>
---%>	<%--<script src='<% ResolveUrl("~/Scripts/jquery.min.js" ) %>' type="text/javascript"></script>--%>
-	<script src="../Scripts/popper.min.js"></script>
+    <%--    <script src="<%= ResolveUrl("~") %>Scripts/jquery.min.js"></script>
+    --%>	<%--<script src='<% ResolveUrl("~/Scripts/jquery.min.js" ) %>' type="text/javascript"></script>--%>
+    <script src="../Scripts/popper.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
-<%-- <script src="<%= ResolveUrl("~") %>Scripts/bootstrap.min.js"></script>--%>
-	<script src="../Scripts/bootstrap.min.js"></script>
+    <%-- <script src="<%= ResolveUrl("~") %>Scripts/bootstrap.min.js"></script>--%>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-<%--    datepicker     --%>
+    <%--    datepicker     --%>
     <script src="../Scripts/bootstrap-datepicker.min.js"></script>
     <script src="Scripts/bootstrap-datepicker.min.js"></script>
     <script src=".../Scripts/jquery.ui.datepicker.validation.js"></script>
@@ -27,117 +28,185 @@
     <script src="../../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
     <link href="styles/dataTables.bootstrap4.css" rel="stylesheet" />
     <link href="styles/jquery.dataTables.css" rel="stylesheet" />
-<%--        <script src="Scripts/bootstrap-datepicker.js"></script>
+    <%--        <script src="Scripts/bootstrap-datepicker.js"></script>
     <script src="Scripts/jquery.ui.datepicker.validation.js"></script>
     <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>--%>
 
-<%--    <meta name="keywords" content="بنك معلومات, هيئه التنميه الصناعية , دراسات صناعيه دراسات جغرافية, دراسات قطاعيه, استراتيجيات ,قطاعات صناعية, بحث باسم الدراسه, نشاط الدراسة ,كود النشاط ,واقع ومستقبل التنمية --%>
+    <%--    <meta name="keywords" content="بنك معلومات, هيئه التنميه الصناعية , دراسات صناعيه دراسات جغرافية, دراسات قطاعيه, استراتيجيات ,قطاعات صناعية, بحث باسم الدراسه, نشاط الدراسة ,كود النشاط ,واقع ومستقبل التنمية --%>
     <meta name="author" content="الهيئة العامة للتنمية الصناعية Industrial Development Authority (IDA)" />
     <script src="App_Themes/Default/stuHover.js" type="text/javascript"></script>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <header>
-                <div class="container-fluid row">
-      <div class="col-sm-4" ><a href="~/default.aspx" class="navbar-brand " runat="server"><img src="~/Images/logoEagle.png" alt="" id="logo" runat="server" /></a></div>
-      <div class="col-sm-4" ><h1 class="h1 display-2 text-lg-center"></h1> </div>
-      <div class="col-sm-4" ></div>
-    </div>
-			</header>
-            <nav class="nav navbar-nav navbar-expand-sm bg-dark navbar-dark">
-                <ul class="nav navbar-nav">      
-                    <li class="nav-item ">
-                        <a  href="~/Default.aspx" runat="server" class="nav-link" >الصفحة الرئيسية
-                        </a>
-                    </li>
-                   <%--  <li class="nav-item ">
+            <div class="container-fluid row">
+                <div class="col-sm-4">
+                    <a href="~/default.aspx" class="navbar-brand " runat="server">
+                        <img src="~/Images/logoEagle.png" alt="" id="logo" runat="server" /></a>
+                </div>
+                <div class="col-sm-4">
+                    <h1 class="h1 display-2 text-lg-center"></h1>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </header>
+        <nav class="nav navbar-nav navbar-expand-sm bg-dark navbar-dark">
+            <ul class="nav navbar-nav">
+                <li class="nav-item ">
+                    <a href="~/Default.aspx" runat="server" class="nav-link">الصفحة الرئيسية
+                    </a>
+                </li>
+                <%--  <li class="nav-item ">
                          <a class="nav-link" href="~/decsaerch.aspx" runat="server">البحث عن قرار</a>
                          </li>--%>
-                    	
-                    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        القرارات
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="~/decsaerch.aspx" runat="server">البحث بالتاريخ</a>
-        <a class="dropdown-item list-group-item" href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة</a>
-           <a class="dropdown-item list-group-item" href="~/decNosearch.aspx" runat="server">البحث برقم القرار</a>
-        <a class="dropdown-item" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
-         
-      </div>
-    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
-                         </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="~/templats.aspx?gID=4" runat="server">طلبات و نماذج</a>
-                         </li>
-					 <li class="nav-item ">
-                        <a class="nav-link" href="~/guidebooks.aspx?gID=3" runat="server">دليل التليفونات</a>
-                         </li>
-					 <li class="nav-item ">
-                        <a class="nav-link" href="~/templats.aspx?gID=5" runat="server">قوانين و لوائح</a>
-                         </li>
-					 <li class="nav-item ">
-                        <a class="nav-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
-                         </li>
-  <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="AdminMenu" data-toggle="dropdown" runat="server" visible="false">
-        صفحات الإدخال
-      </a>
-      <div class="dropdown-menu">
- <a runat="server" ID="Insert" href="~/Members/InsertDecesion.aspx" Visible="false" class="dropdown-item" >إدخال قرار</a>
-          <a runat="server" ID="Edit" href="~/Members/membersdataresult.aspx" Visible="false" class="dropdown-item list-group-item">تعديل قرار</a>
-                    <a runat="server" ID="decNO" href="~/Members/membersdecNosearch.aspx" Visible="false" class="dropdown-item list-group-item">البحث برقم القرار</a>
-          <a runat="server" id="InsertGuide" href="~/Members/insertGuide.aspx" Visible="false" class="dropdown-item list-group-item">إدخال دليل</a>
-            <a runat="server" id="insertTemp" href="~/Members/InsertTemplate.aspx" Visible="false" class="dropdown-item">إدخال نموذج أو قانون</a>
-          </div>
-			
-</li>
-                    <li class="nav-item ">   
-</li>
-</ul>
-               <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
-                    <AnonymousTemplate>
-                        <ul class="nav navbar-nav ml-auto">
-                            <li><a runat="server" href="~/Login.aspx">تسجيل الدخول</a></li>
-                        </ul>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="text-white" >مرحبا <span class="bold">
-                                <asp:LoginName ID="HeadLoginName" runat="server" />
-                            </span>!</li>
-                            <li>
-                                <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="تسجيل الخروج" LogoutPageUrl="~/" />
-                            </li>
-                            </ul>
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </nav>
 
-   <div class="container-fluid" style="padding:25px;" id="Main-container-fluid">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"  EnableScriptGlobalization="true" EnableScriptLocalization="true" />
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-           
-        </asp:ContentPlaceHolder>
-    </div>
-   <footer class="orangeFooter bg-gradient-info" >
-  
-        <div class="row">
-          <div class="col-12"> <a href="#"  title="أعلى الصفحة" class=" scrollup">
-<i class='fas fa-caret-square-up' style='font-size:40px; color:rgba(255, 255, 255, 0.6);'></i>
-</a>
-            <p class="designed"> الهيئة العامة للتنمية الصناعية 2010- <script>document.write(new Date().getFullYear())</script></p>
-          </div>
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">القرارات
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="~/decsaerch.aspx" runat="server">البحث بالتاريخ</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item " href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item " href="~/decNosearch.aspx" runat="server">البحث برقم القرار</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
+
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/templats.aspx?gID=4" runat="server">طلبات و نماذج</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/guidebooks.aspx?gID=3" runat="server">دليل التليفونات</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/templats.aspx?gID=5" runat="server">قوانين و لوائح</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
+                </li>
+                <li class="nav-item dropdown" runat="server" visible="false" id="MemebersArea">
+                    <a class="nav-link dropdown-toggle" href="#" id="AdminMenu" data-toggle="dropdown" runat="server" >صفحات الإدخال
+                    </a>
+                    <div class="dropdown-menu">
+                        <a runat="server" id="Insert" href="~/Members/InsertDecesion.aspx"  class="dropdown-item">إدخال قرار</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="Edit" href="~/Members/membersdataresult.aspx"  class="dropdown-item ">تعديل قرار</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="decNO" href="~/Members/membersdecNosearch.aspx" class="dropdown-item ">البحث برقم القرار</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="InsertGuide" href="~/Members/insertGuide.aspx"  class="dropdown-item ">إدخال دليل</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="insertTemp" href="~/Members/InsertTemplate.aspx"  class="dropdown-item">إدخال نموذج أو قانون</a>
+                        <div class="dropdown-divider"></div>
+                            <a runat="server" id="chgepwd"  href="~/Members/changePassword.aspx"  class="dropdown-item">تغيير كلمة السر</a>
+                    </div>
+<%--StaticMenuItemStyle-CssClass="StaticMenuItemStyle"
+StaticMenuStyle-CssClass="StaticMenuStyle"
+        StaticSelectedStyle-CssClass="StaticSelectedStyle"
+        StaticHoverStyle-CssClass="StaticHoverStyle"--%>
+                </li>
+                <li class="nav-item dropdown" runat="server" visible="false" id ="AdminArea">
+                                        <a class="nav-link dropdown-toggle" href="#" id="A4" data-toggle="dropdown" runat="server" >Admin's Area
+                    </a>
+                    <div class="dropdown-menu">
+                        <a runat="server" id="A1" href="~/Admin/CreateUser.aspx"  class="dropdown-item">Create User</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="A2" href="~/Admin/manageUsers.aspx"  class="dropdown-item ">Manage Users</a>
+                        <div class="dropdown-divider"></div>
+                        <a runat="server" id="A3" href="~/Admin/changePassword.aspx"  class="dropdown-item ">Change Password</a>
+</div>
+                </li>
+                <li class="nav-item ">
+                    <%--<asp:Menu ID="Menu1"  runat="server" DataSourceID="SiteMapDataSource1" CssClass="float-left dropdown-menu-left"   
+                        StaticDisplayLevels="2"
+                        StaticSubMenuIndent="2px"
+                        DynamicHorizontalOffset="-10" 
+                        DynamicVerticalOffset="5"
+                        StaticMenuStyle-CssClass="StaticMenuStyle white-link"
+                        StaticMenuItemStyle-CssClass="white-link" 
+                        Orientation="Horizontal"  ClientIDMode="Static" DynamicMenuItemStyle-CssClass="left dropdown-item dropdown-menu-left dropleft" StaticMenuItemStyle-BorderStyle="Solid">
+                        <LevelSubMenuStyles>
+                            <asp:SubMenuStyle CssClass="dropdown dropleft" />
+
+                        </LevelSubMenuStyles>
+                        <DataBindings>
+                            <asp:MenuItemBinding DataMember="SiteMapNode" />
+
+                            <asp:MenuItemBinding DataMember="ChildNode" />
+                        </DataBindings>
+                        <DynamicMenuItemStyle CssClass="dropleft dropdown-item" HorizontalPadding="5px" ItemSpacing="5px" />
+                     
+                        <DynamicMenuStyle CssClass="nav-link dropdown-toggle " />
+                        <DynamicItemTemplate>
+                            <%# Eval("Text") %>
+                        </DynamicItemTemplate>
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="nav-link " />
+
+                        </LevelMenuItemStyles>
+
+                        <StaticHoverStyle CssClass="StaticHoverStyle" />
+                        <StaticMenuItemStyle CssClass="StaticMenuItemStyle" BorderStyle="Solid" />
+                        <StaticMenuStyle CssClass="StaticMenuStyle" />
+                        <StaticSelectedStyle CssClass="StaticSelectedStyle" />
+                    </asp:Menu>--%>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </li>
+            </ul>
+            <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
+                <AnonymousTemplate>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li><a runat="server" href="~/Login.aspx">تسجيل الدخول</a></li>
+                    </ul>
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="text-white">مرحبا <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!</li>
+                        <li>
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="تسجيل الخروج" LogoutPageUrl="~/" />
+                        </li>
+                    </ul>
+                </LoggedInTemplate>
+            </asp:LoginView>
+        </nav>
+<%--        <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="breadcrumb" PathSeparator="\" RenderCurrentNodeAsLink="True">
+            <NodeStyle CssClass="breadcrumb-item" />
+            <PathSeparatorStyle Font-Bold="True" />
+        </asp:SiteMapPath>--%>
+        <div class="container-fluid" style="padding: 25px;" id="Main-container-fluid">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
-  </footer>
+        <br />
+        <footer class="orangeFooter bg-gradient-info">
+
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" title="أعلى الصفحة" class=" scrollup">
+                        <i class='fas fa-caret-square-up' style='font-size: 40px; color: rgba(255, 255, 255, 0.6);'></i>
+                    </a>
+                    <p class="designed">
+                       
+                        الهيئة العامة للتنمية الصناعية 2010-
+                        <script>document.write(new Date().getFullYear())</script>
+                    </p>
+                </div>
+            </div>
+        </footer>
         <script src="../Scripts/jquery-3.2.1.min.js"></script>
         <script src="Scripts/jquery-3.2.1.min.js"></script>
- 
-<%--        <script src="Scripts/popper.js"></script>--%>
+
+        <%--        <script src="Scripts/popper.js"></script>--%>
         <script src="../Scripts/bootstrap.js"></script>
         <script src="Scripts/bootstrap.js"></script>
         <script src="../Scripts/fontawesome.js"></script>
@@ -153,7 +222,7 @@
         <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
         <script src="Scripts/dataTables.bootstrap.js"></script>
         <script src="Scripts/jquery.dataTables.js"></script>
-         <script type="text/javascript" charset="utf-8">
+        <script type="text/javascript" charset="utf-8">
             // When the document is ready
             $(document).ready(function () {
                 $('.txtDate').datepicker({

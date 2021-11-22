@@ -2,7 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">               
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+   
+
     <asp:ListView ID="ListView1" runat="server" GroupItemCount="2" DataSourceID="sdsDate" >
         <AlternatingItemTemplate>
             <td runat="server" class="col-6" > <b>رقم القرار:</b>

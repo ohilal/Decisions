@@ -68,7 +68,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Button ID="LoginButton" runat="server" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" CssClass="btn btn-info btn-lg float-left" Font-Bold="True"  Text="دخول" ValidationGroup="Login1" />
+                                    <asp:Button ID="LoginButton" runat="server" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" CssClass="btn btn-info btn-lg float-left" Font-Bold="True"  Text="دخول" ValidationGroup="Login1"  />
                                 </td>
                             </tr>
                         </table>
