@@ -102,6 +102,7 @@
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
+            <asp:QueryStringParameter Name="ddd" QueryStringField="decID" Type="Int32" />
             <asp:Parameter Name="decNO" Type="Int32" />
             <asp:Parameter Name="decTitle" Type="String" />
             <asp:Parameter Name="decKeywords" Type="String" />
@@ -109,7 +110,7 @@
             <asp:Parameter Name="decTypeId" Type="Int32" />
             <asp:Parameter Name="decDate" Type="DateTime" />
             <asp:Parameter Name="decSubjectNo" Type="Int32" />
-            <asp:QueryStringParameter Name="ddd" QueryStringField="decID" Type="Int32" />
+            <asp:Parameter Name="aspuser" Type="String" />
         </UpdateParameters>
     </asp:SqlDataSource>
                      <asp:SqlDataSource ID="sdsType" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 

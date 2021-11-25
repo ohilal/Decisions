@@ -279,7 +279,7 @@ h1{
   .coverImage{
 	  height:100%;
   }
-  .orangeFooter {
+.orangeFooter {
     background: #f37121;
     color: #fff;
     text-align: center;
@@ -288,8 +288,8 @@ h1{
     bottom: 0 !important;
     width: 100%;
     font-size: 0.8em;
+    margin-top: 50px !important;
     /*padding: 10px 2px 2px 2px;*/
-    
 }
  @media screen and (min-width:1025px){
 	.display-2 {

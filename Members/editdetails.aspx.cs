@@ -62,6 +62,7 @@ public partial class Members_editdetails : System.Web.UI.Page
 
         
         file.SaveAs(Server.MapPath("~/UploadedDecisions/") + file.FileName);
+        SqlDataSource1.UpdateParameters["aspuser"].DefaultValue = Page.User.Identity.Name;
         SqlDataSource1.Update();
         SqlDataSource1.DataBind();
         //if (e.NewValues == null)
