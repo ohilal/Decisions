@@ -26,11 +26,24 @@ body {
 .white-link a {
     color: #ffffff;
 }
-white-link a:hover, a:focus {
+.white-link a:hover, a:focus {
     color: #d3dede;
 }
 .topMargin{
     margin-top:20px;
+}
+.grey a:visited {
+    color: #5d6f71;
+}
+
+.grey a:link, a:focus, a:visited {
+    color: #506a6e ;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.grey a:hover {
+    text-decoration: underline;
 }
 #Header {
     position: fixed;

@@ -84,20 +84,20 @@ public partial class InsertDecesion : System.Web.UI.Page
 	{
 		GridViewRow row = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
 		//CalendarExtender cldr = new CalendarExtender();
-		for (int i = 0; i < GridView1.Columns.Count; i++)
-		{
-			TableHeaderCell cell = new TableHeaderCell();
-			TextBox txtSearch = new TextBox();
-			txtSearch.Attributes["placeholder"] = GridView1.Columns[i].HeaderText;
-			txtSearch.Attributes["title"] = "البحث بـ" + GridView1.Columns[i].HeaderText;
-			// txtSearch.ID = "search" + i;
-			txtSearch.ClientIDMode = ClientIDMode.Static;
-			txtSearch.CssClass = "search_textbox";
-			cell.Controls.Add(txtSearch);
-			row.Controls.Add(cell);
+		//for (int i = 0; i < GridView1.Columns.Count; i++)
+		//{
+		//	TableHeaderCell cell = new TableHeaderCell();
+		//	TextBox txtSearch = new TextBox();
+		//	txtSearch.Attributes["placeholder"] = GridView1.Columns[i].HeaderText;
+		//	txtSearch.Attributes["title"] = "البحث بـ" + GridView1.Columns[i].HeaderText;
+		//	// txtSearch.ID = "search" + i;
+		//	txtSearch.ClientIDMode = ClientIDMode.Static;
+		//	txtSearch.CssClass = "search_textbox";
+		//	cell.Controls.Add(txtSearch);
+		//	row.Controls.Add(cell);
 
 
-		}
+		//}
 		GridView1.HeaderRow.Parent.Controls.AddAt(1, row);
 
 	}

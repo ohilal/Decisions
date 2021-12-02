@@ -159,7 +159,10 @@
             <h1 class="h1 text-center" >تعديل دليل</h1>
         </div>
         <div class="card-body">
- <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" DataKeyNames="ID" >
+ <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   
+     AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" 
+     OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+     OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" DataKeyNames="ID" >
     <Columns>
          <asp:BoundField DataField="Title" HeaderText="الدليل" SortExpression="Title" />
          <asp:BoundField DataField="guideFileExt" HeaderText="مسار الملف" SortExpression="guideFileExt" />

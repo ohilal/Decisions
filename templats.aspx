@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="templats.aspx.cs" Inherits="searchData" Title="البحث عن دراسة" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="templats.aspx.cs" Inherits="searchData" Title="" EnableEventValidation="false" %>
 
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
@@ -25,10 +25,10 @@
         <AlternatingItemTemplate>
             <td runat="server" style="" class="col-lg-6">
 
-                <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
-                <br />				الملف:
-				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
-
+				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
+                   <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
+                    <i class="far fa-file-pdf fa-2x text-info"></i>
+				</a>
              </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
@@ -74,11 +74,10 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <td runat="server" style="" class="col-lg-6">
-                <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h4 col-12" />
-                <br />				الملف:
-				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
-
-                <br /></td>
+              <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
+                   <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
+                    <i class="far fa-file-pdf fa-2x text-info"></i>
+				</a></td>
         </ItemTemplate>
         <LayoutTemplate>
             <table runat="server" class="table table table-striped table-bordered table-responsive-lg" >
@@ -92,7 +91,7 @@
                 </tr>
                 <tr runat="server">
                     <td runat="server" style="">
-                        <asp:DataPager runat="server" ID="decsDataPager" PageSize="12">
+                        <asp:DataPager runat="server" ID="decsDataPager" PageSize="20">
         <Fields>
           <asp:TemplatePagerField>
             <PagerTemplate>
