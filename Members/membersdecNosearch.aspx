@@ -50,7 +50,7 @@
                 
 				 <br />
 				 ملف القرار:
-                 <a href="#" onclick='window.open("~/UploadedDecisions/<%#Eval("decisionFile")%>")'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
+                 <a href="#" onclick='window.open("../UploadedDecisions/<%#Eval("decisionFile")%>")'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
 				 <div class="topMargin float-left">
 				
@@ -67,9 +67,4 @@
 			 </SelectParameters>
 		 </asp:SqlDataSource>
         </div>
-         
-            
-
-<%-----------------------igTabs-------------------------------- --%>
-
 </asp:Content>

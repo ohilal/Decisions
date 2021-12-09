@@ -165,7 +165,8 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
                 <AnonymousTemplate>
                     <ul class="nav navbar-nav ml-auto">
-                        <li><a runat="server" href="~/Login.aspx">تسجيل الدخول</a></li>
+                        <li><a runat="server" href="~/Login.aspx" title="تسجيل الدخول" data-toggle="tooltip"  data-placement="bottom"><i class="fas fa-user fa-2x text-white" style="font-size:2.5rem;"></i>
+                            </a></li>
                     </ul>
                 </AnonymousTemplate>
                 <LoggedInTemplate>
@@ -267,6 +268,12 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
                 });
             }); 
         </script>
+        <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
     </form>
 </body>
 </html>

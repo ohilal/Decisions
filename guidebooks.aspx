@@ -17,10 +17,11 @@
     </asp:SqlDataSource>
     <asp:ListView ID="lvGuide" runat="server" DataKeyNames="GuideTypeID" DataSourceID="sdsGuide">
         <AlternatingItemTemplate>
-            <li class="row list-unstyled">
-                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)'>
+            <li class="list-unstyled">
+                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)' class="grey">
+                <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
                 <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h5 col-12"  />
-                     <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
+                     
                  </a>
                 <br />
  <div style='display:<%# GetVisibility(DataBinder.Eval(Container.DataItem,"GuideTypeID").ToString())%>'><dl><dt class="dbresults font-weight-bold">تاريخ إدخال الدليل :</dt><dd id="link2" runat="server" class="dbresults" ><%# Eval("InsertDate", "{0:dd/MM/yyyy}")%></dd></dl><br /></div>
@@ -74,9 +75,10 @@
            <li class="list-unstyled">
 <%--                <asp:Label ID="GuideTypeNameLabel" runat="server" Text='<%# Eval("GuideTypeName") %>' CssClass="h1 text-info text-center mx-auto col-12 float-xl-none" style="margin:0 auto !important;"/>
                 <br />--%>
-            <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)'>
+            <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)' class="grey">
+                <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
                 <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h5 col-12"  />
-                     <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
+                     
                  </a>
                <br />
                <div style='display:<%# GetVisibility(DataBinder.Eval(Container.DataItem,"GuideTypeID").ToString())%>'><dl><dt class="dbresults font-weight-bold">تاريخ إدخال الدليل :</dt><dd id="link2" runat="server" class="dbresults" ><%# Eval("InsertDate", "{0:dd/MM/yyyy}")%></dd></dl><br /></div>

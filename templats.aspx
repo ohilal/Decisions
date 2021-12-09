@@ -26,8 +26,9 @@
             <td runat="server" style="" class="col-lg-6">
 
 				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
-                   <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
-                    <i class="far fa-file-pdf fa-2x text-info"></i>
+                   <i class="far fa-file-pdf fa-2x text-info"></i>
+                    <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
+                    
 				</a>
              </td>
         </AlternatingItemTemplate>
@@ -75,8 +76,9 @@
         <ItemTemplate>
             <td runat="server" style="" class="col-lg-6">
               <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
-                   <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
                     <i class="far fa-file-pdf fa-2x text-info"></i>
+                  <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
+                   
 				</a></td>
         </ItemTemplate>
         <LayoutTemplate>

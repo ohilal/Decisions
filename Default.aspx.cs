@@ -21,6 +21,7 @@ public partial class Default : System.Web.UI.Page
         {
 
             this.SelectAll();
+            gdvTotal.DataBind();
         }
 
         //CultureInfo.CreateSpecificCulture("ar-EG");
@@ -60,7 +61,9 @@ public partial class Default : System.Web.UI.Page
 			{
 				//
 				string sql = "SELECT TOP(20) decisions_Info.decID, decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT(varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID ORDER BY decisions_Info.decDate DESC";
-				cmd.CommandText = sql;
+                //string sql = "SELECT TOP(20) decisions_Info.decID, decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, CONVERT(varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info  ORDER BY decisions_Info.decDate DESC";
+
+                cmd.CommandText = sql;
 				cmd.Connection = con;
 				using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
 				{
@@ -72,8 +75,11 @@ public partial class Default : System.Web.UI.Page
 				}
 			}
 		}
+        //Required for jQuery DataTables to work.
+        gdvTotal.UseAccessibleHeader = true;
+        gdvTotal.HeaderRow.TableSection = TableRowSection.TableHeader;
 
-	}
+    }
 
 
 	protected void gdvTotal_SelectedIndexChanged(object sender, EventArgs e)

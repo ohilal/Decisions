@@ -32,16 +32,18 @@ body {
 .topMargin{
     margin-top:20px;
 }
-.grey a:visited {
-    color: #5d6f71;
+ a.grey{
+    color: #506a6e;
 }
 
-.grey a:link, a:focus, a:visited {
-    color: #506a6e ;
+.grey a:link, a:focus {
+    color: #506a6e;
     text-decoration: none;
     background-color: transparent;
 }
-
+a.grey a:visited {
+    color: #5d6f71;
+}
 .grey a:hover {
     text-decoration: underline;
 }
