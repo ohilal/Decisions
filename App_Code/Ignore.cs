@@ -15,25 +15,25 @@ using System.Xml.Linq;
 /// </summary>
 public class Ignore
 {
-       public static string PrepareWords(string MyWords, bool IgnoreTashkeel, bool IgnoreHamzat, bool IgnoreTahMarbota, bool AhrofAlela)
+       public static string PrepareWords(string MyWords,  bool IgnoreHamzat, bool IgnoreTahMarbota, bool AhrofAlela)
         {
-
+            //bool IgnoreTashkeel,
             string MyNewString = "";
 
-            if (IgnoreTashkeel)
-            {
-                string IgnrTshForm = "[ًٌٍَُِّْ~`]*";
-                for (int i = 0; i < MyWords.Length - 1; i++)
-                {
-                    MyNewString += MyWords[i] + IgnrTshForm;
-                }
-            }
-            else
-            {
-                MyNewString = MyWords;
-            }
-
-            int uu = MyNewString.Length;
+        //if (IgnoreTashkeel)
+        //{
+        //    string IgnrTshForm = "[ًٌٍَُِّْ~`]*";
+        //    for (int i = 0; i < MyWords.Length - 1; i++)
+        //    {
+        //        MyNewString += MyWords[i] + IgnrTshForm;
+        //    }
+        //}
+        //else
+        //{
+        //    MyNewString = MyWords;
+        //}
+        MyNewString = MyWords;
+        int uu = MyNewString.Length;
             string[] aaa = new string[uu - 1];
             for (int i = 0; i < uu - 1; i++)
             {

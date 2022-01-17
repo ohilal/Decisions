@@ -20,8 +20,7 @@ public partial class Default : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            this.SelectAll();
-            gdvTotal.DataBind();
+           
         }
 
         //CultureInfo.CreateSpecificCulture("ar-EG");
@@ -51,109 +50,18 @@ public partial class Default : System.Web.UI.Page
         //}
 
     }
-
-	private void SelectAll()
-	{
-		string constr = ConfigurationManager.ConnectionStrings["dataBankConnectionString"].ConnectionString;
-		using (SqlConnection con = new SqlConnection(constr))
-		{
-			using (SqlCommand cmd = new SqlCommand())
-			{
-				//
-				string sql = "SELECT TOP(20) decisions_Info.decID, decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT(varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID ORDER BY decisions_Info.decDate DESC";
-                //string sql = "SELECT TOP(20) decisions_Info.decID, decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, CONVERT(varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info  ORDER BY decisions_Info.decDate DESC";
-
-                cmd.CommandText = sql;
-				cmd.Connection = con;
-				using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-				{
-					DataTable dt = new DataTable();
-					sda.Fill(dt);
-					gdvTotal.DataSource = dt;
-					gdvTotal.DataBind();
-  
-				}
-			}
-		}
-        //Required for jQuery DataTables to work.
-        gdvTotal.UseAccessibleHeader = true;
-        gdvTotal.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-    }
-
-
-	protected void gdvTotal_SelectedIndexChanged(object sender, EventArgs e)
-	{
-		this.SelectAll();
-	}
-
-	protected void gdvTotal_DataBound(object sender, EventArgs e)
-	{
-
-	}
-	//protected void OnDataBound(object sender, EventArgs e)
-	//{
-	//	GridViewRow row = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
- //       for (int i = 0; i < gdvTotal.Columns.Count; i++)
- //       {
- //           TableHeaderCell cell = new TableHeaderCell();
- //           TextBox txtSearch = new TextBox();
- //           txtSearch.Attributes["placeholder"] = gdvTotal.Columns[i].HeaderText;
- //           txtSearch.Attributes["title"] = "البحث بـ" + gdvTotal.Columns[i].HeaderText;
- //           // txtSearch.ID = "search" + i;
- //           txtSearch.ClientIDMode = ClientIDMode.Static;
- //           txtSearch.CssClass = "search_textbox";
- //           cell.Controls.Add(txtSearch);
- //           row.Controls.Add(cell);
-
-
- //       }
-
- //       gdvTotal.HeaderRow.Parent.Controls.AddAt(1, row);
-
-	//}
-
-
-	protected void gdvTotal_Sorting(object sender, GridViewSortEventArgs e)
-	{
-
-		this.SelectAll();
-		DataTable m_DataTable = gdvTotal.DataSource as DataTable;
-		if (m_DataTable != null)
-		{
-			DataView m_DataView = new DataView(m_DataTable);
-			m_DataView.Sort = e.SortExpression;
-			gdvTotal.DataSource = m_DataView;
-			gdvTotal.DataBind();
-
-		}
-	}
-
-	protected void gdvTotal_PageIndexChanging(object sender, GridViewPageEventArgs e)
-	{
-		gdvTotal.PageIndex = e.NewPageIndex;
-
-		this.SelectAll();
-	}
-    protected void gdvTotal_RowDataBound(object sender, GridViewRowEventArgs e)
+	
+    protected string GetVisibility(string MakeFlag)
     {
-        gdvTotal.UseAccessibleHeader = true;
-        
-        if (e.Row.RowType == DataControlRowType.Header)
+
+        if (MakeFlag == "")
         {
-            //add the thead and tbody section programatically
-            e.Row.TableSection = TableRowSection.TableHeader;
-           
+            return "none";
         }
-        //if (e.Row.RowType == DataControlRowType.DataRow)
-        //{
-        //    e.Row.TableSection = TableRowSection.TableBody;
-        //}
-        //if (e.Row.RowType == DataControlRowType.Footer)
-        //{
-        //    e.Row.TableSection = TableRowSection.TableFooter;
-        //}
-       
-    } 
+        else
+        {
+            return "block";
+        }
+    }
 
 }

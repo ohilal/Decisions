@@ -10,9 +10,11 @@
     <link href="styles/bootstrap.css" rel="stylesheet" />
     <link href="fonts/fontawesome5.15.2/css/all.css" rel="stylesheet" />
     <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="styles/style.css" rel="stylesheet" />        
+    <link href="styles/style.css" rel="stylesheet" /> 
+    <link href="styles/animate.css" rel="stylesheet" />
     <link href="styles/jquery.dataTables.css" rel="stylesheet" />
     <link href="styles/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="styles/darktheme.css" rel="stylesheet" />
     <script src="Scripts/jquery.min.js"></script>
     <script src="../Scripts/jquery.min.js"></script>
     <%--    <script src="<%= ResolveUrl("~") %>Scripts/jquery.min.js"></script>
@@ -28,8 +30,14 @@
     <script src=".../Scripts/jquery.ui.datepicker.validation.js"></script>
     <script src="Scripts/jquery.ui.datepicker.validation.js"></script>
     <script src="../../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
-
-
+    <script src="Scripts/scroll.js"></script>
+     <script src="../../Scripts/scroll.js"></script>
+    <script src="Scripts/bootstrap-darkmode.umd.js"></script>
+    <script>
+        const BootstrapDarkmode = window['bootstrap-darkmode'];
+        const themeConfig = new BootstrapDarkmode.ThemeConfig();
+        themeConfig.initTheme();
+    </script>
     <%--        <script src="Scripts/bootstrap-datepicker.js"></script>
     <script src="Scripts/jquery.ui.datepicker.validation.js"></script>
     <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>--%>
@@ -37,16 +45,25 @@
     <%--    <meta name="keywords" content="بنك معلومات, هيئه التنميه الصناعية , دراسات صناعيه دراسات جغرافية, دراسات قطاعيه, استراتيجيات ,قطاعات صناعية, بحث باسم الدراسه, نشاط الدراسة ,كود النشاط ,واقع ومستقبل التنمية --%>
     <meta name="author" content="الهيئة العامة للتنمية الصناعية Industrial Development Authority (IDA)" />
     <script src="App_Themes/Default/stuHover.js" type="text/javascript"></script>
+   <script type="text/javascript">
+    $(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    
+    timeOut=setTimeout('scrollToTop()',10);
+
+  } 
+});
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body data-spy="scroll"  data-offset="50">
     <form id="form1" runat="server">
         <header>
             <div class="container-fluid row">
                 <div class="col-sm-4">
                     <a href="~/default.aspx" class="navbar-brand " runat="server">
-                        <img src="~/Images/logoEagle.png" alt="" id="logo" runat="server" /></a>
+                        <img src="~/Images/logoEagle.png" alt="" id="logo" runat="server" class="navbar-brand" /></a>
                 </div>
                 <div class="col-sm-4">
                     <h1 class="h1 display-2 text-lg-center"></h1>
@@ -82,13 +99,13 @@
                     <a class="nav-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="~/templats.aspx?gID=4" runat="server">طلبات و نماذج</a>
+                    <a class="nav-link" href="~/templats.aspx?gID=4" runat="server">طلبات ونماذج</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="~/guidebooks.aspx?gID=3" runat="server">دليل التليفونات</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="~/templats.aspx?gID=5" runat="server">قوانين و لوائح</a>
+                    <a class="nav-link" href="~/templats.aspx?gID=5" runat="server">قوانين ولوائح</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
@@ -181,25 +198,57 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
                 </LoggedInTemplate>
             </asp:LoginView>
         </nav>
+<!-------- Dark theme ----------------------------------------------------------->
+      <%--  <script>
+            BootstrapDarkmode.writeDarkSwitch(themeConfig);
+        </script>--%>
 <%--        <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="breadcrumb" PathSeparator="\" RenderCurrentNodeAsLink="True">
             <NodeStyle CssClass="breadcrumb-item" />
             <PathSeparatorStyle Font-Bold="True" />
         </asp:SiteMapPath>--%>
         <div class="container-fluid" style="padding: 25px;" id="Main-container-fluid">
-            <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+<%-- EnableScriptGlobalization="true" EnableScriptLocalization="true"--%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
         <br />
-        <footer class="orangeFooter bg-gradient-info">
+        <footer class="orangeFooter  animate fadeIn" data-wow-delay="0.3s" id="Footer">
+             <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 footer-link">
+                          
+                        <a class="text-white footer-link" href="~/decsaerch.aspx" runat="server">البحث بتاريخ القرار</a>
+  
+                        <a class="text-white footer-link " href="~/decwordsearch.aspx" runat="server">البحث بالكلمات الدالة فى القرار</a>
 
-            <div class="row">
-                <div class="col-12">
-                    <a href="#" title="أعلى الصفحة" class=" scrollup">
-                        <i class='fas fa-caret-square-up' style='font-size: 40px; color: rgba(255, 255, 255, 0.6);'></i>
-                    </a>
-                    <p class="designed">
+                        
                        
+                            </div>
+                         <div class="col-md-6 col-lg-2 footer-link">
+<a class="text-white footer-link " href="~/decNosearch.aspx" runat="server">البحث برقم القرار</a>
+                              <a class="text-white footer-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
+                  
+                             </div>
+        <div class="col-md-6 col-lg-2 footer-link">  
+            <a class="text-white footer-link" href="~/templats.aspx?gID=4" runat="server">طلبات ونماذج</a>
+<a class="text-white footer-link" href="~/templats.aspx?gID=5" runat="server">قوانين ولوائح</a>
+                             </div>                
+                        <div class="col-md-6 col-lg-3 footer-link">
+                            
+                             <a class="text-white footer-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
+                            <a class="text-white footer-link" href="~/DecStatistics.aspx" runat="server">الإحصائيات</a>
+                             </div>
+
+                        </div>
+                 </div>
+            <div class="row ">
+                <div class="col-12">
+                  
+                    <a href="#" title="أعلى الصفحة" class=" scrollup" data-scroll="#top" >
+                        <i class='fas fa-caret-square-up' style='font-size: 40px; color: #343a4090;'></i>
+                    </a>
+                    <p class="designed"> 
                         الهيئة العامة للتنمية الصناعية 2010-
                         <script>document.write(new Date().getFullYear())</script>
                     </p>
@@ -214,6 +263,8 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
         <script src="Scripts/bootstrap.js"></script>
         <script src="../Scripts/fontawesome.js"></script>
         <script src="Scripts/fontawesome.js"></script>
+        <script src="Scripts/easing.js"></script>
+        <script src="Scripts/wow.js"></script>
         <script src="../Scripts/bootstrap-datepicker.js"></script>
         <script src="../Scripts/jquery.ui.datepicker.validation.js"></script>
         <script src="../Scripts/locales/bootstrap-datepicker.ar.min.js"></script>

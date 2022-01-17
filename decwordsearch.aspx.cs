@@ -17,23 +17,30 @@ public partial class searchData : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-     
 
+        if (!IsPostBack)
+        {
+            ListView1.DataBind();
+        }
        
-         ListView1.DataBind();
+         
          
 
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        if (txtSearch.Text == "")
+
+        if (txtSearch.Text == "" || txtSearch.Text==String.Empty)
         { 
           
         Response.Write(@"<script language='javascript'>alert('من فضلك ادخل كلمة البحث');</script>"); 
         }
-        //string Searching = Ignor.ignorAlef(txtSearch.Text, true, true, true, true);
-        string Searching = Ignore.PrepareWords(txtSearch.Text, true, true, true, true); 
-        
+        else {
+            //string Searching = Ignor.ignorAlef(txtSearch.Text, true, true, true, true);
+            string Searching = Ignore.PrepareWords(txtSearch.Text, true, true, true);
+            ListView1.DataSourceID = "sdstest";
+            ListView1.DataBind();
+        }
     }
 
 

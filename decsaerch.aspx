@@ -12,19 +12,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-     <div class="card col-lg-5 col-sm-12 mx-auto container " >
+     <div class="card col-xl-5 col-lg-8 col-md-8 col-sm-12 mx-auto container " >
          <div class="card-header"><h2 class="text-info text-center">البحث بالتاريخ</h2></div>
    <div class="card-body">
-   <div class="form-inline">
-        <b> من </b>&nbsp;&nbsp;
+   <div class="form-row">
+       <label for="txtdate1" class="col-form-label ml-2">من</label> 
         <asp:TextBox ID="txtdate1" runat="server"
-            ToolTip="من تاريخ..."  CssClass="form-control col-5" TextMode="Date"></asp:TextBox>
+            ToolTip="من تاريخ..."  CssClass="form-control col-xl-5 col-lg-8 col-md-12 col-sm-12 " TextMode="Date" ></asp:TextBox>
+<%--       <asp:RangeValidator ID="RangeValidator1" runat="server" 
+ControlToValidate="txtdate1" CultureInvariantValues="True" ErrorMessage="ادخل رقم صحيح للتاريخ" 
+MaximumValue="1/1/2050" MinimumValue="1/1/2000" >   
+</asp:RangeValidator>--%>
+
     <%--    <cc1:CalendarExtender ID="txtdate1_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate1" Format="MM/dd/yyyy">
         </cc1:CalendarExtender>--%>
-        &nbsp; &nbsp;<b> إلى   </b>&nbsp; &nbsp; 
-    <asp:TextBox ID="txtdate2" runat="server" 
-        ToolTip="إلي تاريخ..." CssClass="form-control col-5" TextMode="Date"  ></asp:TextBox>
+        &nbsp; <label for="txtdate2" class="col-form-label ml-2">إلى</label> 
+       
+    &nbsp;<asp:TextBox ID="txtdate2" runat="server" 
+        ToolTip="إلي تاريخ..." CssClass="form-control col-xl-5 col-lg-8 col-md-12 col-sm-12 "   TextMode="Date"></asp:TextBox>
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
@@ -38,9 +44,9 @@
                                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
                                 </asp:SqlDataSource>--%>
        </div>
-        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True">
+        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" CssClass="text-white">
             <Nodes>
-                <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20" >
+                <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
                     </asp:TreeNode>
                     <asp:TreeNode Expanded="False" Text="اجراءات عمل" ToolTip="اجراءات عمل" Value="3" ImageToolTip="القرارات">
@@ -64,49 +70,20 @@
 
         </asp:TreeView>
 
-
+<%--
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnDate" runat="server"
-            Text="القرارات" CssClass="btn btn-info btn-lg  topMargin "  />
+            Text="القرارات" CssClass="btn btn-info btn-lg  topMargin "  />--%>
 
 </div></div>
         <br />
         <br />
 
-
-        <%--<asp:DataList ID="DataList2" runat="server" BorderColor="#660000"
-            BorderWidth="1px" DataSourceID="sdsDate" GridLines="Both" RepeatColumns="2"
-            CellPadding="3" CellSpacing="1" UseAccessibleHeader="True" CssClass="table table-responsive-md table-striped table-hover ">
-            <SeparatorStyle BorderWidth="1px" />
-            <SelectedItemStyle BorderWidth="1px" />
-            <HeaderStyle BackColor="#660000" />
-            <ItemTemplate>
-                <b>رقم القرار:</b>
-                <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
-                <br />
-
-                <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' Font-Bold="true" ForeColor="#660000" />
-                <br />
-                <b>تاريخ القرار:</b>
-                <asp:Label ID="decDateLabel" runat="server"
-                    Text='<%# Eval("decDate", "{0:dd/MM/yyyy}") %>' />
-                <br />
-                <b>التصنيف:</b>
-                <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
-                <br />
-                 <b>القرار:</b>
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'>
-                             <i class="far fa-file-pdf fa-2x text-info"></i></a>
-                           
-                <br />
-                <br />
-            </ItemTemplate>
-        </asp:DataList>--%>
     <asp:Label ID="noDataLabel" runat="server" Text="   " />
     <asp:ListView ID="ListView1" runat="server" DataSourceID="sdsDate" GroupItemCount="2" >
         <AlternatingItemTemplate>
-            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+            <td runat="server"  > <b>رقم القرار:</b>
                 <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
                 <br />
                 <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
@@ -120,7 +97,7 @@
                 <br /></td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <td runat="server">decNo:
+            <td runat="server" >decNo:
                 <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
                 <br />decTitle:
                 <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
@@ -144,7 +121,7 @@
             </table>
         </EmptyDataTemplate>
         <EmptyItemTemplate>
-<td runat="server" />
+<td runat="server"  />
         </EmptyItemTemplate>
         <GroupTemplate>
             <tr id="itemPlaceholderContainer" runat="server">
@@ -152,7 +129,7 @@
             </tr>
         </GroupTemplate>
         <InsertItemTemplate>
-            <td runat="server">decNo:
+            <td runat="server" >decNo:
                 <asp:TextBox ID="decNoTextBox" runat="server" Text='<%# Bind("decNo") %>' />
                 <br />decTitle:
                 <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
@@ -169,7 +146,7 @@
                 <br /></td>
         </InsertItemTemplate>
         <ItemTemplate>
-            <td runat="server" class="col-6" > <b>رقم القرار:</b>
+            <td runat="server"  > <b>رقم القرار:</b>
                 <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
                 <br />
                 <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle")  %>' CssClass="col-form-label text-info h3" />
@@ -183,10 +160,10 @@
                 <br /></td>
         </ItemTemplate>
         <LayoutTemplate>
-            <table runat="server" class="table table table-striped table-bordered table-responsive-lg">
+            <table runat="server" class="table table-striped table-bordered table-responsive-lg">
                 <tr runat="server">
-                    <td runat="server">
-                        <table id="groupPlaceholderContainer" runat="server" border="0" class="table table table-striped table-bordered table-responsive-lg">
+                    <td runat="server" class="col-lg-6 col-sm-12">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" class="table table-striped  table-bordered table-responsive-lg">
                             <tr id="groupPlaceholder" runat="server">
                             </tr>
                         </table>
@@ -227,7 +204,7 @@
             </table>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <td runat="server" style="">decNo:
+            <td runat="server" class="col-lg-6 col-sm-12">decNo:
                 <asp:Label ID="decNoLabel" runat="server" Text='<%# Eval("decNo") %>' />
                 <br />decTitle:
                 <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />

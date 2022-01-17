@@ -27,80 +27,56 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 style="text-align:center;">إدخال القرارات</h1>
-<asp:LoginView ID="LoginView1" runat="server">
-    <LoggedInTemplate>
-        مرحبا..<asp:LoginName ID="LoginName1" runat="server" />
-        <br />
-        <asp:LoginStatus ID="LoginStatus1" runat="server" />
-    </LoggedInTemplate>
-</asp:LoginView>
-    <table class="style1" cellpadding="3" cellspacing="3" dir="rtl">
-        <tr>
-            <td class="col-lg-3 col-sm-12 col-form-label">
-                رقم القرار</td>
-            <td>
-                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-                العنوان
-            </td>
-            <td>
-                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style3">
-                تاريخ القرار</td>
-            <td class="style4">
-                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-lg-6 col-sm-12" TextMode="Date"></asp:TextBox>
-                
-            </td>
-        </tr>
-        <tr>
-            <td class="style3">
-                عدد مواد القرار</td>
-            <td class="style4">
-                <asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-                التصنيف</td>
-            <td>
-                <asp:DropDownList ID="ddlDecType" runat="server" DataSourceID="sdsDecType" 
-                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-lg-6 col-sm-12" AppendDataBoundItems="true">
+
+    
+     
+    <div class="card col-lg-10 col-sm-12 mx-auto">
+    <div class="card-body  ">
+
+   <div class="form-inline rowTop">
+                <label class="col-form-label col-lg-2 col-sm-12">رقم القرار</label>
+                <asp:TextBox ID="txtNo" runat="server" CssClass="form-control col-lg-8 col-sm-12"></asp:TextBox>
+          </div>
+<div class="form-inline rowTop">
+<label class="col-form-label col-lg-2 col-sm-12">العنوان</label>
+                     <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control col-lg-8 col-sm-12"></asp:TextBox>
+    </div>  
+<div class="form-inline rowTop"> 
+ <label class="col-form-label col-lg-2 col-sm-12"> تاريخ القرار</label>   
+<asp:TextBox ID="txtDate" runat="server" CssClass="form-control col-lg-8 col-sm-12" TextMode="Date"></asp:TextBox>
+    </div>
+<div class="form-inline rowTop">
+    <label class="col-form-label col-lg-2 col-sm-12">عدد مواد القرار</label>
+<asp:TextBox ID="txtsubNo" runat="server" CssClass="form-control col-lg-8 col-sm-12"></asp:TextBox>
+    </div>
+<div class="form-inline rowTop">
+    <label class="col-form-label col-lg-2 col-sm-12">التصنيف</label>
+                    <asp:DropDownList ID="ddlDecType" runat="server" DataSourceID="sdsDecType" 
+                    DataTextField="decType" DataValueField="decTypeID" CssClass="form-control col-lg-8 col-sm-12" AppendDataBoundItems="true">
                     <asp:ListItem Text="اختر تصنيف القرار" Enabled="true"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsDecType" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
                 </asp:SqlDataSource>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-                الكلمات الدالة</td>
-            <td dir="rtl">
-                <asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-lg-6 col-sm-12"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-                تحميل الملف</td>
-            <td>
-                <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-lg-6 col-sm-12" />
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-                &nbsp;</td>
-            <td>
-                <input id="Reset1" type="reset" value="reset" class="btn btn-secondary btn-lg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+    </div>
+   <div class="form-inline rowTop">
+    <label class="col-form-label col-lg-2 col-sm-12"> الكلمات الدالة</label> 
+<asp:TextBox ID="txtKeywords" runat="server" TextMode="MultiLine" CssClass="form-control col-lg-8 col-sm-12"></asp:TextBox>
+       </div>
+   <div class="form-inline rowTop">
+    <label class="col-form-label col-lg-2 col-sm-12">   تحميل الملف</label>
+                       <asp:FileUpload ID="uploadDecesion" runat="server" CssClass="form-control col-lg-8 col-sm-12" />
+
+       </div>
+     <div class="rowTop col-8 mx-auto float-left">                    
+         <input id="Reset1" type="reset" value="reset" class="btn btn-secondary btn-lg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 <asp:Button ID="btnSubmitDec" runat="server" Text="إدخال القرار" 
-                    onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg " />
+         </div>
+    </div>
+        </div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                     InsertCommand="insertDecision2" InsertCommandType="StoredProcedure" 
                     SelectCommand="SELECT decNo, decTitle, decKeywords, decisionFile FROM decisions_Info">
@@ -121,9 +97,6 @@
                     	<asp:Parameter Name="aspuser" Type="String" />
                     </InsertParameters>
                 </asp:SqlDataSource>
-            </td>
-        </tr>
-    </table>
 
 </asp:Content>
 

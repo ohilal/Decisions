@@ -13,16 +13,20 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h2 class="auto-style1">البحث بالكلمات الدالة</h2>
-   <div class="form-inline">
-                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-3"></asp:TextBox>&nbsp; &nbsp; &nbsp;<asp:Button 
+    <div class="card col-xl-5 col-lg-8 col-md-8 col-sm-12 mx-auto container bg-gradient-secondary ">
+         <div class="card-header"><h2 class="text-white text-center">البحث بالكلمات الدالة</h2>
+             </div>
+        <div class="card-body">
+ <div class="form-inline">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-10" ClientIDMode="Static"></asp:TextBox>&nbsp; &nbsp; &nbsp;<asp:Button 
                         ID="btnSearch" runat="server" Text="بحث" 
         onclick="btnSearch_Click" CssClass="btn btn-lg btn-info" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
        </div><br />
+        </div>
+    </div>
     <div>
          <asp:Label ID="noDataLabel" runat="server" Text="   " />
-        <asp:ListView ID="ListView1" runat="server" 
-        DataSourceID="sdstest" >
+        <asp:ListView ID="ListView1" runat="server" >
         <AlternatingItemTemplate>
         <li style="background-color: #FFFFFF;color: #284775;font-family:Tahoma,Arial;">
         <h4><asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></h4> 
