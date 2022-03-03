@@ -59,6 +59,7 @@
 </head>
 <body data-spy="scroll"  data-offset="50">
     <form id="form1" runat="server">
+    
         <header>
             <div class="container-fluid row">
                 <div class="col-sm-4">
@@ -275,6 +276,7 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
         <script src="Scripts/locales/bootstrap-datepicker.ar.min.js"></script>
         <script src="Scripts/jquery.dataTables.js"></script>
 		<script src="Scripts/dataTables.bootstrap.js"></script>
+        <script src="Scripts/main.js"></script>
         <script type="text/javascript" charset="utf-8">
             // When the document is ready
             $(document).ready(function () {

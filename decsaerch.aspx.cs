@@ -20,5 +20,9 @@ public partial class testDate : System.Web.UI.Page
 
             noDataLabel.Text = "لا توجد بيانات";
         }
+        else
+        {
+            ListView1.Focus();
+        }
     }
 }

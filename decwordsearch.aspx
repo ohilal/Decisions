@@ -13,14 +13,15 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="card col-xl-5 col-lg-8 col-md-8 col-sm-12 mx-auto container bg-gradient-secondary ">
-         <div class="card-header"><h2 class="text-white text-center">البحث بالكلمات الدالة</h2>
+     <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/words.svg" />
+             <h2 class="text-white text-center">البحث بالكلمات الدالة</h2>
              </div>
         <div class="card-body">
  <div class="form-inline">
                     <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-10" ClientIDMode="Static"></asp:TextBox>&nbsp; &nbsp; &nbsp;<asp:Button 
                         ID="btnSearch" runat="server" Text="بحث" 
-        onclick="btnSearch_Click" CssClass="btn btn-lg btn-info" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
+        onclick="btnSearch_Click" CssClass="btn btn-info" />&nbsp; <asp:Label ID="lblSearch" runat="server" ></asp:Label>
        </div><br />
         </div>
     </div>

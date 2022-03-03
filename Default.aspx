@@ -27,14 +27,20 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
+      <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
     <div class="container" style="height: 90vh;">
         <section id="Laptop" style="box-shadow: 10px 10px 25px #506a6e;">
             <div class="container">
                 <!-- {% block content%} -->
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded  " style="left: 0px; top: 0px;">
-                        <img src="Images/documents.svg" style="max-height: 420px;" />
+                        <img src="Images/documents.svg" style="max-height: 80vh;" />
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="left: 0px; top: 0px">
                         <div class="laptop-text">
@@ -45,9 +51,14 @@
                             <p>
                                 في
 			 
-              إطار تطوير الخدمات الالكترونية للهيئة العامة للتنمية الصناعية تم تفعيل الإصدار الأول من " النشر الاليكترونى" على الشبكة الداخلية للهيئة والذي يتيح لموظفى الهيئة البحث فى القرارات والتعرف على أحدث ما تم نشره على الشبكة الداخلية للهيئة.
-               
+              إطار تطوير الخدمات الالكترونية للهيئة العامة للتنمية الصناعية تم تفعيل الإصدار الأول من " النشر الاليكترونى" على الشبكة الداخلية للهيئة والذي يتيح لموظفى الهيئة البحث فى القرارات والتعرف على أحدث ما تم نشره على الشبكة الداخلية للهيئة،
+               وكذلك المستندات الهامة مثل  <a href="guidebooks.aspx?gID=1" class="badge badge-info">دليل أكواد الأنشطة و المنتجات</a>  و <a href="guidebooks.aspx?gID=3" class="badge badge-info">دليل التليفونات الداخلية</a>  
                             </p>
+                            <p>
+                                ويمكنك من خلال التطبيق البحث فى القرارات من خلال <a href="decNosearch.aspx" class="badge badge-info"> رقم القرار</a> 
+                                أو <a href="decsaerch.aspx" class="badge badge-info">تاريخ النشر</a> أو <a href="decwordsearch.aspx" class="badge badge-info">بحث بالكلمات الدالة</a>
+                            </p>
+                            <p>  ولمتابعة   <a href="Default.aspx#latest" class="badge badge-info">أحدث ما تم نشره</a></p>
                           <%--  <!-- --------------------------------------->
                             <a href="Default.aspx#latest">
                                 <div class="arrow-container animated fadeInDown">

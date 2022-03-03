@@ -16,24 +16,41 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <h2 class="text-info text-center">إحصائيات</h2>
-    <div class="row form-inline">
-   <label class="col-form-label"> التاريخ من </label> 
-    <asp:TextBox ID="txtdecfrom" runat="server" TextMode="Date" CssClass="form-control col-3"></asp:TextBox>
+       <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+             <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/statistics.svg" />
+         <h2 class="text-center text-white"> إحصائيات</h2>
+ </div>
+
+        <div class="card-body">
+<div class="row form-inline">
+   <label class="col-form-label " for="txtdecfrom">  التاريخ من </label> 
+    <asp:TextBox ID="txtdecfrom" runat="server" TextMode="Date" CssClass="form-control col-12"></asp:TextBox>
                 <%--<cc1:CalendarExtender ID="txtdecfrom_CalendarExtender" runat="server" SelectedDate="<%# DateTime.Now %>"
                     Enabled="True" TargetControlID="txtdecfrom" Format="MM/dd/yyyy">
                 </cc1:CalendarExtender>--%>
     &nbsp;
-       <label class="col-form-label"> إلى  </label>     
-                <asp:TextBox ID="txtdecto" runat="server" TextMode="Date" CssClass="form-control col-3"></asp:TextBox>
+       <label class="col-form-label" for ="txtdecto"> إلى    </label>     
+                <asp:TextBox ID="txtdecto" runat="server" TextMode="Date" CssClass="form-control col-12"></asp:TextBox>
                 <%--<cc1:CalendarExtender ID="txtdecto_CalendarExtender" runat="server" 
                     Enabled="True" TargetControlID="txtdecto" Format="MM/dd/yyyy">
                 </cc1:CalendarExtender>--%>
            &nbsp;
-   <asp:Button ID="btnsearch" runat="server" Text="تقرير" CssClass="btn btn-info btn-lg "/></div>
-    <div class="container topMargin">
+   <asp:Button ID="btnsearch" runat="server" Text="تقرير" CssClass="btn btn-info btn-lg float-left"/></div>
+        </div>
+    </div>
+
+    
+    <div class="container topMargin row col-12">
+        <div class="col-lg-6 col-xl-6 col-sm-12">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-    DataSourceID="SqlDataSource1" CssClass="table table-striped" Width="50%">
+    DataSourceID="SqlDataSource1" CssClass="table table-striped table-responsive-lg">
         <Columns>
             <asp:BoundField DataField="decType" HeaderText="نوع القرار" 
                 SortExpression="decType" />
@@ -42,7 +59,9 @@
 <ItemStyle Width="20%"></ItemStyle>
             </asp:BoundField>
         </Columns>
-    </asp:GridView>
+        <HeaderStyle CssClass="table-secondary" />
+    </asp:GridView></div>
+<div class="col-lg-6 col-xl-6 col-sm-12">
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="select decType,COUNT(* ) as [total] from dbo.decisions_Info 
 
@@ -56,12 +75,6 @@ where (decDate between @fromdate and @todate)
         <asp:ControlParameter ControlID="txtdecto" Name="todate" PropertyName="Text" />
     </SelectParameters>
 </asp:SqlDataSource> 
-    
-
-  
-             <br/>
-
-       
    
         <asp:chart runat="server" ID="ctl00" DataSourceID="chartsource" Height="400px" RightToLeft="Yes" Width="400px"><Series><asp:Series Name="Series1" XValueMember="decType" YValueMembers="total"></asp:Series></Series><ChartAreas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></ChartAreas></asp:chart>
 	<asp:SqlDataSource ID="chartsource" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT decision_Types.decType, COUNT(*) AS total FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID 
@@ -72,7 +85,7 @@ where (decDate between @fromdate and @todate)
 			<asp:ControlParameter ControlID="txtdecto" Name="todate" PropertyName="Text" />
 		</SelectParameters>
 	</asp:SqlDataSource>
-
+    </div>
 </div>
    
 	

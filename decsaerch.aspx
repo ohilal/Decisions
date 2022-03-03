@@ -12,13 +12,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-     <div class="card col-xl-5 col-lg-8 col-md-8 col-sm-12 mx-auto container " >
-         <div class="card-header"><h2 class="text-info text-center">البحث بالتاريخ</h2></div>
-   <div class="card-body">
+
+     <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/calendar.svg" />
+         <h2 class="text-center text-white">البحث بالتاريخ</h2>
+ </div>
+
+   <div class="card-body ">
    <div class="form-row">
        <label for="txtdate1" class="col-form-label ml-2">من</label> 
         <asp:TextBox ID="txtdate1" runat="server"
-            ToolTip="من تاريخ..."  CssClass="form-control col-xl-5 col-lg-8 col-md-12 col-sm-12 " TextMode="Date" ></asp:TextBox>
+            ToolTip="من تاريخ..."  CssClass="form-control col-12 " TextMode="Date" style="right: 0px; top: 0px" ></asp:TextBox>
 <%--       <asp:RangeValidator ID="RangeValidator1" runat="server" 
 ControlToValidate="txtdate1" CultureInvariantValues="True" ErrorMessage="ادخل رقم صحيح للتاريخ" 
 MaximumValue="1/1/2050" MinimumValue="1/1/2000" >   
@@ -30,11 +34,11 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
         &nbsp; <label for="txtdate2" class="col-form-label ml-2">إلى</label> 
        
     &nbsp;<asp:TextBox ID="txtdate2" runat="server" 
-        ToolTip="إلي تاريخ..." CssClass="form-control col-xl-5 col-lg-8 col-md-12 col-sm-12 "   TextMode="Date"></asp:TextBox>
+        ToolTip="إلي تاريخ..." CssClass="form-control col-12 "   TextMode="Date" style="right: 0px; top: 0px"></asp:TextBox>
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
-        &nbsp;&nbsp;&nbsp;<%--<asp:DropDownList ID="ddlDectypes" Width="250px" runat="server" DataSourceID="sdsDecisions" 
+       <%-- &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" Width="250px" runat="server" DataSourceID="sdsDecisions" 
                                     DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true">
                                     <asp:ListItem Value="" Text="اختر نوع القرار" Enabled="true" />
                                 </asp:DropDownList>--%>
@@ -44,7 +48,7 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
                                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
                                 </asp:SqlDataSource>--%>
        </div>
-        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" CssClass="text-white">
+        <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" >
             <Nodes>
                 <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
@@ -77,8 +81,7 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
             Text="القرارات" CssClass="btn btn-info btn-lg  topMargin "  />--%>
 
 </div></div>
-        <br />
-        <br />
+
 
     <asp:Label ID="noDataLabel" runat="server" Text="   " />
     <asp:ListView ID="ListView1" runat="server" DataSourceID="sdsDate" GroupItemCount="2" >

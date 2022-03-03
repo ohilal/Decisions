@@ -7,12 +7,14 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-    <div class="card col-xl-5 col-lg-8 col-md-8 col-sm-12 mx-auto container " >
-       <div class="card-header"><h2 class="text-info text-center">البحث برقم القرار</h2></div>
-       <div class="form-group card-body">
+         <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/numbers.svg" />
+         <h2 class="text-center text-right text-white">البحث برقم القرار</h2>
+ </div>
+
+       <div class="form-group card-body text-white">
                    <%-- <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control col-3" style="right: 0px; top: 0px"></asp:TextBox>&nbsp; &nbsp; &nbsp;--%>
-	   <asp:TextBox ID="txtdecNosearch" runat="server" CssClass="form-control col-lg-6 col-sm-12" placeholder="رقم القرار" required></asp:TextBox>
+	   <asp:TextBox ID="txtdecNosearch" runat="server" CssClass="form-control col-lg-6 col-sm-12" placeholder="رقم القرار" required style="right: 0px; top: 0px"></asp:TextBox>
 	   <br /> 
        <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck" Type="Integer" 
  ControlToValidate="txtdecNosearch" ErrorMessage="أدخل رقم القرار" CssClass="alert-danger" ></asp:CompareValidator>
