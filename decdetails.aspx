@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="padding-right:10px;">
-        <h2 class="text-info text-center">تفاصيل القرار</h2>
+        <h2 class="text-info text-center">sتفاصيل القرار</h2>
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataSourceID="detailssds"   DataKeyNames="decID" HorizontalAlign="Justify" CssClass="table table-striped table-responsive-sm" > 
          

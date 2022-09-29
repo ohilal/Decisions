@@ -58,7 +58,9 @@
                                 ويمكنك من خلال التطبيق البحث فى القرارات من خلال <a href="decNosearch.aspx" class="badge badge-info"> رقم القرار</a> 
                                 أو <a href="decsaerch.aspx" class="badge badge-info">تاريخ النشر</a> أو <a href="decwordsearch.aspx" class="badge badge-info">بحث بالكلمات الدالة</a>
                             </p>
-                            <p>  ولمتابعة   <a href="Default.aspx#latest" class="badge badge-info">أحدث ما تم نشره</a></p>
+                            <p>  ولمتابعة   <a href="Default.aspx#latest" class="badge badge-info">أحدث ما تم نشره
+   
+                                            </a></p>
                           <%--  <!-- --------------------------------------->
                             <a href="Default.aspx#latest">
                                 <div class="arrow-container animated fadeInDown">
@@ -75,6 +77,11 @@
 							<path class="a2" d="M0 10 L15 26 L30 10"></path>
 							<path class="a3" d="M0 20 L15 36 L30 20"></path>
 						</svg>
+      <%--                            <svg class="arrows">
+        <path class="a1" d="M0 0 L25 26 L50 0"></path>
+        <path class="a2" d="M0 10 L25 36 L50 10"></path>
+        <path class="a3" d="M0 20 L25 46 L50 20"></path>
+    </svg>--%>
                                   </a>
         <!-- ------------------------------------------------>
 

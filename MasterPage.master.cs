@@ -29,8 +29,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 
 
-            string ipAddress = IpAddress();
-            string hostName=Dns.GetHostEntry(ipAddress).HostName;
+           //string ipAddress = IpAddress();
+           //string hostName=Dns.GetHostEntry(ipAddress).HostName;
             //string hostName = Dns.GetHostByAddress(ipAddress).HostName; 
 
 
