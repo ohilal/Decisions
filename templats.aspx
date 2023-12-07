@@ -25,7 +25,7 @@
         <AlternatingItemTemplate>
             <td runat="server" style="" >
 
-				<a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
+				<a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("TemplatePath")%>&#039;)' class="grey">
                    <i class="far fa-file-pdf fa-2x text-info"></i>
                     <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
                     
@@ -75,7 +75,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <td runat="server" style="" >
-              <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("TemplatePath")%>&#039;)' class="grey">
+              <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("TemplatePath")%>&#039;)' class="grey">
                     <i class="far fa-file-pdf fa-2x text-info"></i>
                   <asp:Label ID="TemplateNameLabel" runat="server" Text='<%# Eval("TemplateName") %>' CssClass="h5 col-12 grey" />
                    

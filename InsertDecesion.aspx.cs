@@ -32,7 +32,7 @@ public partial class InsertDecesion : System.Web.UI.Page
             SqlDataSource1.InsertParameters["decisionFile"].DefaultValue = filename;
         }
 
-        uploadDecesion.SaveAs(Server.MapPath("~/UploadedDecisions/") + uploadDecesion.FileName);
+        uploadDecesion.SaveAs(Server.MapPath("~/../DecisionsData/") + uploadDecesion.FileName);
           SqlDataSource1.Insert();
           Response.Redirect("~/success.aspx");
     }

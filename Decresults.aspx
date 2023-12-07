@@ -41,7 +41,7 @@
                         <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                         <br />
                         decisionFile:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'> <%#Eval("decisionFile")%></a>
+                        <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'> <%#Eval("decisionFile")%></a>
                         <br />
                         <br />
                         </ItemTemplate>
@@ -90,7 +90,7 @@
                         <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                         <br />
                         فتح القرار:
-                       <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'> <%#Eval("decisionFile")%></a>
+                       <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'> <%#Eval("decisionFile")%></a>
                         <br />
                         <br />
                     
@@ -128,7 +128,7 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <a href="#" 
-                                        onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'>
+                                        onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'>
                                     <%#Eval("decisionFile")%></a>
                                 </ItemTemplate>
                             </asp:TemplateField>

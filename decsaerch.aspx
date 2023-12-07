@@ -95,7 +95,7 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                 <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
+                        <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </AlternatingItemTemplate>
@@ -158,7 +158,7 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                 <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
+                        <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </ItemTemplate>

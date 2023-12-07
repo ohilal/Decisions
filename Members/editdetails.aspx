@@ -37,7 +37,7 @@
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("decisionFile") %>'></asp:Label>
                     
-                     <a href="#" onclick="window.open('../UploadedDecisions/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                     <a href="#" onclick="window.open('../../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="الكلمات الدالة" SortExpression="decKeywords">

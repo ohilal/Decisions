@@ -46,7 +46,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("guideFileExt") %>'></asp:Label>
-<a href="#" onclick="window.open('../UploadedDecisions/<%#Eval("guideFileExt")%>')" ><i class="far fa-file-pdf fa-2x text-info"></i></a>
+<a href="#" onclick="window.open('../../DecisionsData/<%#Eval("guideFileExt")%>')" ><i class="far fa-file-pdf fa-2x text-info"></i></a>
 
                 </ItemTemplate>
             </asp:TemplateField>

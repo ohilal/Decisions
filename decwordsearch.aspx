@@ -35,7 +35,7 @@
         <br /><b>تاريخ الإصدار:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;"  />
         <br /><b> نوع القرار:</b>
                     <asp:Label ID="langLabel" runat="server" Text='<%# Eval("decType") %>' />        
-<%--          <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="فتح ملف الدراسة" style="border:none;"/></a>
+<%--          <br />  <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="فتح ملف الدراسة" style="border:none;"/></a>
 --%>        <br /><br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>التفاصيل</asp:HyperLink></li>
 
         </li>
@@ -73,7 +73,7 @@
                     <br /><b>تاريخ الإصدار:</b> <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("decDate", "{0:dd/MM/yyyy}")%>' Style="direction:ltr;" />
                     <br /><b> نوع القرار:</b>
                     <asp:Label ID="langLabel" runat="server" Text='<%# Eval("decType") %>' />  
-                   <%-- <br />  <a href="#" onclick="window.open('UploadedDecisions/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="فتح ملف الدراسة" style="border:none;"/></a>--%>
+                   <%-- <br />  <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')" ><img src='<%#  "photo.aspx?photoID=" + Eval("photoID")+"&Width=45&Height=45"  %>' id="Photo"  alt="فتح ملف الدراسة" style="border:none;"/></a>--%>
                     <br /><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("decID", "decdetails.aspx?decID={0}") %>'>التفاصيل</asp:HyperLink></li>
                     </ItemTemplate>
                     <LayoutTemplate><ul ID="itemPlaceholderContainer" runat="server" 

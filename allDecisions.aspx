@@ -15,8 +15,9 @@
                 <asp:Label ID="decDateLabel" runat="server" Text='<%# Eval("decDate", "{0:dd/MMM/yyyy}") %>' Style="direction:ltr;" />
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
-                <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                <br /> القرار:                    
+                <a href="#" 
+                    onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </AlternatingItemTemplate>
@@ -79,7 +80,10 @@
                 <br /><b>نوع القرار</b>
                 <asp:Label ID="decTypeLabel" runat="server" Text='<%# Eval("decType") %>' />
                 <br /> القرار:
-                        <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                  <%--               <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile").ToString().Replace(@"\","/") %>&#039;)'><i class="far fa-file-pdf fa-3x text-danger" title="فتح الملف"></i></a>--%>
+
+                           <a href="#" 
+                    onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
                 <%--<asp:Label ID="decisionFileLabel" runat="server" Text='<%# Eval("decisionFile") %>' />--%>
                 <br /></td>
         </ItemTemplate>
@@ -128,5 +132,6 @@
                             <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+
 </asp:Content>
 

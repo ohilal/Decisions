@@ -50,10 +50,7 @@
                 
 				 <br />
 				 ملف القرار:
-                 <a href="#" onclick='window.open("///192.168.14.42/Decisions/UploadedDecisions/<%#Eval("decisionFile")%>");  return false'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i> </a>
-                  <hr />
-                 <asp:LinkButton ID="LinkButton1" runat="server"  CommandArgument="http://127.0.0.1:8887/Decisions/UploadedDecisions/"   OnCommand="LinkButton1_Command">LinkButton</asp:LinkButton>
-                  <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# string.Format(@"\\192.168.14.42/Decisions/UploadedDecisions/{0}",Eval("decisionFile")) %>'  Text='<%# Eval("decisionFile") %>' Target="_blank" ></asp:HyperLink>
+                 <a href="#" onclick='window.open("../../DecisionsData/<%#Eval("decisionFile")%>")'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i></a>
 				 <br />
 				 <div class="topMargin float-left">
 				
@@ -63,8 +60,6 @@
 			</div> 
 				 </ItemTemplate>
 		 </asp:DataList>
-                             <asp:LinkButton ID="LinkButton1" runat="server"  CommandArgument="http://127.0.0.1:8887/Decisions/UploadedDecisions/no.3-2022.PDF" OnCommand="LinkButton1_Command">LinkButton</asp:LinkButton>
-
          <asp:SqlDataSource ID="sdsdecNO" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="decNOsearch" SelectCommandType="StoredProcedure">
 			 <SelectParameters>
 				 <asp:ControlParameter ControlID="txtdecNosearch" Name="searchNO" PropertyName="Text" Type="Int32" />
@@ -72,4 +67,9 @@
 			 </SelectParameters>
 		 </asp:SqlDataSource>
         </div>
+         
+            
+
+<%-----------------------igTabs-------------------------------- --%>
+
 </asp:Content>

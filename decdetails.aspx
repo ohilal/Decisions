@@ -32,7 +32,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <%--<asp:Label ID="Label1" runat="server" Text='<%# Bind("decisionFile") %>'></asp:Label>--%>
-                     <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("decisionFile")%>&#039;)'>
+                     <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("decisionFile")%>&#039;)'>
                          <i class="far fa-file-pdf fa-3x text-info"></i>
                             <%--<img src="Images/pdf_logo_trefoil.gif" style="border-style: none;" alt="فتح الملف" /></a>--%>
                 </ItemTemplate>

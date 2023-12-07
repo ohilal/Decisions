@@ -11,7 +11,6 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using System.Diagnostics;
 public partial class decNosearch : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
@@ -48,19 +47,4 @@ public partial class decNosearch : System.Web.UI.Page
 		}
 		DataList1.DataBind();
 	}
-    public void openFile(string _uri)
-    {
-        Process.Start(@_uri.ToString()); //use the @ to use the string as is.
-    }
-
-    protected void LinkButton1_Command(object sender, CommandEventArgs e)
-    {
-        openFile(e.CommandArgument.ToString());
-    }
-    protected void LinkButton1_Click(object sender, EventArgs e)
-    {
-        string tempFile = string.Format(@"Y:\UploadedDecisions\no.3-2022.PDF");
-        Server.MapPath(@"\\192.168.14.42\Decisions\UploadedDecisions\no.3-2022.PDF");
-        Response.Redirect("file://///ida-app1/Decisions/UploadedDecisions/no.3-2022.PDF");
-    }
 }

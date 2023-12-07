@@ -22,7 +22,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("TemplatePath") %>'></asp:TextBox>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                         <a href="#" onclick="window.open('../UploadedDecisions/<%#Eval("TemplatePath")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
+                         <a href="#" onclick="window.open('../../DecisionsData/<%#Eval("TemplatePath")%>')"><i class="far fa-file-pdf fa-2x text-info"></i></a>
                 </ItemTemplate>
                 <ItemStyle CssClass="form-control col-6" />
             </asp:TemplateField>

@@ -51,7 +51,7 @@
                 
 				 <br />
 				 ملف القرار:
-                 <a href="#" onclick='window.open("///192.168.14.42/Decisions/UploadedDecisions/<%#Eval("decisionFile")%>");  return false'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i> فتح الملف  </a>
+                 <a href="#" onclick='window.open("///192.168.14.42/Decisions/../DecisionsData/<%#Eval("decisionFile")%>");  return false'><i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i> فتح الملف  </a>
                  <hr /> <asp:LinkButton ID="LinkButton1" runat="server" OnCommand="LinkButton1_Command"  >LinkButton</asp:LinkButton>
 <%--                  <hr /><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# string.Format(@"file://192.168.14.42\Decisions\UploadedDecisions\{0}",Eval("decisionFile")) %>'  Text='<%# Eval("decisionFile") %>' Target="_blank" ></asp:HyperLink>--%>
 				<asp:HyperLink ID="HyperLink2" runat="server" ></asp:HyperLink>

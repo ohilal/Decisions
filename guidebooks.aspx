@@ -18,7 +18,7 @@
     <asp:ListView ID="lvGuide" runat="server" DataKeyNames="GuideTypeID" DataSourceID="sdsGuide">
         <AlternatingItemTemplate>
             <li class="list-unstyled">
-                 <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)' class="grey">
+                 <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("guideFileExt")%>&#039;)' class="grey">
                 <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
                 <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h5 col-12"  />
                      
@@ -75,7 +75,7 @@
            <li class="list-unstyled">
 <%--                <asp:Label ID="GuideTypeNameLabel" runat="server" Text='<%# Eval("GuideTypeName") %>' CssClass="h1 text-info text-center mx-auto col-12 float-xl-none" style="margin:0 auto !important;"/>
                 <br />--%>
-            <a href="#" onclick='window.open(&#039;UploadedDecisions/<%#Eval("guideFileExt")%>&#039;)' class="grey">
+            <a href="#" onclick='window.open(&#039;../DecisionsData/<%#Eval("guideFileExt")%>&#039;)' class="grey">
                 <i class="far fa-file-pdf fa-2x text-info" title="فتح الملف"></i>
                 <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' CssClass="h5 col-12"  />
                      

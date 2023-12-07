@@ -21,7 +21,7 @@ public partial class Members_editdetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       Response.Write( Request.QueryString["decID"]);
+       //Response.Write( Request.QueryString["decID"]);
 
 
 
@@ -61,7 +61,7 @@ public partial class Members_editdetails : System.Web.UI.Page
         }
 
         
-        file.SaveAs(Server.MapPath("~/UploadedDecisions/") + file.FileName);
+        file.SaveAs(Server.MapPath("~/../DecisionsData/") + file.FileName);
         SqlDataSource1.UpdateParameters["aspuser"].DefaultValue = Page.User.Identity.Name;
         SqlDataSource1.Update();
         SqlDataSource1.DataBind();

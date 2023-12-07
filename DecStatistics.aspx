@@ -75,7 +75,6 @@ where (decDate between @fromdate and @todate)
         <asp:ControlParameter ControlID="txtdecto" Name="todate" PropertyName="Text" />
     </SelectParameters>
 </asp:SqlDataSource> 
-   
         <asp:chart runat="server" ID="ctl00" DataSourceID="chartsource" Height="400px" RightToLeft="Yes" Width="400px"><Series><asp:Series Name="Series1" XValueMember="decType" YValueMembers="total"></asp:Series></Series><ChartAreas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></ChartAreas></asp:chart>
 	<asp:SqlDataSource ID="chartsource" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT decision_Types.decType, COUNT(*) AS total FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID 
 where (decDate between @fromdate and @todate)
@@ -87,8 +86,9 @@ where (decDate between @fromdate and @todate)
 	</asp:SqlDataSource>
     </div>
 </div>
-   
-	
+   <iframe title="report - Page 1" width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiY2RiYWM5ZGUtOWI4Yy00Mzk4LTg2OTctMjJjNTlkMjA5NWExIiwidCI6IjgyMjYzZjA4LTlkOWMtNGY1ZC1iNDE1LTRmZjQxNjY5ZjdmZCIsImMiOjh9" frameborder="0" allowFullScreen="true" dir="rtl"></iframe>
+    <br />
+<%--<iframe  width="800" height="836" src="https://app.powerbi.com/view?r=eyJrIjoiZTVkNjg2MDctY2E4My00NTcxLWEyYTEtMjhjNTMzM2E4ZTI5IiwidCI6IjgyMjYzZjA4LTlkOWMtNGY1ZC1iNDE1LTRmZjQxNjY5ZjdmZCIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>	--%>
 </asp:Content>
 
 

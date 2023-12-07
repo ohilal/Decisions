@@ -49,7 +49,7 @@ public partial class testSearch : System.Web.UI.Page
     {
         string tempFile = string.Format(@"\\192.168.14.42\Decisions\UploadedDecisions\no.3-2022.PDF");
         Server.MapPath(@"\\192.168.14.42\Decisions\UploadedDecisions\no.3-2022.PDF");
-        Response.Redirect("file://///ida-app1/Decisions/UploadedDecisions/no.3-2022.PDF");
+        Response.Redirect("file://///ida-app1/Decisions/../DecisionsData/no.3-2022.PDF");
        
     }
 
