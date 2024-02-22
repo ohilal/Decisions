@@ -41,7 +41,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 style="text-align:center;" class="h1">إدخال النماذج أو القوانين</h1>
-<div class="card col-lg-5 col-sm-12 mx-auto container">
+
+<div class="card col-lg-6 col-sm-12 mx-auto container">
     <div class="card-body">
     <div class="row form-inline">
         <label class="col-form-label col-lg-3 text-nowrap">اسم النموذج: &nbsp;</label>

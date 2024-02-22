@@ -53,7 +53,7 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
                 <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
                     </asp:TreeNode>
-                    <asp:TreeNode Expanded="False" Text="اجراءات عمل" ToolTip="اجراءات عمل" Value="3" ImageToolTip="القرارات">
+                    <asp:TreeNode Expanded="False" Text="إلغاء رخص وسجلات/ إجراءات عمل" ToolTip="إلغاء رخص وسجلات/ إجراءات عمل" Value="3" ImageToolTip="القرارات">
                     </asp:TreeNode>
                     <asp:TreeNode Text="لجان" ToolTip="لجان" Value="2"></asp:TreeNode>
                 </asp:TreeNode>

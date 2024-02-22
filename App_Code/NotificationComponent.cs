@@ -16,7 +16,7 @@ namespace PushNotification
         {
             string conStr = ConfigurationManager.ConnectionStrings["dataBankConnectionString"].ConnectionString;
             // SelectCommand = "SELECT  decisions_Info.decID, decisions_Info.decNo, decisions_Info.decTitle, decisions_Info.decisionFile, decision_Types.decType, CONVERT (varchar, decisions_Info.decDate, 103) AS date, decisions_Info.decsubjectNo FROM decisions_Info INNER JOIN decision_Types ON decisions_Info.decTypeID = decision_Types.decTypeID ORDER BY decisions_Info.decDate DESC" >
-            string sqlCommand = @"SELECT [decNo] ,[decTitle],[date],[Status] FROM [databank].[dbo].[decisions_Audit] where [date]>@AddedOn";
+            string sqlCommand = @"SELECT [decNo] ,[decTitle],[date],[Status] FROM [databank].[dbo].[decisions_Audit] where [date] > @AddedOn";
             //string sqlCommand = @"SELECT [ContactID],[ContactName],[ContactNo] from [dbo].[Contacts] where [AddedOn] > @AddedOn";
             //you can notice here I have added table name like this [dbo].[Contacts] with [dbo], its mendatory when you use Sql Dependency
             using (SqlConnection con = new SqlConnection(conStr))
@@ -41,8 +41,8 @@ namespace PushNotification
         void sqlDep_OnChange(object sender, SqlNotificationEventArgs e)
         {
             //or you can also check => if (e.Info == SqlNotificationInfo.Insert) , if you want notification only for inserted record
-            //if (e.Info == SqlNotificationInfo.Insert)
-            if (e.Type == SqlNotificationType.Change)
+            if (e.Info == SqlNotificationInfo.Insert)
+            //if (e.Type == SqlNotificationType.Change)
             {
                 SqlDependency sqlDep = sender as SqlDependency;
                 sqlDep.OnChange -= sqlDep_OnChange;
@@ -55,7 +55,7 @@ namespace PushNotification
             }
         }
 
-        
+
         //public List<decisions_Audit> GetContacts(DateTime afterDate)
         //{
         //    using (MyPushNotificationEntities dc = new MyPushNotificationEntities())
