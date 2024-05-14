@@ -38,15 +38,15 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
-       <%-- &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" Width="250px" runat="server" DataSourceID="sdsDecisions" 
+        &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" Width="250px" runat="server" DataSourceID="sdsDecisions" 
                                     DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true">
-                                    <asp:ListItem Value="" Text="اختر نوع القرار" Enabled="true" />
-                                </asp:DropDownList>--%>
+                                    <asp:ListItem Value="" Text="اختر النوع " Enabled="true" />
+                                </asp:DropDownList>
 
-        <%--                                <asp:SqlDataSource ID="sdsDecisions" runat="server" 
+                                        <asp:SqlDataSource ID="sdsDecisions" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
-                                </asp:SqlDataSource>--%>
+                                </asp:SqlDataSource>
        </div>
         <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" >
             <Nodes>

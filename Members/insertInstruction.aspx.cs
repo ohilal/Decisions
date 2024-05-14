@@ -13,17 +13,22 @@ public partial class Members_insertInstruction : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+		txtTitle.Text = String.Empty;
+		txtKeywords.Text = String.Empty;
+		txtDate.Text = String.Empty;
+		uploadInstructionFile.Dispose();
+		
+		if (!IsPostBack)
         {
 
             this.SelectAll();
         }
         string UpPath;
-        UpPath = "C:\\UploadedDecisions";
-        if (!Directory.Exists(UpPath))
-        {
-            Directory.CreateDirectory("C:\\UploadedDecisions\\");
-        }
+        //UpPath = "C:\\InstructionData";
+        //if (!Directory.Exists(UpPath))
+        //{
+        //    Directory.CreateDirectory("C:\\InstructionData\\");
+        //}
 
     }
 	protected void btnSubmitDec_Click(object sender, EventArgs e)
@@ -42,6 +47,10 @@ public partial class Members_insertInstruction : System.Web.UI.Page
 		SqlDataSource1.InsertParameters["aspuser"].DefaultValue = Page.User.Identity.Name;
 		//Response.Write(txtDate.Text);
 		SqlDataSource1.Insert();
+		txtTitle.Text = String.Empty;
+		txtKeywords.Text = String.Empty;
+		txtDate.Text = String.Empty;
+		uploadInstructionFile.Dispose();
 		Response.Redirect("~/success.aspx");
 	}
 	private void SelectAll()

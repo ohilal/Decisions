@@ -27,6 +27,16 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+        <!--========================================= Marquee============================================ -->
+        <div class="row">
+	<div class="alert alert-primary alert-dismissible" style="background-color: #EDF4EA;" role="alert">
+  <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">غلق</span></button>
+  <h2 class="text-center text-info"><i class="fa-solid fa-bullhorn"></i> إعلانات</h2> <marquee  onmouseover="this.stop();" onmouseout="this.start();" >
+      <a href="success.aspx">إعلانات وتنبيهات</a>
+      <a href="decsaerch.aspx" style="font-family: Impact; font-size: 18pt">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor!</a></marquee>
+</div>
+	</div>
+
       <!-- ====== Preloader ======  -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -34,6 +44,8 @@
         <div class="loader-section section-right"></div>
     </div>
     <!-- ======End Preloader ======  -->
+
+    <!--------------------------------------- Layout-------------------------------------------------->
     <div class="container" style="height: 90vh;">
         <section id="Laptop" style="box-shadow: 10px 10px 25px #506a6e;">
             <div class="container">

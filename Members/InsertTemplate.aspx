@@ -4,15 +4,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
-        .search_textbox, .date {
+        .search_textbox {
             width: 90%;
             font-size: .8em;
         }
-
-        .date {
-            cursor: pointer;
-        }
-
 
         ::-webkit-input-placeholder {
             color: silver;
@@ -73,6 +68,7 @@
 		<asp:Parameter Name="TemplatePath" Type="String" />
 	    <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
         <asp:ControlParameter ControlID="ddlType" Name="typeID" PropertyName="SelectedValue" Type="Int32" />
+	    <asp:Parameter Name="aspuser" Type="String" />
 	</InsertParameters>
 			</asp:SqlDataSource>
 
@@ -102,11 +98,39 @@
 <FooterStyle CssClass="pagination"></FooterStyle>
     </asp:GridView></div></div>
     <br />
-    
-     <script>
-                $(document).ready(function () {
-                    $('#<%= GridView1.ClientID %>').DataTable();
-                });
-            </script>
+ 	<script>
+         $(document).ready(function () {
+             $('#<%= GridView1.ClientID %>').DataTable({
+                dom: 'T<"clear">lfrtip',
+                "sPaginationType": "full_numbers",
+                "scrollCollapse": true,
+                "jQueryUI": true,
+
+                "language": {
+                    "lengthMenu": "عرض _MENU_  لكل صفحة",
+                    "zeroRecords": "عفوا لا توجد بيانات للعرض",
+                    "info": "عرض الصفحة _PAGE_ من _PAGES_",
+                    "infoEmpty": "لا توجد سجلات متاحة",
+                    "infoFiltered": "(تصفية من  _MAX_ اجمالي التعليمات)",
+                    "search": "&nbsp; &nbsp;&nbsp;&nbsp; بـحث&nbsp; &nbsp;",
+                    "oPaginate": {
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sFirst": "الاول",
+                        "sLast": "الاخير"
+                    }
+
+                },
+                "aoColumnDefs": [{
+                    'bSortable': false,
+                    'aTargets': [0]
+                }]
+            });
+            jQuery('#example_wrapper .dataTables_filter input')
+                .addClass("input-medium"); // modify table search input
+            jQuery('#example_wrapper .dataTables_length select')
+                .addClass("input-mini"); // modify table per page dropdown
+        });
+     </script>
 </asp:Content>
 

@@ -1353,3 +1353,60 @@ span.count {
     position: relative;
     top: -3px;
 }
+/*====================== ticker===================================*/
+@-webkit-keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-wrap {
+    --ticker-duration: 50s;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 100%;
+    box-sizing: content-box;
+}
+
+    .ticker-wrap .ticker {
+        display: inline-block;
+        white-space: nowrap;
+        padding-right: 100%;
+        box-sizing: content-box;
+        -webkit-animation: ticker var(--ticker-duration) linear infinite;
+        animation: ticker var(--ticker-duration) linear infinite;
+    }
+
+    .ticker-wrap .ticker-item {
+        display: inline-block;
+        padding: 0 2rem;
+        font-size: 1.5rem;
+    }
+
+    .ticker-wrap.pause-on-hover .ticker:hover {
+        animation-play-state: paused;
+    }
+
+a.ticker-item:hover {
+    text-decoration: underline !important;
+}

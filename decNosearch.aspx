@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
          <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
-         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/numbers.svg" />
+         <div class="top bg-gradient-secondary card-header">m<img class="icon " src="Images/numbers.svg" />
          <h2 class="text-center text-right text-white">البحث برقم القرار</h2>
  </div>
 

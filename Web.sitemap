@@ -1,21 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  
-  
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >    
   <!---->
-  <siteMapNode   roles="Members,Admin"  >
+	<siteMapNode url="Default.aspx" title="الصفحة الرئيسية" description="الصفحة الرئيسية">	
+		
+		<siteMapNode title="القرارات" url="#1" description="القرارات" >
+		 <siteMapNode url="~/decsaerch.aspx" title="البحث بالتاريخ" />
+    <!--<siteMapNode url="~/Admin/manageUsers.aspx" title="Manage Users" />
+    <siteMapNode url="~/Admin/changePassword.aspx" title="Change Password" />-->
+	</siteMapNode>	
    <siteMapNode title="Admin's Area" roles="Admin">
     <siteMapNode url="~/Admin/CreateUser.aspx" title="Create User" />
     <siteMapNode url="~/Admin/manageUsers.aspx" title="Manage Users" />
     <siteMapNode url="~/Admin/changePassword.aspx" title="Change Password" />
-  </siteMapNode>
-    <siteMapNode title ="Members" roles="Members,Admin">
-      <siteMapNode url="~/Members/InsertDecesion.aspx" title="Insert" />
+  </siteMapNode>	  
+    <siteMapNode title ="صفحات الإدخال" roles="Members,Admin" url="#2">
+      <siteMapNode url="~/Members/InsertDecesion.aspx" title="إدخال قرار" />
       <siteMapNode url="~/Members/membersdataresult.aspx" title="تعديل قرار" />
     <siteMapNode url="~/Members/membersdecNosearch.aspx" title="البحث برقم القرار" />
     <siteMapNode url="~/Members/insertGuide.aspx" title="إدخال دليل" />
     <siteMapNode url="~/Members/InsertTemplate.aspx" title="إدخال نموذج أو قانون" />
     </siteMapNode>
-  </siteMapNode>
+</siteMapNode>	
 </siteMap>
 

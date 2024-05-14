@@ -8,7 +8,7 @@
     <title><%: Page.Title %> -النشر الاليكترونى</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles/bootstrap.css" rel="stylesheet" />
-    <link href="fonts/fontawesome5.15.2/css/all.css" rel="stylesheet" />
+    <link href="fonts/fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet" />
     <link href="styles/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" /> 
     <link href="styles/animate.css" rel="stylesheet" />
@@ -99,9 +99,15 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="~/guidebooks.aspx?gID=1" runat="server">دليل الأكواد</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="~/templats.aspx?gID=4" runat="server">طلبات ونماذج</a>
+                </li>   
+                <li class="nav-item dropdown">
+                       <a class="nav-link dropdown-toggle" href="#" id="navbardrop1" data-toggle="dropdown">طلبات ونماذج
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="~/templats.aspx?gID=4" runat="server">نماذج الشئون الإدارية</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item " href="~/templats.aspx?gID=6" runat="server">  نماذج الشئون الفنية</a>
+                   </div>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="~/guidebooks.aspx?gID=3" runat="server">دليل التليفونات</a>
@@ -210,6 +216,30 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
                 </LoggedInTemplate>
             </asp:LoginView>
         </nav>
+        <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="true" />   
+        <!--============== Breadcrumbs=============================== -->
+        <div>
+<asp:SiteMapPath ID="SiteMapPath2" runat="server"  CssClass="breadcrumb mb-0 p-1">
+   <NodeStyle CssClass="breadcrumb-item small"   />
+   <PathSeparatorTemplate> &nbsp;<i class="fa-solid fa-angles-left text-secondary">&nbsp;</i> </PathSeparatorTemplate>
+    <NodeTemplate>
+<asp:HyperLink ID="hlNodeTemplate" runat="server" Text='<%# Eval("title") %>'  />
+    </NodeTemplate>
+<RootNodeTemplate>
+
+<asp:HyperLink ID="hlRoot" runat="server" Text='<%# Eval("title") %>' NavigateUrl='<%# Eval("url") %>' />
+
+</RootNodeTemplate>
+
+<CurrentNodeTemplate>
+
+<asp:HyperLink ID="hlCurrentNodeTemplate" runat="server" Text='<%# Eval("title") %>'  />
+
+</CurrentNodeTemplate>
+
+</asp:SiteMapPath>
+        </div>
+ 
         <!-- ========================================== svg======================================= -->
            <div class="line-container">
         <svg viewBox="0 0 136 650" fill="none" preserveAspectRatio="xMidYMax meet" class="svgPath">

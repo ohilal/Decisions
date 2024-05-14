@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="insertInstruction.aspx.cs" Inherits="Members_insertInstruction" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-        <style type="text/css">
-		 .search_textbox, .date {
-            width: 90%;
+        <style>
+        .search_textbox, .date {
+           /* width: 90%;*/
             font-size: .8em;
         }
 
@@ -35,15 +35,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <h1 style="text-align:center;" class="h1">&nbsp;تعليمات</h1>
-<asp:LoginView ID="LoginView1" runat="server">
-    <LoggedInTemplate>
-        مرحبا..<asp:LoginName ID="LoginName1" runat="server" />
-        <br />
-        <asp:LoginStatus ID="LoginStatus1" runat="server" />
-    </LoggedInTemplate>
-</asp:LoginView>
-    
-    <div class="card col-lg-6 col-sm-12 mx-auto container">
+   <div class="card col-lg-6 col-sm-12 mx-auto container">
         <div class="card-header">
             <h2 class="text-center text-info">إدخال التعليمات</h2>
         </div>
@@ -71,7 +63,7 @@
                     onclick="btnSubmitDec_Click" CssClass="btn btn-info btn-lg" />
         </div>
     </div>
- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" InsertCommand="insertInstruction" InsertCommandType="StoredProcedure" SelectCommand="SELECT InstructionsData.title, decision_Types.decType, InstructionsData.insDate, InstructionsData.insFile, InstructionsData.insKeywords, InstructionsData.ID FROM decision_Types INNER JOIN InstructionsData ON decision_Types.decTypeID = InstructionsData.insType">
+ <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" InsertCommand="insertInstruction" InsertCommandType="StoredProcedure" SelectCommand="SELECT title, insDate, insFile, insKeywords, ID FROM InstructionsData ORDER BY insDate DESC">
                     <InsertParameters>
                         <asp:Parameter Direction="ReturnValue" Name="RETURN_VALUE" Type="Int32" />
                         <asp:ControlParameter ControlID="txtTitle" Name="Title" PropertyName="Text" Type="String" />
@@ -88,13 +80,12 @@
         <div class="card-body">
  <div class="row">         
  <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-hover"   
-     AutoGenerateColumns="False" Style="width: 100%" FooterStyle-CssClass="pagination" ClientIDMode="Static" 
+     AutoGenerateColumns="False" Style="width: 100%" HeaderStyle-CssClass="table-secondary" FooterStyle-CssClass="pagination" ClientIDMode="Static" 
      OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
-     OnRowDataBound="GridView1_RowDataBound" HeaderStyle-CssClass="table-secondary" DataKeyNames="ID" >
+     OnRowDataBound="GridView1_RowDataBound" DataKeyNames="ID" >
      <Columns>
          <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" Visible="False"  />
          <asp:BoundField DataField="title" HeaderText="العنوان" SortExpression="title" />
-         <asp:BoundField DataField="decType" HeaderText="decType" SortExpression="decType" />
          <asp:BoundField DataField="insDate" HeaderText="تاريخ القرار" SortExpression="insDate" DataFormatString="{0:dd/MMM/yyyy}" />
          <asp:TemplateField HeaderText="مسار الملف" SortExpression="insFile">
              <EditItemTemplate>
@@ -130,11 +121,40 @@
 
     </asp:GridView></div>  
 					</div></div>
-         
+        
 	<script>
-                $(document).ready(function () {
-                    $('#<%= GridView1.ClientID %>').DataTable();
-                });
+        $(document).ready(function () {
+            $('#<%= GridView1.ClientID %>').DataTable({
+                dom: 'T<"clear">lfrtip',
+                "sPaginationType": "full_numbers",
+                "scrollCollapse": true,
+                "jQueryUI": true,
+
+                "language": {
+                    "lengthMenu": "عرض _MENU_  لكل صفحة",
+                    "zeroRecords": "عفوا لا توجد بيانات للعرض",
+                    "info": "عرض الصفحة _PAGE_ من _PAGES_",
+                    "infoEmpty": "لا توجد سجلات متاحة",
+                    "infoFiltered": "(تصفية من  _MAX_ اجمالي التعليمات)",
+                    "search": "&nbsp; &nbsp;&nbsp;&nbsp; بـحث&nbsp; &nbsp;",
+                    "oPaginate": {
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sFirst": "الاول",
+                        "sLast": "الاخير"
+                    }
+
+                },
+                "aoColumnDefs": [{
+                    'bSortable': false,
+                    'aTargets': [0]
+                }]
+            });
+            jQuery('#example_wrapper .dataTables_filter input')
+                .addClass("input-medium"); // modify table search input
+            jQuery('#example_wrapper .dataTables_length select')
+                .addClass("input-mini"); // modify table per page dropdown
+        });
     </script>
 </asp:Content>
 
