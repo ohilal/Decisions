@@ -19,14 +19,19 @@ public partial class Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write(ListView2.EmptyDataTemplate.ToString() + "empty");
-        if (ListView2.EmptyDataTemplate.ToString() == "norecord")
+        //Response.Write(ListView2.EmptyDataTemplate.ToString() + "empty");
+        ListView2.DataSourceID = "sdsmarquee";
+        ListView2.DataBind();
+        if (!IsPostBack)
+        {
+              if (ListView2.Items.Count ==0)
         {
             divmarquee.Visible = false;
         }
-        if (!IsPostBack)
+        else
         {
-            
+            divmarquee.Visible = true;
+        }
            
         }
 

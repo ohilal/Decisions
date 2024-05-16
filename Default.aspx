@@ -33,8 +33,8 @@
 	<div class="alert alert-primary alert-dismissible" style="background-color: #EDF4EA;" role="alert"   >
   <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">غلق</span></button>
   <h2 class="text-center text-info"><i class="fa-solid fa-bullhorn"></i> إعلانات</h2> 
-        <marquee  onmouseover="this.stop();" onmouseout="this.start();"  >
-            <asp:ListView ID="ListView2" runat="server" DataSourceID="sdsmarquee" >
+        <marquee  onmouseover="this.stop();" onmouseout="this.start();"   direction="right">
+            <asp:ListView ID="ListView2" runat="server"  >
                    <AlternatingItemTemplate>
                        <td runat="server" style="">----
                          <a href='../DecisionsData/<%# Eval("decisionFile") %>' >  <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></a>
@@ -86,7 +86,9 @@
                        </td>
                    </SelectedItemTemplate>
                </asp:ListView  ></marquee>
+ <a href="~/allDecisions.aspx?id=30" runat="server" class="float-left">....المزيد</a>
 </div>
+           
 	</div>
 
       <!-- ====== Preloader ======  -->
@@ -237,7 +239,7 @@
                                 <br />
                             </td>
                         </EditItemTemplate>
-                        <EmptyDataTemplate>
+                       <%-- <EmptyDataTemplate>
                             <table runat="server" style="">
                                 <tr>
                                     <td>No data was returned.</td>
@@ -246,7 +248,7 @@
                         </EmptyDataTemplate>
                         <EmptyItemTemplate>
                             <td runat="server" />
-                        </EmptyItemTemplate>
+                        </EmptyItemTemplate>--%>
                         <GroupTemplate>
                             <tr id="itemPlaceholderContainer" runat="server">
                                 <td id="itemPlaceholder" runat="server" class="solution_cards_box  sol_card_top_3"></td>
