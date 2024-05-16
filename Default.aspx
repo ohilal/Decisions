@@ -172,7 +172,7 @@
 
                     <!-- ========================================================================= -->
 
-                    <asp:SqlDataSource ID="sdsmarquee" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TOP (10) SUBSTRING(decTitle,0,100)  as decTitle , decisionFile, decDate FROM decisions_Info WHERE (decTypeID = 8)  and decDate='1/6/2024'  ORDER BY decDate DESC"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsmarquee" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TOP (10) SUBSTRING(decTitle,0,100)  as decTitle , decisionFile, decDate FROM decisions_Info WHERE (decTypeID = 8)  and decDate between dateadd(day,-30,getdate()) and GETDATE() ORDER BY decDate DESC"></asp:SqlDataSource>
 
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="decID" DataSourceID="countsds" GroupItemCount="3">
                         <AlternatingItemTemplate>
