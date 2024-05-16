@@ -5,10 +5,20 @@
 		
 		<siteMapNode title="القرارات" url="#1" description="القرارات" >
 		 <siteMapNode url="~/decsaerch.aspx" title="البحث بالتاريخ" />
-    <!--<siteMapNode url="~/Admin/manageUsers.aspx" title="Manage Users" />
-    <siteMapNode url="~/Admin/changePassword.aspx" title="Change Password" />-->
-	</siteMapNode>	
-   <siteMapNode title="Admin's Area" roles="Admin">
+    <siteMapNode url="~/decwordsearch.aspx" title="البحث بالكلمات الدالة" />
+		<siteMapNode url="~/decNosearch.aspx" title="البحث برقم القرار"/>
+		<siteMapNode url="~/DecStatistics.aspx" title="الإحصائيات"/>	
+	</siteMapNode>
+		<siteMapNode url="~/guidebooks.aspx?gID=1" title="دليل الأكواد"/>	
+		<siteMapNode title="طلبات ونماذج" url="#3" description="طلبات ونماذج" >
+			<siteMapNode url="~/templats.aspx?gID=4" title="نماذج الشئون الإدارية" />
+		<siteMapNode url="~/templats.aspx?gID=6" title=" نماذج الشئون الفنية" />
+		</siteMapNode>	
+	<siteMapNode url="~/guidebooks.aspx?gID=3" title="دليل التليفونات"/>
+	<siteMapNode url="~/guidebooks.aspx?gID=2" title="صندوق التأمين الخاص"/> 
+		<siteMapNode url="~/templats.aspx?gID=5" title="قوانين ولوائح"/>
+		<siteMapNode url="~/Members/insertInstruction.aspx" title="تعليمات "/>
+		<siteMapNode title="Admin's Area" roles="Admin">
     <siteMapNode url="~/Admin/CreateUser.aspx" title="Create User" />
     <siteMapNode url="~/Admin/manageUsers.aspx" title="Manage Users" />
     <siteMapNode url="~/Admin/changePassword.aspx" title="Change Password" />
