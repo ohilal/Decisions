@@ -28,12 +28,64 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <!--========================================= Marquee============================================ -->
-        <div class="row">
-	<div class="alert alert-primary alert-dismissible" style="background-color: #EDF4EA;" role="alert">
+        <div class="row"  runat="server" id="divmarquee">
+            
+	<div class="alert alert-primary alert-dismissible" style="background-color: #EDF4EA;" role="alert"   >
   <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">غلق</span></button>
-  <h2 class="text-center text-info"><i class="fa-solid fa-bullhorn"></i> إعلانات</h2> <marquee  onmouseover="this.stop();" onmouseout="this.start();" >
-      <a href="success.aspx">إعلانات وتنبيهات</a>
-      <a href="decsaerch.aspx" style="font-family: Impact; font-size: 18pt">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor!</a></marquee>
+  <h2 class="text-center text-info"><i class="fa-solid fa-bullhorn"></i> إعلانات</h2> 
+        <marquee  onmouseover="this.stop();" onmouseout="this.start();"  >
+            <asp:ListView ID="ListView2" runat="server" DataSourceID="sdsmarquee" >
+                   <AlternatingItemTemplate>
+                       <td runat="server" style="">----
+                         <a href='../DecisionsData/<%# Eval("decisionFile") %>' >  <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></a>
+                           <br />
+                       </td>
+                   </AlternatingItemTemplate>
+                   <EditItemTemplate>
+                       <td runat="server" style="">
+                           <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                           <br />
+                           <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                           <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                       </td>
+                   </EditItemTemplate>
+                   <EmptyDataTemplate>
+                       <table style="">
+                           <tr>
+                               <td>norecord</td>
+                           </tr>
+                       </table>
+                   </EmptyDataTemplate>
+                   <InsertItemTemplate>
+                       <td runat="server" style="">decTitle:
+                           <asp:TextBox ID="decTitleTextBox" runat="server" Text='<%# Bind("decTitle") %>' />
+                           <br />
+                           <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                           <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                       </td>
+                   </InsertItemTemplate>
+                   <ItemTemplate>
+                       <td runat="server" style="">-----
+                         <a href='../DecisionsData/<%# Eval("decisionFile") %>' >   <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' /></a>
+                           <br />
+                       </td>
+                   </ItemTemplate>
+                   <LayoutTemplate>
+                       <table runat="server" border="0" style="">
+                           <tr id="itemPlaceholderContainer" runat="server">
+                               <td id="itemPlaceholder" runat="server"></td>
+                           </tr>
+                       </table>
+                       <div style="">
+                       </div>
+                   </LayoutTemplate>
+                   <SelectedItemTemplate>
+                       <td runat="server" style="">decTitle:
+                            <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />
+                           <br />
+                       </td>
+                   </SelectedItemTemplate>
+               </asp:ListView  ></marquee>
 </div>
 	</div>
 
@@ -54,7 +106,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded  " style="left: 0px; top: 0px;">
                         <img src="Images/documents.svg" style="max-height: 80vh;" />
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="left: 0px; top: 0px">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="left: 5px; top: 0px">
                         <div class="laptop-text">
                             <h1 class="h1 text-white">
                                 <br class="d-none d-lg-none d-xl-block">
@@ -119,6 +171,8 @@
                     <!-- ========================================================================= -->
 
                     <!-- ========================================================================= -->
+
+                    <asp:SqlDataSource ID="sdsmarquee" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TOP (10) SUBSTRING(decTitle,0,100)  as decTitle , decisionFile, decDate FROM decisions_Info WHERE (decTypeID = 8)  and decDate='1/6/2024'  ORDER BY decDate DESC"></asp:SqlDataSource>
 
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="decID" DataSourceID="countsds" GroupItemCount="3">
                         <AlternatingItemTemplate>

@@ -13,13 +13,20 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
+using System.Windows.Forms;
+
 public partial class Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Write(ListView2.EmptyDataTemplate.ToString() + "empty");
+        if (ListView2.EmptyDataTemplate.ToString() == "norecord")
+        {
+            divmarquee.Visible = false;
+        }
         if (!IsPostBack)
         {
-
+            
            
         }
 
@@ -64,4 +71,9 @@ public partial class Default : System.Web.UI.Page
         }
     }
 
+
+    
+
+
 }
+

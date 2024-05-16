@@ -38,8 +38,9 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
        <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
             Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
         </cc1:CalendarExtender>--%>
-        &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" Width="250px" runat="server" DataSourceID="sdsDecisions" 
-                                    DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true">
+         &nbsp; <label for="txtdate2" class="col-form-label ml-2">اختر النوع</label> 
+        &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" CssClass="form-control dropdown col-12" runat="server" DataSourceID="sdsDecisions" 
+                                    DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true" AutoPostBack="True">
                                     <asp:ListItem Value="" Text="اختر النوع " Enabled="true" />
                                 </asp:DropDownList>
 
@@ -47,23 +48,25 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
                                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
                                     SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
                                 </asp:SqlDataSource>
-       </div>
+         &nbsp; <label for="txtdate2" class="col-form-label ml-2"> عرض الكل</label>
+   </div>
+       
         <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" >
             <Nodes>
-                <asp:TreeNode Expanded="True" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
-                    <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1">
+                <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
+                    <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1" NavigateUrl="~/allDecisions.aspx?id=1">
                     </asp:TreeNode>
                     <asp:TreeNode Expanded="False" Text="إلغاء رخص وسجلات/ إجراءات عمل" ToolTip="إلغاء رخص وسجلات/ إجراءات عمل" Value="3" ImageToolTip="القرارات">
                     </asp:TreeNode>
                     <asp:TreeNode Text="لجان" ToolTip="لجان" Value="2"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode Text="رسائل داخلية" Value="6" Expanded="True" NavigateUrl="~/allDecisions.aspx?id=30" ToolTip="عرض كل الرسائل الداخلية">
+                <asp:TreeNode Text="رسائل داخلية" Value="6" Expanded="False" NavigateUrl="~/allDecisions.aspx?id=30" ToolTip="عرض كل الرسائل الداخلية">
                     <asp:TreeNode Text="إعلانات" Value="8"></asp:TreeNode>
                     <asp:TreeNode Text="الشركة الطبية" Value="9"></asp:TreeNode>
                     <asp:TreeNode Text="رسائل داخلية" Value="6"></asp:TreeNode>
                 </asp:TreeNode>
                 <asp:TreeNode Text="أوامر إدارية" Value="7"></asp:TreeNode>
-                <asp:TreeNode Expanded="True" Text="قرارات وزارية" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
+                <asp:TreeNode Expanded="False" Text="قرارات وزارية" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
                     <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"></asp:TreeNode>
                     <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
                 </asp:TreeNode>
@@ -234,7 +237,7 @@ SET DATEFORMAT dmy" OnSelected="sdsDate_Selected">
                     PropertyName="Text" />
                 <asp:ControlParameter ControlID="txtdate2" Name="searchdatetwo"
                     PropertyName="Text" />
-                <asp:ControlParameter ControlID="TreeView1" Name="decTypeID"
+                <asp:ControlParameter ControlID="ddlDectypes" Name="decTypeID"
                     PropertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>
