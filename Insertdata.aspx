@@ -34,7 +34,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-    <table class="style1" dir="rtl" style="font-weight: bold">
+        m<table class="style1" dir="rtl" style="font-weight: bold">
     <tr>
         <td class="style2">
             عنوان الدراسة</td>

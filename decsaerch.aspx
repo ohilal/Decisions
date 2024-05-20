@@ -20,19 +20,21 @@
                 <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
                     <asp:TreeNode Expanded="False" Text="شئون عاملين" ToolTip="شئون عاملين" Value="1" NavigateUrl="~/allDecisions.aspx?id=1">
                     </asp:TreeNode>
-                    <asp:TreeNode Expanded="False" Text="إلغاء رخص وسجلات/ إجراءات عمل" ToolTip="إلغاء رخص وسجلات/ إجراءات عمل" Value="3" ImageToolTip="القرارات">
+                    <asp:TreeNode Expanded="False" Text="إلغاء رخص وسجلات/ إجراءات عمل" ToolTip="إلغاء رخص وسجلات/ إجراءات عمل" Value="3" ImageToolTip="القرارات"  NavigateUrl="~/allDecisions.aspx?id=3">
                     </asp:TreeNode>
-                    <asp:TreeNode Text="لجان" ToolTip="لجان" Value="2"></asp:TreeNode>
+                    <asp:TreeNode Text="لجان" ToolTip="لجان" Value="2"  NavigateUrl="~/allDecisions.aspx?id=2"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode Text="رسائل داخلية" Value="6" Expanded="False" NavigateUrl="~/allDecisions.aspx?id=30" ToolTip="عرض كل الرسائل الداخلية">
-                    <asp:TreeNode Text="إعلانات" Value="8"></asp:TreeNode>
-                    <asp:TreeNode Text="الشركة الطبية" Value="9"></asp:TreeNode>
-                    <asp:TreeNode Text="رسائل داخلية" Value="6"></asp:TreeNode>
+                <asp:TreeNode Text="إعلانات داخلية" Value="6" Expanded="False" NavigateUrl="~/allDecisions.aspx?id=30" ToolTip="عرض كل الإعلانات الداخلية">
+                    <asp:TreeNode Text="إعلانات" Value="8"  NavigateUrl="~/allDecisions.aspx?id=8"></asp:TreeNode>
+                    <asp:TreeNode Text="الشركة الطبية"  NavigateUrl="~/allDecisions.aspx?id=9" Value="9"></asp:TreeNode>
+                    <asp:TreeNode Text="رسائل داخلية"  NavigateUrl="~/allDecisions.aspx?id=6" Value="6"></asp:TreeNode>
+                 <asp:TreeNode Text="تنبيهات"  NavigateUrl="~/allDecisions.aspx?id=12" Value="12"></asp:TreeNode>
+                    <asp:TreeNode Text="دورات تدريبية" Value="13"  NavigateUrl="~/allDecisions.aspx?id=13"></asp:TreeNode>
                 </asp:TreeNode>
-                <asp:TreeNode Text="أوامر إدارية" Value="7"></asp:TreeNode>
+                <asp:TreeNode Text="أوامر إدارية" Value="7" NavigateUrl="~/allDecisions.aspx?id=7" ToolTip="عرض كل الأوامر الإدارية" ></asp:TreeNode>
                 <asp:TreeNode Expanded="False" Text="قرارات وزارية" ToolTip="عرض كل القرارات" NavigateUrl="~/allDecisions.aspx?id=10">
-                    <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"></asp:TreeNode>
-                    <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"></asp:TreeNode>
+                    <asp:TreeNode Expanded="False" Text="قرارات رئيس مجلس الوزراء" ToolTip="قرارات رئيس مجلس الوزراء" Value="4"  NavigateUrl="~/allDecisions.aspx?id=4"></asp:TreeNode>
+                    <asp:TreeNode Text="قرارات وزارية" ToolTip="قرارات وزارية" Value="5"  NavigateUrl="~/allDecisions.aspx?id=5"></asp:TreeNode>
                 </asp:TreeNode>
             </Nodes>
             <RootNodeStyle CssClass="font-weight-bold" />
