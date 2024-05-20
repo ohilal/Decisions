@@ -12,45 +12,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-     <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
-         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/calendar.svg" />
-         <h2 class="text-center text-white">البحث بالتاريخ</h2>
- </div>
-
-   <div class="card-body ">
-   <div class="form-row">
-       <label for="txtdate1" class="col-form-label ml-2">من</label> 
-        <asp:TextBox ID="txtdate1" runat="server"
-            ToolTip="من تاريخ..."  CssClass="form-control col-12 " TextMode="Date" style="right: 0px; top: 0px" ></asp:TextBox>
-<%--       <asp:RangeValidator ID="RangeValidator1" runat="server" 
-ControlToValidate="txtdate1" CultureInvariantValues="True" ErrorMessage="ادخل رقم صحيح للتاريخ" 
-MaximumValue="1/1/2050" MinimumValue="1/1/2000" >   
-</asp:RangeValidator>--%>
-
-    <%--    <cc1:CalendarExtender ID="txtdate1_CalendarExtender" runat="server"
-            Enabled="True" TargetControlID="txtdate1" Format="MM/dd/yyyy">
-        </cc1:CalendarExtender>--%>
-        &nbsp; <label for="txtdate2" class="col-form-label ml-2">إلى</label> 
-       
-    &nbsp;<asp:TextBox ID="txtdate2" runat="server" 
-        ToolTip="إلي تاريخ..." CssClass="form-control col-12 "   TextMode="Date" style="right: 0px; top: 0px"></asp:TextBox>
-       <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
-            Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
-        </cc1:CalendarExtender>--%>
-         &nbsp; <label for="txtdate2" class="col-form-label ml-2">اختر النوع</label> 
-        &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" CssClass="form-control dropdown col-12" runat="server" DataSourceID="sdsDecisions" 
-                                    DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true" AutoPostBack="True">
-                                    <asp:ListItem Value="" Text="اختر النوع " Enabled="true" />
-                                </asp:DropDownList>
-
-                                        <asp:SqlDataSource ID="sdsDecisions" runat="server" 
-                                    ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                                    SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
-                                </asp:SqlDataSource>
-         &nbsp; <label for="txtdate2" class="col-form-label ml-2"> عرض الكل</label>
-   </div>
-       
+    <div class=" container-fluid row ">
+<div class="col-xl-2 col-lg-2 col-md-6 col-sm-12">
+        &nbsp; <label for="txtdate2" class="col-form-label ml-2 h3"> عرض الكل</label>
         <asp:TreeView ID="TreeView1" runat="server" Font-Names="'noto_kufi_arabicregular',Tahoma,sans-serif" Font-Size="Medium" Font-Bold="True" >
             <Nodes>
                 <asp:TreeNode Expanded="False" Text="قرارات إدارية" ToolTip="عرض كل القرارات الإدارية" NavigateUrl="~/allDecisions.aspx?id=20"  >
@@ -76,14 +40,59 @@ MaximumValue="1/1/2050" MinimumValue="1/1/2000" >
             <ParentNodeStyle CssClass="font-weight-bold" />
 
         </asp:TreeView>
+</div>
+     <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/calendar.svg" />
+         <h2 class="text-center text-white">البحث بالتاريخ</h2>
+ </div>
+         
+   <div class="card-body ">
+   <div class="form-row">
+       <label for="txtdate1" class="col-form-label ml-2">من</label> 
+        <asp:TextBox ID="txtdate1" runat="server"
+            ToolTip="من تاريخ..."  CssClass="form-control col-12 " TextMode="Date" style="right: 0px; top: 0px" ></asp:TextBox>
+<asp:RequiredFieldValidator ID="RequiredFieldValidatorFrom" runat="server" ErrorMessage="ادخل تاريخ البداية" ControlToValidate="txtdate1" ValidationGroup="group1">*</asp:RequiredFieldValidator>
+<%--       <asp:RangeValidator ID="RangeValidator1" runat="server" 
+ControlToValidate="txtdate1" CultureInvariantValues="True" ErrorMessage="ادخل رقم صحيح للتاريخ" 
+MaximumValue="1/1/2050" MinimumValue="1/1/2000" >   
+</asp:RangeValidator>--%>
 
+    <%--    <cc1:CalendarExtender ID="txtdate1_CalendarExtender" runat="server"
+            Enabled="True" TargetControlID="txtdate1" Format="MM/dd/yyyy">
+        </cc1:CalendarExtender>--%>
+        &nbsp; <label for="txtdate2" class="col-form-label ml-2">إلى</label> 
+       
+    &nbsp;<asp:TextBox ID="txtdate2" runat="server" 
+        ToolTip="إلي تاريخ..." CssClass="form-control col-12 "   TextMode="Date" style="right: 0px; top: 0px"></asp:TextBox>
+       <asp:RequiredFieldValidator ID="RequiredFieldValidatorTo" runat="server" ErrorMessage="ادخل تاريخ البداية" ControlToValidate="txtdate2" ValidationGroup="group1">*</asp:RequiredFieldValidator>
+       <%-- <cc1:CalendarExtender ID="txtdate2_CalendarExtender" runat="server"
+            Enabled="True" TargetControlID="txtdate2" Format="MM/dd/yyyy" CssClass="txtDate">
+        </cc1:CalendarExtender>--%>
+         &nbsp; <label for="ddlDectypes" class="col-form-label ml-2">اختر النوع</label> 
+        &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDectypes" CssClass="form-control dropdown col-12" runat="server" DataSourceID="sdsDecisions" 
+                                    DataTextField="decType" DataValueField="decTypeID" AppendDataBoundItems="true">
+                                    <asp:ListItem Value="" Text="اختر النوع " Enabled="true" />
+                                </asp:DropDownList>
+       <asp:RequiredFieldValidator ID="rfdTypes" runat="server" ErrorMessage="اختر نوع القرار" ControlToValidate="ddlDectypes" ValidationGroup="group1" Text="اختر نوع القرار" ToolTip="اختر نوع القرار">*</asp:RequiredFieldValidator>
+       <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="group1" />
+       <asp:SqlDataSource ID="sdsDecisions" runat="server" 
+                                    ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
+                                    SelectCommand="SELECT [decTypeID], [decType] FROM [decision_Types]">
+                                </asp:SqlDataSource>
+ </div></div> 
+         <div class="card-footer">
+             <asp:Button runat="server" Text="بحث" CssClass="btn btn-info" ValidationGroup="group1" />
+
+         </div>
+   </div>
+   </div> 
 <%--
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnDate" runat="server"
             Text="القرارات" CssClass="btn btn-info btn-lg  topMargin "  />--%>
 
-</div></div>
+
 
 
     <asp:Label ID="noDataLabel" runat="server" Text="   " />

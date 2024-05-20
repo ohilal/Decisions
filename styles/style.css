@@ -284,12 +284,12 @@ body.menu-active #Header .logo {
 #Laptop {
     padding: 25px 0;
     /*background-color: #efefef;*/
-    background-color: #506a6e;
-    color:#fff;
+    background-color: #3A5C6E;
+    color: #fff;
     position: relative;
     margin-bottom: 15px;
     border-radius: 15px;
-    font-size:1.1rem;
+    font-size: 1.1rem;
 }
     /*#Laptop::before {
         /*background: url(../images/documents.svg) no-repeat 0 0;*/

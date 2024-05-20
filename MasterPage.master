@@ -73,7 +73,7 @@
                 <div class="col-sm-4"></div>
             </div>
         </header>
-        <nav class="nav navbar-nav navbar-expand-sm bg-dark navbar-dark">
+        <nav class="nav navbar-nav navbar-expand-sm bg-dark navbar-dark" style="background-color: #3A5C6E !important">
             <ul class="nav navbar-nav">
                 <li class="nav-item ">
                     <a href="~/Default.aspx" runat="server" class="nav-link">الصفحة الرئيسية
@@ -101,11 +101,11 @@
                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">إعلان
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="~/" runat="server">إعلانات داخلية</a>
+                        <a class="dropdown-item" href="~/" runat="server">إعلانات </a>
                     <div class="dropdown-divider"></div>
                         <a class="dropdown-item " href="~/" runat="server"> تنبيهات</a>
   <div class="dropdown-divider"></div>
-                        <a class="dropdown-item " href="~/" runat="server"> منح تدريبية</a>
+                        <a class="dropdown-item " href="~/" runat="server"> دورات تدريبية</a>
                          <div class="dropdown-divider"></div>
                         <a class="dropdown-item " href="~/" runat="server"> رسائل داخلية </a>
                    </div>
@@ -128,8 +128,15 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="~/templats.aspx?gID=5" runat="server">قوانين ولوائح</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
+                <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop3" data-toggle="dropdown">مزايا العاملين
+                    </a>
+                    <div class="dropdown-menu">
+                       <a class="dropdown-item " href="~/templats.aspx?gID=9" runat="server"> الشركة الطبية</a>
+                    <div class="dropdown-divider"></div>     
+                    <a class="dropdown-item" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
+                    </div>
+                   
                 </li>
                  <li class="nav-item ">
                     <a class="nav-link" href="~/Members/insertInstruction.aspx" runat="server">تعليمات </a>
@@ -268,7 +275,7 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
             <NodeStyle CssClass="breadcrumb-item" />
             <PathSeparatorStyle Font-Bold="True" />
         </asp:SiteMapPath>--%>
-        <div class="container-fluid" style="padding: 25px; width:80%;" id="Main-container-fluid">
+        <div class="container-fluid" style="padding: 25px; width:85%;" id="Main-container-fluid">
 <%-- EnableScriptGlobalization="true" EnableScriptLocalization="true"--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server" />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

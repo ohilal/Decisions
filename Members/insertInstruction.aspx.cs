@@ -60,7 +60,7 @@ public partial class Members_insertInstruction : System.Web.UI.Page
 		{
 			using (SqlCommand cmd = new SqlCommand())
 			{
-				string sql = "SELECT InstructionsData.ID, InstructionsData.title, decision_Types.decType, InstructionsData.insDate, InstructionsData.insFile, InstructionsData.insKeywords FROM decision_Types INNER JOIN InstructionsData ON decision_Types.decTypeID = InstructionsData.insType";
+				string sql = "SELECT InstructionsData.ID, InstructionsData.title, InstructionsData.insDate, InstructionsData.insFile, InstructionsData.insKeywords FROM InstructionsData";
 				cmd.CommandText = sql;
 				cmd.Connection = con;
 				using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
