@@ -57,7 +57,7 @@
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sdsDecType" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" 
-                    SelectCommand="SELECT decTypeID, decType FROM decision_Types WHERE (decTypeID &lt; 10)">
+                    SelectCommand="SELECT decTypeID, decType FROM decision_Types WHERE (decTypeID NOT IN (10, 11))">
                 </asp:SqlDataSource>
     </div>
    <div class="form-inline rowTop">

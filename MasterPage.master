@@ -132,7 +132,7 @@
                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop3" data-toggle="dropdown">مزايا العاملين
                     </a>
                     <div class="dropdown-menu">
-                       <a class="dropdown-item " href="~/templats.aspx?gID=9" runat="server"> الشركة الطبية</a>
+                       <a class="dropdown-item " href="~/medical.aspx" runat="server"> الشركة الطبية</a>
                     <div class="dropdown-divider"></div>     
                     <a class="dropdown-item" href="~/guidebooks.aspx?gID=2" runat="server">صندوق التأمين الخاص</a>
                     </div>

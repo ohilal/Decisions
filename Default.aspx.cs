@@ -24,15 +24,15 @@ public partial class Default : System.Web.UI.Page
         ListView2.DataBind();
         if (!IsPostBack)
         {
-              if (ListView2.Items.Count ==0)
-        {
-            divmarquee.Visible = false;
-        }
-        else
-        {
-            divmarquee.Visible = true;
-        }
-           
+            if (ListView2.Items.Count == 0)
+            {
+                divmarquee.Visible = false;
+            }
+            else
+            {
+                divmarquee.Visible = true;
+            }
+
         }
 
         //CultureInfo.CreateSpecificCulture("ar-EG");

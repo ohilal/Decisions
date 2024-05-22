@@ -1354,7 +1354,7 @@ span.count {
     top: -3px;
 }
 /*====================== ticker===================================*/
-@-webkit-keyframes ticker {
+/*@-webkit-keyframes ticker {
     0% {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -1409,4 +1409,105 @@ span.count {
 
 a.ticker-item:hover {
     text-decoration: underline !important;
+}
+*/
+/*=================================== marquee======================================================= */
+.marquee {
+    margin: 0 auto;
+    /*width: 600px;
+    height: 30px;*/
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+    .marquee:before, .marquee:after {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 30px;
+        content: "";
+        z-index: 1;
+    }
+
+
+
+.marquee__content {
+    width: 600% !important;
+    gap: 1rem;
+    flex-shrink: 0;
+    display: flex;
+    line-height: 30px;
+    -webkit-animation: marquee 12s linear infinite forwards;
+    animation: marquee 12s linear infinite forwards;
+   
+    gap: var(--gap);
+    min-width: 100%; 
+   /* animation: scroll 10s linear infinite;
+    animation-direction: reverse;*/
+}
+
+    .marquee__content:hover {
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+    }
+
+.list-inline {
+    display: flex;
+   /* justify-content: space-around;*/
+  /*  width: 33.33%;*/
+    /* reset list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+.marquee--pos-absolute .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Enable position absolute animation on the duplicate content (last-child) */
+.enable-animation .marquee--pos-absolute .marquee__content:last-child {
+  animation-name: scroll-abs;
+}
+
+@keyframes scroll-abs {
+  from {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+@-webkit-keyframes marquee {
+    0% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0); 
+    }
 }
