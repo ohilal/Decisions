@@ -6,6 +6,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div>
+        <asp:TextBox ID="txtsearch" runat="server"></asp:TextBox>
+        <asp:Button ID="btnsearch" runat="server" Text="بحث" OnClick="btnsearch_Click"  CssClass="btn-info"/>
+      
+    </div>
     <div class="container text-center mx-auto align-items-center">
     <asp:DataList ID="listTilte" runat="server" DataKeyField="GuideTypeID" DataSourceID="sdsTitle" RepeatDirection="Horizontal" RepeatLayout="Flow" ShowFooter="False" ShowHeader="False">
         <ItemTemplate>

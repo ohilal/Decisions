@@ -14,9 +14,13 @@
           
             </h1>
         <iframe  width="1200" height="804" name="iframe_a"
-src="DecisionsData/medicalnetwork.pdf"
+src="DecisionsData/medicalnetwork.pdf?#zoom=150"
      frameborder="0"  style="width:100%; min-width:1400px; min-height:1000px; margin: 0 auto; text-align: center; align-items: center;display: flex; justify-content: center;  ">
  </iframe>
+       <%-- <iframe  width="1200" height="804" name="iframe_a"
+src="UploadedDecisions/medicalnetwork.pdf?#zoom=150"
+     frameborder="0"  style="width:100%; min-width:1400px; min-height:1000px; margin: 0 auto; text-align: center; align-items: center;display: flex; justify-content: center;  ">
+ </iframe>--%>
 
            <%-- <iframe style="min-width:1400px; min-height:1000px;" src="UploadedDecisions/medicalnetwork.htm"></iframe>--%>
         

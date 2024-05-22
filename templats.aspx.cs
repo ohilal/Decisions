@@ -44,12 +44,19 @@ public partial class searchData : System.Web.UI.Page
          //}
 
     }
-   
 
 
 
-   
-     
-   
-   
+
+
+
+
+
+
+    protected void btnsearch_Click(object sender, EventArgs e)
+    {
+        SqlDataSource1.SelectCommand = "SELECT TemplateName, TemplatePath, typeID FROM Templates WHERE(typeID = @gID) and TemplateName like N'%" + txtsearch.Text + "%'";
+
+
+    }
 }
