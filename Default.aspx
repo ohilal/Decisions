@@ -29,14 +29,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
  <!--========================================= Marquee============================================ -->
-        <div class=" container-fluid col-9 mx-auto"  runat="server" id="divmarquee" >       
-	<div class="alert alert-secondary alert-dismissible mx-auto" style="background-color: #EDF4EA;" role="alert"   >
+       <%-- <div class=" container-fluid col-9 mx-auto "  runat="server" id="divmarquee" >  --%>     
+	<div class="alert alert-secondary  alert-dismissible container-fluid col-9 mx-auto myMarquee p-1"  role="alert" runat="server" id="divmarquee"  >
   <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close float-left" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">غلق</span></button>
   <h2 class="text-center text-danger">
       <i class="fa-solid fa-bullhorn"></i> 
      <%-- <img src="Images/announcement.svg" class="icon" style="max-width:55px;" />--%>
       إعلانات</h2> 
-        <marquee  onmouseover="this.stop();" onmouseout="this.start();"  direction="ltr" >
+      <%--  <marquee  onmouseover="this.stop();" onmouseout="this.start();"  direction="ltr" >--%>
+        
+        <div class="scroller">
             <asp:ListView ID="ListView2" runat="server"  >
                    <AlternatingItemTemplate>
                        <td runat="server" style="">  &nbsp;<i class="fa-solid fa-gears text-danger"></i>&nbsp;
@@ -88,13 +90,15 @@
                            <br />
                        </td>
                    </SelectedItemTemplate>
-               </asp:ListView  ></marquee>
-        <div class="float-left">
+               </asp:ListView></div>
+       <%-- </marquee>--%>
+        <div class="float-left font-weight-bold">
  <a href="~/allDecisions.aspx?id=30" runat="server" >المزيد...</a>
 </div>
 </div>           
-	</div>
+<%--	</div>--%>
     <!--=============================================================================== -->
+
     <%--<div class="marquee container col-9 mx-auto">
         <div class="marquee__content">
     <asp:ListView ID="ListView3" runat="server" DataSourceID="sdsmarquee">
@@ -244,7 +248,7 @@
 
                     <!-- ========================================================================= -->
 
-                    <asp:SqlDataSource ID="sdsmarquee" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TOP (10) SUBSTRING(decTitle, 0, 100) AS decTitle, decisionFile, decDate FROM decisions_Info WHERE (decTypeID IN (8, 12, 13)) AND (decDate BETWEEN DATEADD(day, - 30, GETDATE()) AND GETDATE()) ORDER BY decDate"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsmarquee" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT TOP (10) SUBSTRING(decTitle, 0, 100) AS decTitle, decisionFile, decDate FROM decisions_Info WHERE (decTypeID IN (8, 12, 13)) AND (decDate BETWEEN DATEADD(day, - 30, GETDATE()) AND GETDATE()) ORDER BY decDate DESC"></asp:SqlDataSource>
 
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="decID" DataSourceID="countsds" GroupItemCount="3">
                         <AlternatingItemTemplate>
