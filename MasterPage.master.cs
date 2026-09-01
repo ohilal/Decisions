@@ -67,7 +67,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //HttpContext.Current.Request.LogonUserIdentity(winId);
         if (winId != null && winId.User != null)
         {
+           
             return winId.User.Value; // S-1-5-21-xxxxx-xxxxx-xxxxx-xxxx
+            
         }
         return null;
     }

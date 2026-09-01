@@ -266,7 +266,7 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
                 <AnonymousTemplate>
                     <ul class="nav navbar-nav ml-auto">
-                        <li><a runat="server" href="~/Login.aspx" title="تسجيل الدخول" data-toggle="tooltip"  data-placement="bottom"><i class="fas fa-user fa-2x text-secondary" style="font-size:2.5rem;"></i>
+                        <li><a runat="server" href="~/login.aspx" title="تسجيل الدخول" data-toggle="tooltip"  data-placement="bottom"><i class="fas fa-user fa-2x text-secondary" style="font-size:2.5rem;"></i>
                             </a></li>
                     </ul>
                 </AnonymousTemplate>
@@ -282,7 +282,8 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
                 </LoggedInTemplate>
             </asp:LoginView>
         </nav>
-        <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="true" />   
+        <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="true" />
+        <asp:Label ID="lbl11111" runat="server" Text=""></asp:Label>
         <!--============== Breadcrumbs=============================== -->
         <div>
 <asp:SiteMapPath ID="SiteMapPath2" runat="server"  CssClass="breadcrumb mb-0 p-1">
