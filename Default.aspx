@@ -24,7 +24,15 @@
 
         window.addEventListener("load", reveal);
         window.addEventListener("scroll", reveal);
-
+        $(function () {
+            $('.marquee').marquee({
+                duration: 5000,
+                duplicated: true,
+                gap: 0,
+                direction: 'right',
+                pauseOnHover: true
+            });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -37,7 +45,30 @@
      <%-- <img src="Images/announcement.svg" class="icon" style="max-width:55px;" />--%>
       إعلانات</h2> 
       <%--  <marquee  onmouseover="this.stop();" onmouseout="this.start();"  direction="ltr" >--%>
-        
+  <!--========================== New Marquee========================= -->
+        <%--<table style="width:90%;">  
+     <tr>  
+          <td>  
+               <asp:Panel ID="Panel1" runat="server" BackColor="#FFFFCC" BorderStyle="Inset" BorderWidth="3"  GroupingText="Dynamic Marquee From Database(Up Direction)">  
+                    <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()"  style="height: 50px; width: 100%;">  
+                         <asp:Literal ID="lt1" runat="server"></asp:Literal>  
+                    </marquee>  
+               </asp:Panel>  
+          </td> 
+         </tr>
+            <tr>
+                
+          <td> 
+              
+               <asp:Panel ID="marquee" runat="server" BackColor="#CCFFCC"   GroupingText="Dynamic Marquee From Database(Down Direction)">  
+                    <marquee direction="right" onmouseover="this.stop()"  onmouseout="this.start()" scrolldelay="100" style="height: 50px; width: 100%;">  
+                         <asp:Literal ID="lt2" runat="server" ></asp:Literal>  
+                    </marquee>  
+               </asp:Panel>  
+          </td>  
+     </tr>  
+</table>--%> 
+   <!--============================================================= -->
         <div class="scroller">
             <asp:ListView ID="ListView2" runat="server"  >
                    <AlternatingItemTemplate>
@@ -76,7 +107,7 @@
                        </td>
                    </ItemTemplate>
                    <LayoutTemplate>
-                       <table runat="server" border="0" class="container col-12 mx-auto">
+                       <table runat="server" border="0" class="container mx-auto">
                            <tr id="itemPlaceholderContainer" runat="server">
                                <td id="itemPlaceholder" runat="server"></td>
                            </tr>
@@ -98,8 +129,19 @@
 </div>           
 <%--	</div>--%>
     <!--=============================================================================== -->
-
-    <%--<div class="marquee container col-9 mx-auto">
+    <!-- =========================== ticker =========================================== -->
+<%--    <div class="ticker-wrap">
+<div class="ticker">
+  <div class="ticker__item">Letterpress chambray brunch.</div>
+  <div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
+  <div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
+  <div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div>
+    </div>
+        </div>--%>
+    <!-- ======================================================= -->
+    <%--
+        <hr/>
+        <div class="marquee container col-9 mx-auto">
         <div class="marquee__content">
     <asp:ListView ID="ListView3" runat="server" DataSourceID="sdsmarquee">
         <AlternatingItemTemplate>
@@ -175,30 +217,30 @@
 
     <!--------------------------------------- Layout-------------------------------------------------->
     <div class="container" style="height: 90vh;">
-        <section id="Laptop" style="box-shadow: 10px 10px 25px #506a6e;">
+        <section id="Laptop" style="box-shadow: 10px 10px 25px #506a6e; background:url('Images/decisions12.jpg')  right no-repeat; background-size:cover;min-height:50vh;">
             <div class="container">
                 <!-- {% block content%} -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded  " style="left: 0px; top: 0px;">
-                        <img src="Images/documents1.svg" style="max-height: 80vh;" />
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded  " style="left: 0px; top: 0px; ">
+                       <%-- <img src="Images/decisions11.jpg" style="max-height: 80vh;" />--%>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="left: 5px; top: 0px">
                         <div class="laptop-text">
-                            <h1 class="h1 text-white">
+                            <h2 class="h2 text-white">
                                 <br class="d-none d-lg-none d-xl-block">
-                                النشر الالكترونى</h1>
+                                النشر الالكترونى</h2>
                             <br class="d-none d-lg-none d-xl-block">
                             <p>
                                 في
 			 
               إطار تطوير الخدمات الالكترونية للهيئة العامة للتنمية الصناعية تم تفعيل الإصدار الأول من " النشر الاليكترونى" على الشبكة الداخلية للهيئة والذي يتيح لموظفى الهيئة البحث فى القرارات والتعرف على أحدث ما تم نشره على الشبكة الداخلية للهيئة،
-               وكذلك المستندات الهامة مثل  <a href="guidebooks.aspx?gID=1" class="badge badge-info">دليل أكواد الأنشطة و المنتجات</a>  و <a href="guidebooks.aspx?gID=3" class="badge badge-info">دليل التليفونات الداخلية</a>  
+               وكذلك المستندات الهامة مثل  <a href="guidebooks.aspx?gID=1" class="btn btn-sm btn-outline-info text-white">دليل أكواد الأنشطة و المنتجات</a>  و <a href="guidebooks.aspx?gID=3" class="btn btn-sm btn-outline-info text-white">دليل التليفونات الداخلية</a>  
                             </p>
                             <p>
-                                ويمكنك من خلال التطبيق البحث فى القرارات من خلال <a href="decNosearch.aspx" class="badge badge-info"> رقم القرار</a> 
-                                أو <a href="decsaerch.aspx" class="badge badge-info">تاريخ النشر</a> أو <a href="decwordsearch.aspx" class="badge badge-info">بحث بالكلمات الدالة</a>
+                                ويمكنك من خلال التطبيق البحث فى القرارات من خلال <a href="decNosearch.aspx" class="btn btn-sm btn-outline-info text-white"> رقم القرار</a> 
+                                أو <a href="decsaerch.aspx" class="btn btn-sm btn-outline-info text-white">تاريخ النشر</a> أو <a href="decwordsearch.aspx" class="btn btn-sm btn-outline-info text-white">بحث بالكلمات الدالة</a>
                             </p>
-                            <p>  ولمتابعة   <a href="Default.aspx#latest" class="badge badge-info">أحدث ما تم نشره
+                            <p>  ولمتابعة   <a href="Default.aspx#latest" class="btn btn-sm btn-outline-info text-white">أحدث ما تم نشره
    
                                             </a></p>
                           <%--  <!-- --------------------------------------->
@@ -450,11 +492,17 @@
                             </td>
                         </SelectedItemTemplate>
                     </asp:ListView>
+               
                 </div>
-            </div>
+               
+            </div> 
+        
         </div>
+<div class="row col-2 float-left mt-2">
+ <a href="~/allDecisions.aspx?id=20" runat="server" class="btn btn-info rounded-pill float-left" title="عرض كل القرارات">المزيد...<i class="fa fa-arrow-alt-circle-left"></i></a>
+</div>
     </div>
     <!------------------------ new listView ----------------------------------------------------------->
- 
+
 </asp:Content>
 

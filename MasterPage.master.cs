@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.IO;
 using System.Net;
+using System.Security.Principal;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -56,8 +57,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             return strIpAddress; 
 
-        } 
-//--------------- end Teacking
-
+        }
+    //--------------- end Teacking
+    public static string GetSidFromIdentity()
+    {
+        // في صفحة ASP.NET، استخدم User.Identity وليس WindowsIdentity.GetCurrent()
+        // لأن GetCurrent() قد يرجع SID الخاص بـ Application Pool
+        WindowsIdentity winId = HttpContext.Current.User.Identity as WindowsIdentity;
+        //HttpContext.Current.Request.LogonUserIdentity(winId);
+        if (winId != null && winId.User != null)
+        {
+            return winId.User.Value; // S-1-5-21-xxxxx-xxxxx-xxxxx-xxxx
+        }
+        return null;
     }
+}
 

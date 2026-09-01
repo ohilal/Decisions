@@ -3163,6 +3163,7 @@ input[type=button].btn-block {
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  text-align:right;
 }
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
@@ -3480,8 +3481,8 @@ input[type=button].btn-block {
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .custom-control {
@@ -4600,7 +4601,7 @@ input[type=button].btn-block {
 
 .page-link {
   position: relative;
-  display: block;
+  /*display: block;*/
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;

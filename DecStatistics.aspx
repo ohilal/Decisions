@@ -24,7 +24,7 @@
     </div>
     <!-- ======End Preloader ======  -->
              <div class="card col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto container  m-card-with-icon " >
-         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/statistics.svg" />
+         <div class="top bg-gradient-secondary card-header"><img class="icon " src="Images/statisticsGlass.png" />
          <h2 class="text-center text-white"> إحصائيات</h2>
  </div>
 

@@ -122,14 +122,7 @@
             </li>
         </SelectedItemTemplate>
     </asp:ListView>
-    <asp:SqlDataSource ID="sdsGuide" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="
- SELECT guidebook.Title,  guidebook.guideFileExt, GuideTypes.GuideTypeName,guidebook.InsertDate,
-
- GuideTypes.GuideTypeID FROM guidebook INNER JOIN GuideTypes ON guidebook.guideType = GuideTypes.GuideTypeID 
- where guidebook.guideType=@type
-
- 
-">
+    <asp:SqlDataSource ID="sdsGuide" runat="server" ConnectionString="<%$ ConnectionStrings:dataBankConnectionString %>" SelectCommand="SELECT guidebook.Title, guidebook.guideFileExt, GuideTypes.GuideTypeName, guidebook.InsertDate, GuideTypes.GuideTypeID FROM guidebook INNER JOIN GuideTypes ON guidebook.guideType = GuideTypes.GuideTypeID WHERE (guidebook.guideType = @type) ORDER BY GuideTypes.GuideTypeName">
         <SelectParameters>
             <asp:QueryStringParameter Name="type" QueryStringField="gID" />
         </SelectParameters>

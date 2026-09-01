@@ -9,6 +9,12 @@
 		<siteMapNode url="~/decNosearch.aspx" title="البحث برقم القرار"/>
 		<siteMapNode url="~/DecStatistics.aspx" title="الإحصائيات"/>	
 	</siteMapNode>
+		<siteMapNode title="الإعلانات" url="#5" description="الإعلانات" >
+			<siteMapNode  title="إعلانات" url="~/allDecisions.aspx?id=8"  />
+				<siteMapNode url="~/allDecisions.aspx?id=12" title="تنبيهات"  />
+			<siteMapNode url="~/allDecisions.aspx?id=13"   title="دورات تدريبية"/>
+			<siteMapNode url="~/allDecisions.aspx?id=6" title="رسائل داخلية"/>
+		</siteMapNode>
 		<siteMapNode url="~/guidebooks.aspx?gID=1" title="دليل الأكواد"/>	
 		<siteMapNode title="طلبات ونماذج" url="#3" description="طلبات ونماذج" >
 			<siteMapNode url="~/templats.aspx?gID=4" title="نماذج الشئون الإدارية" />
