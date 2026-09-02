@@ -214,7 +214,7 @@ StaticMenuStyle-CssClass="StaticMenuStyle"
                     <div class="dropdown-menu">
                         <ul>
                             <li><a runat="server" id="A1" href="~/Admin/CreateUser.aspx"  class="dropdown-item">Create User</a></li>
-                        <li><a runat="server" id="A2" href="~/Admin/manageUsers.aspx"  class="dropdown-item ">Manage Users</a></li>
+                        <li><a runat="server" id="A2" href="~/Admin/Add_Manage_Users.aspx"  class="dropdown-item ">Manage Users</a></li>
                         <li> <a runat="server" id="A3" href="~/Admin/changePassword.aspx"  class="dropdown-item ">Change Password</a></li>    
                         </ul>
 </div>

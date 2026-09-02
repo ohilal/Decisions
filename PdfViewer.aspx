@@ -1,12 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PdfViewer.aspx.cs" Inherits="PdfViewer" %>
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head runat="server">
     <meta charset="utf-8" />
     <title>عارض القرارات</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         html, body {
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
@@ -18,7 +22,9 @@
         /* Toolbar */
         #toolbar {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 48px;
             background: linear-gradient(180deg, #474a4e, #3a3d41);
             display: flex;
@@ -30,33 +36,42 @@
             color: #fff;
         }
 
-        #toolbar .group { display: flex; align-items: center; gap: 8px; }
+            #toolbar .group {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
 
-        #toolbar button {
-            background: #6b6f74;
-            border: none;
-            color: white;
-            padding: 6px 14px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 13px;
-            transition: background 0.2s;
-        }
+            #toolbar button {
+                background: #6b6f74;
+                border: none;
+                color: white;
+                padding: 6px 14px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 13px;
+                transition: background 0.2s;
+            }
 
-        #toolbar button:hover { background: #8a8e94; }
+                #toolbar button:hover {
+                    background: #8a8e94;
+                }
 
-        #toolbar .title {
-            font-size: 14px;
-            font-weight: bold;
-            max-width: 400px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+            #toolbar .title {
+                font-size: 14px;
+                font-weight: bold;
+                max-width: 400px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
 
         #viewerContainer {
             position: absolute;
-            top: 48px; left: 0; right: 0; bottom: 0;
+            top: 48px;
+            left: 0;
+            right: 0;
+            bottom: 0;
             overflow: auto;
         }
 
@@ -75,13 +90,17 @@
             overflow: hidden;
         }
 
-        .pdf-page canvas { display: block; }
+            .pdf-page canvas {
+                display: block;
+            }
 
         /* ===== WATERMARK OVERLAY ===== */
         .watermark-layer {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 10;
             overflow: hidden;
@@ -93,7 +112,8 @@
 
         .watermark-tile {
             position: absolute;
-            color: rgba(220, 30, 30, 0.22);
+           /* color: rgba(220, 30, 30, 0.22);*/
+            color: rgba(224, 224, 224, 0.22);
             font-size: 18px;
             font-weight: 700;
             font-family: 'Courier New', monospace;
@@ -104,24 +124,27 @@
             pointer-events: none;
         }
 
-        /* Strong center watermark */
         .watermark-center {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%) rotate(-35deg);
-            color: rgba(200, 0, 0, 0.35);
+            /*color: rgba(200, 0, 0, 0.35);*/
+            color: rgba(224, 224, 224, 0.22);
             font-size: 32px;
             font-weight: 900;
-            font-family: 'Courier New', monospace;
+            /*font-family: 'Courier New', monospace;*/
+            font-family:Arial,'Times New Roman',Tahoma;
             white-space: nowrap;
             pointer-events: none;
             text-shadow: 0 0 3px rgba(0,0,0,0.2);
         }
 
-        /* Footer info strip */
         .watermark-footer {
             position: absolute;
-            bottom: 6px; left: 0; right: 0;
+            bottom: 6px;
+            left: 0;
+            right: 0;
             text-align: center;
             color: rgba(180, 0, 0, 0.55);
             font-size: 11px;
@@ -132,18 +155,26 @@
 
         /* ===== PRINT STYLES ===== */
         @media print {
-            @page { margin: 0; }
+            @page {
+                margin: 0;
+            }
 
-            body { background: white; }
+            body {
+                background: white;
+            }
 
-            #toolbar { display: none !important; }
+            #toolbar {
+                display: none !important;
+            }
 
             #viewerContainer {
                 position: static;
                 overflow: visible;
             }
 
-            #viewer { padding: 0; }
+            #viewer {
+                padding: 0;
+            }
 
             .pdf-page {
                 box-shadow: none;
@@ -152,9 +183,10 @@
                 page-break-inside: avoid;
             }
 
-            .pdf-page:last-child { page-break-after: auto; }
+                .pdf-page:last-child {
+                    page-break-after: auto;
+                }
 
-            /* Force watermark to print */
             .watermark-layer,
             .watermark-tile,
             .watermark-center,
@@ -164,15 +196,24 @@
                 color-adjust: exact !important;
             }
 
-            .watermark-tile   { color: rgba(220, 30, 30, 0.30) !important; }
-            .watermark-center { color: rgba(200, 0, 0, 0.45) !important; }
-            .watermark-footer { color: rgba(180, 0, 0, 0.70) !important; }
+            .watermark-tile {
+                color: rgba(220, 30, 30, 0.30) !important;
+            }
+
+            .watermark-center {
+                color: rgba(200, 0, 0, 0.45) !important;
+            }
+
+            .watermark-footer {
+                color: rgba(180, 0, 0, 0.70) !important;
+            }
         }
 
         /* Loading */
         #loading {
             position: fixed;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             color: white;
             font-size: 18px;
@@ -181,15 +222,21 @@
 
         .spinner {
             display: inline-block;
-            width: 30px; height: 30px;
+            width: 30px;
+            height: 30px;
             border: 4px solid rgba(255,255,255,0.3);
             border-top-color: #fff;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
-            margin-left: 10px;
+            margin-right: 10px;
             vertical-align: middle;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -213,7 +260,7 @@
             <div id="viewer"></div>
         </div>
 
-        <!-- Hidden fields to pass server-side data to JS -->
+        <!-- Hidden fields -->
         <asp:HiddenField ID="hfPdfUrl" runat="server" />
         <asp:HiddenField ID="hfUserSid" runat="server" />
         <asp:HiddenField ID="hfUserName" runat="server" />
@@ -229,11 +276,11 @@
         let scale = 1.3;
         const MIN_SCALE = 0.5;
         const MAX_SCALE = 3.0;
+        const BASE_SCALE = 1.3;
 
         // Read server values
-      //  const pdfUrl = document.getElementById('<%= hfPdfUrl.ClientID %>').value;
-        const pdfUrl = '<%= ResolveUrl("~/UploadedDecisions/Egypt 2019.pdf") %>';
-        const userSid  = document.getElementById('<%= hfUserSid.ClientID %>').value;
+        const pdfUrl = document.getElementById('<%= hfPdfUrl.ClientID %>').value;
+        const userSid = document.getElementById('<%= hfUserSid.ClientID %>').value;
         const userName = document.getElementById('<%= hfUserName.ClientID %>').value;
         const docTitle = document.getElementById('<%= hfDocTitle.ClientID %>').value;
 
@@ -245,7 +292,7 @@
         const timestamp = now.toLocaleString('en-GB');
         const shortSid = userSid.length > 30 ? userSid.substring(userSid.length - 20) : userSid;
         const wmText = 'SID:' + shortSid;
-        const wmFull = 'SID: ' + userSid + '  |  ' + userName + '  |  ' + timestamp;
+      /*  const wmFull = 'SID: ' + userSid + '  |  ' + userName + '  |  ' + timestamp;*/
 
         // ===== Render PDF =====
         function renderPdf() {
@@ -271,21 +318,18 @@
             pdf.getPage(num).then(function (page) {
                 const viewport = page.getViewport({ scale: scale });
 
-                // Page wrapper
                 const pageDiv = document.createElement('div');
                 pageDiv.className = 'pdf-page';
                 pageDiv.setAttribute('data-page', num);
-                pageDiv.style.width  = viewport.width  + 'px';
+                pageDiv.style.width = viewport.width + 'px';
                 pageDiv.style.height = viewport.height + 'px';
 
-                // Canvas for PDF content
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
-                canvas.width  = viewport.width;
+                canvas.width = viewport.width;
                 canvas.height = viewport.height;
                 pageDiv.appendChild(canvas);
 
-                // Build watermark layer
                 pageDiv.appendChild(buildWatermarkLayer(viewport.width, viewport.height));
 
                 container.appendChild(pageDiv);
@@ -294,12 +338,11 @@
             });
         }
 
-        // ===== Build watermark layer for a page =====
+        // ===== Build watermark layer =====
         function buildWatermarkLayer(w, h) {
             const layer = document.createElement('div');
             layer.className = 'watermark-layer';
 
-            // Tiled watermarks across the page
             const tileSpacingX = 320;
             const tileSpacingY = 180;
             for (let y = -50; y < h + 100; y += tileSpacingY) {
@@ -308,36 +351,33 @@
                     t.className = 'watermark-tile';
                     t.textContent = wmText;
                     t.style.left = x + 'px';
-                    t.style.top  = y + 'px';
+                    t.style.top = y + 'px';
                     layer.appendChild(t);
                 }
             }
 
-            // Strong center watermark
             const center = document.createElement('div');
             center.className = 'watermark-center';
-            center.textContent = wmText;
+            /* center.textContent = wmText;*/
+            center.textContent = 'غير مسموح بالتصوير أو التداول خارج الهيئة';
             layer.appendChild(center);
 
-            // Footer strip with full info
             const footer = document.createElement('div');
             footer.className = 'watermark-footer';
-            footer.textContent = wmFull;
+           // footer.textContent = wmFull;
             layer.appendChild(footer);
 
             return layer;
         }
 
         // ===== Zoom =====
-        function zoomIn()  { changeScale(0.2); }
+        function zoomIn() { changeScale(0.2); }
         function zoomOut() { changeScale(-0.2); }
         function changeScale(delta) {
             const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale + delta));
             if (newScale === scale) return;
             scale = newScale;
-            document.getElementById('zoomLevel').textContent = Math.round(scale * 100 / 1.3 * 100) + '%';
-            // Simpler: show percent relative to base
-            document.getElementById('zoomLevel').textContent = Math.round((scale / 1.3) * 100) + '%';
+            document.getElementById('zoomLevel').textContent = Math.round((scale / BASE_SCALE) * 100) + '%';
             renderPdf();
         }
 
@@ -359,9 +399,8 @@
             });
         });
 
-        // ===== Block common save/copy shortcuts =====
+        // ===== Block save shortcuts =====
         document.addEventListener('keydown', function (e) {
-            // Ctrl+S, Ctrl+P (allow P for print), Ctrl+U, F12
             if (e.ctrlKey && (e.key === 's' || e.key === 'S')) { e.preventDefault(); return false; }
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) { e.preventDefault(); return false; }
             if (e.key === 'F12') { e.preventDefault(); return false; }

@@ -305,8 +305,10 @@
                                                 <span class="dbresults">قرار رقم: </span>
                                                 <label id="link2" runat="server" class=" badge badge-pill badge-info ml-2 font-weight-bold display-1"><%# Eval("[decNo]")%></label>
                                             </p>
-
-                                            <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>
+                                            <a href='<%# "PdfViewer.aspx?f=" + Eval("decisionFile") %>' target="_blank"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>
+    <asp:Label ID="Label1" runat="server" Text='<%# Eval("decTitle") %>' />
+</a>
+                                           <%-- <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>--%>
                                                 <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />
                                             </a>
                                         </div>
@@ -405,7 +407,10 @@
                                                 <span>قرار رقم: </span>
                                                 <label id="link2" runat="server" class="dbresults badge badge-pill badge-info ml-2 font-weight-bold"><%# Eval("[decNo]")%></label>
                                             </p>
-                                            <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>
+                                                                                        <a href='<%# "PdfViewer.aspx?f=" + Eval("decisionFile") %>' target="_blank"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>
+    <asp:Label ID="Label1" runat="server" Text='<%# Eval("decTitle") %>' />
+</a>
+                                           <%-- <a href="#" onclick="window.open('../DecisionsData/<%#Eval("decisionFile")%>')"><i class="far fa-file-pdf fa-1x text-info" title="فتح الملف"></i>--%>
                                                 <asp:Label ID="decTitleLabel" runat="server" Text='<%# Eval("decTitle") %>' />
                                             </a>
                                         </div>

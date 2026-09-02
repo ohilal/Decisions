@@ -19,29 +19,37 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         //------------------------ members area-----------------
-        if(Page.User.IsInRole("Members")|| Page.User.IsInRole("Admin"))
+        if (!IsPostBack)
         {
-            MemebersArea.Visible = true;
-        }
-        if (Page.User.IsInRole("Admin"))
-        {
-            AdminArea.Visible = true;
+            if (Page.User.Identity.IsAuthenticated)
+            {
+                // ✅ استخدام AuthHelper - بدون أي استعلام DB
+                if (AuthHelper.IsMemberOrAdmin())
+                {
+                    MemebersArea.Visible = true;
+                }
+
+                if (AuthHelper.IsAdmin())
+                {
+                    AdminArea.Visible = true;
+                }
+            }
         }
         //------------------------ End members area---------------
         //------------------------------------ Track Visitors 
 
-           //string ipAddress = IpAddress();
-           //string hostName=Dns.GetHostEntry(ipAddress).HostName;
-            //string hostName = Dns.GetHostByAddress(ipAddress).HostName; 
+        //string ipAddress = IpAddress();
+        //string hostName=Dns.GetHostEntry(ipAddress).HostName;
+        //string hostName = Dns.GetHostByAddress(ipAddress).HostName; 
 
 
-            //StreamWriter wrtr = new StreamWriter (Server.MapPath( "visitors.log" ), true ); 
+        //StreamWriter wrtr = new StreamWriter (Server.MapPath( "visitors.log" ), true ); 
 
-            //wrtr.WriteLine( DateTime .Now.ToString() + " | " + ipAddress + " | " + hostName + " | " + Request.Url.ToString()); 
+        //wrtr.WriteLine( DateTime .Now.ToString() + " | " + ipAddress + " | " + hostName + " | " + Request.Url.ToString()); 
 
-            //wrtr.Close(); 
+        //wrtr.Close(); 
 
-        } 
+    } 
 
         private string IpAddress() 
 

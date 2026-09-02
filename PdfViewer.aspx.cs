@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
 using System.IO;
-
+using System.Web;
 
 public partial class PdfViewer : System.Web.UI.Page
 {
@@ -14,7 +8,15 @@ public partial class PdfViewer : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            // 1. التحقق من اسم الملف
+            // 1. التحقق من المصادقة
+            if (User == null || User.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Login.aspx?ReturnUrl=" +
+                    HttpUtility.UrlEncode(Request.RawUrl));
+                return;
+            }
+
+            // 2. التحقق من اسم الملف
             string fileName = Request.QueryString["f"];
             if (string.IsNullOrEmpty(fileName))
             {
@@ -24,7 +26,7 @@ public partial class PdfViewer : System.Web.UI.Page
                 return;
             }
 
-            // 2. تنظيف اسم الملف
+            // 3. تنظيف اسم الملف (منع directory traversal)
             string safeName = Path.GetFileName(fileName);
             if (string.IsNullOrEmpty(safeName))
             {
@@ -34,9 +36,9 @@ public partial class PdfViewer : System.Web.UI.Page
                 return;
             }
 
-            // 3. التحقق من وجود الملف
-           // string physicalPath = Server.MapPath("~/DecisionsData/" + safeName);
-            string physicalPath = Server.MapPath("~/UploadedDecisions/" + safeName);// to use internally ONLY 
+            // 4. التحقق من وجود الملف
+            string physicalPath = Server.MapPath("~/UploadedDecisions/" + safeName);
+           // string physicalPath = Server.MapPath("~/DecisionsData/" + safeName); //this is for the server
             if (!File.Exists(physicalPath))
             {
                 Response.StatusCode = 404;
@@ -45,40 +47,27 @@ public partial class PdfViewer : System.Web.UI.Page
                 return;
             }
 
-            // 4. جلب الـ SID من LDAP
+            // 5. جلب معلومات المستخدم من FormsAuthenticationTicket
             string sid = "UNKNOWN-SID";
             string userName = "UNKNOWN";
-            string displayName = "";
 
             try
             {
-                userName = AdHelper.GetCurrentFullUsername();
-                string samName = AdHelper.GetCurrentUsername();
-
-                if (!string.IsNullOrEmpty(samName))
-                {
-                    AdUserInfo userInfo = AdHelper.GetFullUserInfo(samName);
-                    if (userInfo != null)
-                    {
-                        if (!string.IsNullOrEmpty(userInfo.Sid))
-                            sid = userInfo.Sid;
-                        if (!string.IsNullOrEmpty(userInfo.DisplayName))
-                            displayName = userInfo.DisplayName;
-                    }
-                }
+                sid = AuthHelper.GetCurrentUserSid();
+                userName = AuthHelper.GetCurrentFullUsername();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error getting user info: " + ex.Message);
             }
 
-            // 5. تسجيل الوصول
+            // 6. تسجيل الوصول
             LogAccess(userName, safeName, sid);
 
-            // 6. تمرير القيم إلى الصفحة
+            // 7. تمرير القيم إلى الصفحة
             hfPdfUrl.Value = ResolveUrl("~/PdfHandler.ashx?f=" + HttpUtility.UrlEncode(safeName));
             hfUserSid.Value = sid;
-            hfUserName.Value = string.IsNullOrEmpty(displayName) ? userName : displayName;
+            hfUserName.Value = userName;
             hfDocTitle.Value = Path.GetFileNameWithoutExtension(safeName);
         }
     }

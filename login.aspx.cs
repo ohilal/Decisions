@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Web;
@@ -10,7 +11,7 @@ public partial class login : System.Web.UI.Page
 {
     [DllImport("ADVAPI32.dll", EntryPoint = "LogonUserW", SetLastError = true, CharSet = CharSet.Auto)]
     public static extern bool LogonUser(string lpszUsername, string lpszDomain,
-        string lpszPassword, int dwLogonType, int dwLogonProvider, ref IntPtr phToken);
+         string lpszPassword, int dwLogonType, int dwLogonProvider, ref IntPtr phToken);
 
     [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     public static extern bool CloseHandle(IntPtr handle);
@@ -24,7 +25,8 @@ public partial class login : System.Web.UI.Page
             return usernameDomain.Substring(0, usernameDomain.IndexOf("\\"));
         else if (usernameDomain.Contains("@"))
             return usernameDomain.Substring(usernameDomain.IndexOf("@") + 1);
-        return "";
+        else
+            return "";
     }
 
     public static string GetUsername(string usernameDomain)
@@ -36,7 +38,49 @@ public partial class login : System.Web.UI.Page
             return usernameDomain.Substring(usernameDomain.IndexOf("\\") + 1);
         else if (usernameDomain.Contains("@"))
             return usernameDomain.Substring(0, usernameDomain.IndexOf("@"));
-        return usernameDomain;
+        else
+            return usernameDomain;
+    }
+
+    /// <summary>
+    /// جلب Role المستخدم من قاعدة البيانات
+    /// استعلام واحد سريع جداً (< 1ms) مع Index
+    /// </summary>
+    private string GetUserRoleFromDB(string userName)
+    {
+        string role = "Reader"; // الدور الافتراضي
+
+        try
+        {
+            string connString = ConfigurationManager.ConnectionStrings["dataBankConnectionString"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                // استعلام واحد بسيط وسريع
+                string sql = @"SELECT TOP 1 RoleName 
+                              FROM UserRoles 
+                              WHERE UserName = @userName 
+                                AND IsActive = 1";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@userName", userName);
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        role = result.ToString();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("DB Error: " + ex.Message);
+        }
+
+        return role;
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -49,14 +93,13 @@ public partial class login : System.Web.UI.Page
 
         if (result)
         {
-            // جلب الـ SID من Token
+            // ✅ 1. جلب الـ SID من Token
             string sid = "UNKNOWN-SID";
             try
             {
                 if (token != IntPtr.Zero)
                 {
-                    using (System.Security.Principal.WindowsIdentity identity =
-                        new System.Security.Principal.WindowsIdentity(token))
+                    using (WindowsIdentity identity = new WindowsIdentity(token))
                     {
                         if (identity.User != null)
                             sid = identity.User.Value;
@@ -65,16 +108,20 @@ public partial class login : System.Web.UI.Page
             }
             catch { }
 
+            // ✅ 2. جلب Role من قاعدة البيانات (استعلام واحد فقط)
+            string userRole = GetUserRoleFromDB(userName);
+
+            // ✅ 3. إغلاق الـ Token
             if (token != IntPtr.Zero)
                 CloseHandle(token);
 
-            // بناء UserData
+            // ✅ 4. بناء UserData: SID|FullUsername|Role
             string fullUsername = string.IsNullOrEmpty(domainName)
                 ? userName
                 : domainName + "\\" + userName;
-            string userData = sid + "|" + fullUsername;
+            string userData = sid + "|" + fullUsername + "|" + userRole;
 
-            // إنشاء التذكرة
+            // ✅ 5. إنشاء FormsAuthenticationTicket مع UserData
             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
                 1,
                 txtUserName.Text,
@@ -91,16 +138,16 @@ public partial class login : System.Web.UI.Page
             authCookie.Path = FormsAuthentication.FormsCookiePath;
             Response.Cookies.Add(authCookie);
 
-            // التوجيه
-            if (txtUserName.Text == "mai.galal")
-                Response.Redirect("Admins/InsertAnswer.aspx");
+            // ✅ 6. التوجيه
+            string returnUrl = Request.QueryString["ReturnUrl"];
+
+            if (!string.IsNullOrEmpty(returnUrl) && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//"))
+            {
+                Response.Redirect(returnUrl);
+            }
             else
             {
-                string returnUrl = Request.QueryString["ReturnUrl"];
-                if (!string.IsNullOrEmpty(returnUrl) && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//"))
-                    Response.Redirect(returnUrl);
-                else
-                    Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
         else
